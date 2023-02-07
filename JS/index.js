@@ -25,10 +25,7 @@
 const obj = {
   name: 'YY',
   foo: function() {
-    (function (self) {
-      console.log(self)
-    })(this);
-
+    // arrow function.
     (function (self) {
       console.log(self)
     }).bind()
