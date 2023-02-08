@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"module": "system",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"outFile": "javascript/index.js",
+		"experimentalDecorators": true,
+		"sourceMap": true
+	},
+	"include": ["typescript/index.ts"],
+	"exclude": ["node_modules", "**/*.spec.ts"]
+}
