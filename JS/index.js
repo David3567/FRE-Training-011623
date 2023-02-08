@@ -78,7 +78,5 @@ class MyPromise {
 // foo.call(obj, 445, true) // 1 + 2 = 3
 // foo.apply(obj, [445, true]) // tarobj + 1: arr, arr.length ===> 100
 
-
-
 // promise
 
