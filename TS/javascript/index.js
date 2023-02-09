@@ -1,8 +1,8 @@
 var Role;
 (function (Role) {
     Role["USER"] = "user";
-    Role[Role["SUPER"] = 4] = "SUPER";
-    Role[Role["ADMIN"] = 5] = "ADMIN";
+    Role["SUPER"] = "super";
+    Role[Role["ADMIN"] = 4] = "ADMIN";
 })(Role || (Role = {}));
 var p = Role.ADMIN;
 console.log(p);

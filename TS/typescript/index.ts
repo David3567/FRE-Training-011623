@@ -62,8 +62,8 @@
 
 enum Role {
 	USER = "user",
-	SUPER = 4,
-	ADMIN,
+	SUPER = "super",
+	ADMIN = 4,
 }
 
 const p: Role = Role.ADMIN;
