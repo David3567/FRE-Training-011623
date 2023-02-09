@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --height-header: 60px;
+  --height-todolist: 300px;
+  --height-todolist-header: 30px;
+
+  --width-todolist: 400px;
+
+  --color-green: rgb(30, 255, 0);
+  --color-red-button: rgb(148, 21, 21);
+  --color-red-li-hover: rgb(27, 172, 8);
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  /* overflow: hidden; */
+}
+
+/* css reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik Moonrocks", cursive;
+}
