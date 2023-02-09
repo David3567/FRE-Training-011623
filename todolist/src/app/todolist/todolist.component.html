@@ -1,1 +1,15 @@
-<p>todolist works!</p>
+<header class="header">implement a todo list</header>
+
+<main class="content">
+  <section class="todolist">
+    <header class="todolist__header">todo list</header>
+    <input class="todolist__input" placeholder="input your todo here..." />
+    <ul id="todolist_containter">
+      <app-todoitem
+        *ngFor="let todo of todos"
+        [todo]="todo"
+        (idemiter)="deleteTodo($event)"
+      ></app-todoitem>
+    </ul>
+  </section>
+</main>
