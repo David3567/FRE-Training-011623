@@ -13,7 +13,6 @@ export class TodoitemComponent {
   ngOnInit() {}
 
   getId() {
-    // console.log(typeof this.todo.id);
     this.idemiter.emit(this.todo.id);
   }
 }
