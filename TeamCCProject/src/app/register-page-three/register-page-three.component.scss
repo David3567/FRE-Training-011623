@@ -1,0 +1,78 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+.simpleContainer{
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+}
+.centerContainer{
+    box-sizing: border-box;
+    margin: 0px auto;
+    max-width: 974px;
+}
+ul{
+    padding: 0px;
+}
+li{
+    list-style: none;
+}
+img{
+    position: relative;
+    top: 5px;
+    z-index: 1;
+    background-color: transparent;
+    color: red($color: red);
+}
+.topContent{
+    margin-bottom: 20px;
+}
+.boxplan{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 144px;
+}
+.eachBox{
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+    height: 100%;
+}
+app-plan-box{
+    display: block;
+    width: 33.33%;
+    height: 100%;
+    margin: 0px;
+}
+.boxDetail{
+    min-height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.eachDetailBox{
+    height: 60px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    border-bottom: 1px solid gray;
+}
+.DetailTitle{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+app-box-detail-price{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+span{
+    margin-left: 10px;
+}

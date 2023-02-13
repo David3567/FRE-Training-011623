@@ -1,0 +1,47 @@
+<div class="simpleContainer">
+    <div class="centerContainer">
+        <div class="text-container">
+            <div class="topContent">
+                <p>STEP 3 OF 3</p>
+                <h1>Choose the plan that's right for you</h1>
+                <ul>
+                    <li>
+                        <img src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+                        Watch all you want.
+                    </li>
+                    <li>
+                        <img src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+                        Recommendations just for you.
+                    </li>
+                    <li>
+                        <img src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+                        Change or cancel your plan anytime.
+                    </li>
+                </ul>
+            </div>
+            <div class="bottomContent">
+                <div class="boxplan">
+                    <div class="eachBox">
+                        <app-plan-box
+                        *ngFor = "let plan of eachPlans;"
+                        [plan] = "plan"
+                        (idemiter) = "changeSelect($event)"
+                        ></app-plan-box>
+                    </div>
+                </div>
+                <div class="boxDetail">
+                    <div class="eachDetailBox">
+                        <div class="DetailTitle">
+                            <span>Monthly Price</span>
+                        </div>
+                        <app-box-detail-price
+                        *ngFor = "let plan of eachPlans"
+                        [plan] = "plan"
+                        (idemiter) = "changeSelect($event)"
+                        ></app-box-detail-price>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
