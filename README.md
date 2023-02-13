@@ -20,3 +20,7 @@ git branch by_your_name/notes
 git checkout by_your_name/notes
 implement the assignment under this feature branch.
 ```
+
+
+rendered homepage by Hailey:
+https://htmlpreview.github.io/?https://github.com/David3567/FRE-Training-011623/blob/Feature/TeamCC/by_Hailey/Homepage/homepage.html
