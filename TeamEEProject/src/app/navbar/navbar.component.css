@@ -1,0 +1,23 @@
+div {
+    display: flex;
+    text-align: flex-start;
+}
+img {
+    margin-left: 10%;
+    margin-right: 60%;
+    margin-top: 1%;
+}
+
+button {
+    height:36px;
+    width: 80px;
+    margin-top: 2%;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+button:hover {
+    background-color: rgb(202, 7, 7);
+}
