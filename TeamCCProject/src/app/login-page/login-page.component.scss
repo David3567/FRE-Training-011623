@@ -1,0 +1,170 @@
+html { font-family: sans-serif; }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    /* background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    box-shadow: inset 0px 0px 0 1000px rgb(0,0,0,0.5); */
+    overflow: scroll;
+    height: 100vh;
+}
+
+.background{
+    position: absolute;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+    opacity: 0.4;
+}
+
+h1{
+    position: absolute;
+    color: red;
+    display: block;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.sign_in{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    text-align: left;
+    padding: 20px 10px 100px 60px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.75);
+    color: grey;
+    padding-right: 50px;
+
+}
+
+h2{
+    color: azure;
+    font-size: 30px;
+}
+
+.sign_in form {
+    box-sizing: border-box; 
+}
+
+form .identifies{
+    position: relative;
+    border-bottom: 2px solid orange;
+    margin: 30px 0;
+}
+
+.identifies input{
+    width: 100%;
+    border-radius: 4px;
+    padding: 0 5px;
+    height: 50px;
+    border: none;
+    background-color: gray;
+    outline: none;
+}
+
+.identifies label{
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    color: aqua; 
+    transition: 0.5s;
+}
+
+/* .identifies span::before{
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: 2px;
+    background: red;
+    transition: 0.5s;
+} */
+
+.identifies button{
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    color: aqua; 
+    background-color:grey ;
+    border: none;
+}
+
+.identifies input:focus ~ label,
+.identifies input:valid ~ label{
+    top: -1px;
+    font-size: small;
+    color: blueviolet;
+}
+
+.identifies input:focus ~ span::before,
+.identifies input:valid ~ span::before{
+    width: 100%;
+}
+
+/*BUTTON*/
+input[type="submit"]{
+    background-color: red;
+    width:100%;
+    border-radius: 5px;
+    color: aliceblue;
+
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.other_option{
+    display:flex;
+    margin-top: 10px;
+    font-size: small;
+    justify-content: space-between;
+}
+
+
+.help a{
+    color: grey;
+}
+
+.sign_up{
+    margin-top: 10px;
+}
+
+.sign_up a{
+    color: aliceblue;
+}
+
+.support{
+    margin-top: 10px;
+    font-size: small;
+}
+
+.support a{
+    color: lightskyblue;
+}
+
+
+
