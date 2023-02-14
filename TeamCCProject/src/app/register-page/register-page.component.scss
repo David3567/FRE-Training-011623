@@ -1,0 +1,65 @@
+html, body{
+    height: 100%;
+}
+.container {
+    display: flex;
+    align-items: center;
+    /* padding-top: 40px;
+    padding-bottom: 40px; */
+    height: 100%;
+}
+.container{
+    height: 100%;
+}
+input{
+    font-size: 15px;
+}
+p{
+    margin: 0px;
+}
+.main{
+    max-width: 423px;
+    max-height: 500px;
+    margin: auto;
+}
+.main>div{
+    width: 100%;
+    height: 50px;
+    max-height: 120px;
+    margin-bottom: 15px;
+    max-width: 423px;
+}
+.form-group{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+.form-control{
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid black;
+    background-color: rgb(236, 236, 236);
+}
+.NextButton{
+    height: 100%;
+    width: 100%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    border: 0px;
+    background-color: red;
+}
+.next{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-right: 5px;
+    /* height: 100%;
+    width: 100%; */
+    border-radius: 10px;
+    /* float: left; */
+    color: aliceblue;
+    background-color: red;
+}
