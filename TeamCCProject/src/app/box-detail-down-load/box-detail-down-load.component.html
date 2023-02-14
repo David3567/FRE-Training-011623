@@ -1,0 +1,10 @@
+<div class="box">
+    <div (click)="getSelect()" [ngClass]="plan.select ? 'activeState' : 'baseState'">
+        <img
+        *ngIf = "plan.select" 
+        src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+        <img
+        *ngIf = "!plan.select" 
+        src="./assets/imagesblack.png" alt="FirstImage" height="26px" width="26px">
+    </div>
+</div>

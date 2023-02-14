@@ -76,3 +76,41 @@ app-box-detail-price{
 span{
     margin-left: 10px;
 }
+app-box-detail-quality{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+app-box-detail-resolution{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+app-box-detail-down-load{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ButtonBox{
+    min-height: 64px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+.NextButton{
+    min-height: 64px;
+    width: 100%;
+    max-width: 440px;
+    color: aliceblue;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    border: 0px;
+    background-color: red;
+}

@@ -12,7 +12,10 @@ import { RegisterPageTwoComponent } from './register-page-two/register-page-two.
 import { RegisterPageThreeComponent } from './register-page-three/register-page-three.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTableModule } from '@angular/material/table';
-import { BoxDetailPriceComponent } from './box-detail-price/box-detail-price.component'  
+import { BoxDetailPriceComponent } from './box-detail-price/box-detail-price.component';
+import { BoxDetailQualityComponent } from './box-detail-quality/box-detail-quality.component';
+import { BoxDetailResolutionComponent } from './box-detail-resolution/box-detail-resolution.component';
+import { BoxDetailDownLoadComponent } from './box-detail-down-load/box-detail-down-load.component'  
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { BoxDetailPriceComponent } from './box-detail-price/box-detail-price.com
     PlanBoxComponent,
     RegisterPageTwoComponent,
     RegisterPageThreeComponent,
-    BoxDetailPriceComponent
+    BoxDetailPriceComponent,
+    BoxDetailQualityComponent,
+    BoxDetailResolutionComponent,
+    BoxDetailDownLoadComponent
   ],
   imports: [
     BrowserModule,
