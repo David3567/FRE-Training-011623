@@ -1,0 +1,172 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0,0,0, .6)), url(background.jpg);
+    overflow-x: hidden;
+}
+.container {
+    min-height: 140vh;
+}
+.logo {
+    width: 167px;
+    fill: #e50914;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+form {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: .3rem;
+    width: 450px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 60px;
+    margin-top: 6rem;
+}
+form h1 {
+    margin-bottom: 28px;
+}
+.form-group {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 16px;
+    position: relative;
+}
+.form-group input {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    border: none;
+    border-radius: .3rem;
+    outline: none;
+    color: #fff;
+    padding: 16px 20px 0;
+    font-size: 1rem;
+}
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+    pointer-events: none;
+    transition: 200ms ease-in-out transform,
+                200ms ease-in-out font-size;
+}
+.form-group input:focus ~ label,
+.form-group input:valid ~ label {
+    transform: translateY(-1.25rem);
+    font-size: .7rem;
+}
+
+form button {
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+    background-color: #e50914;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+    margin: 24px 0 12px;
+}
+.remember {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.remember label {
+    font-size: .85rem;
+    color: #b3b3b3;
+}
+.remember a {
+    color: #b3b3b3;
+    font-size: .85rem;
+    text-decoration: none;
+}
+.remember a:hover {
+    text-decoration: underline;
+}
+
+.facebook-login {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+}
+.facebook-login img {
+    width: 20px;
+    aspect-ratio: 1;
+    margin-right: 10px;
+}
+.facebook-login a {
+    color: #737373;
+    font-size: .8rem;
+    text-decoration: none;
+}
+
+.signup {
+    margin-top: 16px;
+}
+.signup p {
+    color: #737373;
+}
+.signup p a {
+    color: #fff;
+    text-decoration: none;
+}
+.signup p a:hover {
+    text-decoration: underline;
+}
+
+.captcha {
+    font-size: .8rem;
+    color: #8c8c8c;
+    margin-top: 0.5rem;
+}
+.captcha a {
+    color: #0071eb;
+    text-decoration: none;
+}
+.captcha a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: -40vh;
+    width: 100%;
+    height: 260px;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 30px 170px;
+}
+footer a {
+    color: #757575;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .top {
+    margin-bottom: 30px;
+}
+footer .links {
+    display: flex;
+    flex-wrap: wrap;
+}
+footer .links a {
+    display: inline-block;
+    width: 250px;
+    margin-bottom: 16px;
+    font-size: 0.8rem;
+}
