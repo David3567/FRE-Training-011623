@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  
+}
+h1 {
+    text-transform: capitalize;
+    color: black;
+    font-size:1.5rem;
+    width: 100%;
+}
+.container {
+    width: 400px;
+    margin: 100px;
+    color: grey;
+}
+form {
+    width: 100%;
+    // padding-top: 50px;
+}
+input{
+    width: 100%;
+    padding: 1rem 1rem; 
+    display: block;
+    border-radius: 3px;
+}
+p {
+    padding: 0.2rem;
+    font-size: 0.8rem;
+}
+button {
+    width: 100%;
+    border-radius: 3px;
+    background-color: red;
+    border: none;
+    height: 50px;
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: white;
+    line-height: 100%;
+    text-transform: capitalize;
+}

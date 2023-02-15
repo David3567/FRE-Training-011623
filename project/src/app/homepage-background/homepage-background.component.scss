@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: 800px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    line-height: 50px;
+    width: 70%;
+}
+h4 {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+    letter-spacing: 1.5px;
+}
+h5 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.card {
+    max-width: 700px;
+    width: 90%;
+    margin: 100px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.email-container {
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    width: 490px;
+    height: 60px;
+    padding: 1rem 1rem; 
+    border-radius: 3px;
+    display: block;
+}
+button {
+    width: 210px;
+    border-radius: 3px;
+    background-color: red;
+    border: none;
+    height: 56px;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 100%;
+    text-transform: capitalize;
+    display: block;
+}

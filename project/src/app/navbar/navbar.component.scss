@@ -1,0 +1,26 @@
+div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img {
+    width: 200px;
+    display: block;
+}
+p {
+    font-size: 1.5rem;
+    color: black;
+    margin: 1rem 2rem;
+}
+button {
+    width: 100px;
+    border-radius: 3px;
+    background-color: red;
+    border: none;
+    height: 30px;
+    font-size: 1rem;
+    color: white;
+    line-height: 100%;
+    text-transform: capitalize;
+    margin-right: 100px;
+}
