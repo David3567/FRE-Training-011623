@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 30px;
+    background-color: transparent;
+  
+    .logo {
+      img {
+        width: 25%;
+      }
+    }
+  
+    .signin {
+      button {  
+        &:hover {
+          background-color: #c90812;
+        }
+      }
+    }
+  }
+  
