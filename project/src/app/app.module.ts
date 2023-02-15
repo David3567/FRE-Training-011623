@@ -9,6 +9,7 @@ import { RegistrationPlanComponent } from './registration-plan/registration-plan
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomepageBackgroundComponent } from './homepage-background/homepage-background.component';
+import { RegistrationTwoComponent } from './registration-two/registration-two.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomepageBackgroundComponent } from './homepage-background/homepage-back
     RegistrationPlanComponent,
     NavbarComponent,
     HomepageComponent,
-    HomepageBackgroundComponent
+    HomepageBackgroundComponent,
+    RegistrationTwoComponent
   ],
   imports: [
     BrowserModule,
