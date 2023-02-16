@@ -1,0 +1,21 @@
+html, body {
+    height: 100%
+}
+
+.pageContainer {
+    display: flex;
+    margin: 0 auto;
+    width: 800px;
+    margin-top: 50px;
+}
+
+.topContainer p {
+    display: flex;
+    font-size: medium;
+}
+
+.topContainer h1 {
+    display: flex;
+    font-size: 2rem;
+}
+
