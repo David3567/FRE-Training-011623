@@ -6,8 +6,16 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { from, fromEvent, interval, Observable, of, Subscription } from 'rxjs';
-import { map, tap, take } from 'rxjs/operators';
+import {
+  from,
+  fromEvent,
+  interval,
+  Observable,
+  of,
+  Subscription,
+  throwError,
+} from 'rxjs';
+import { map, tap, take, catchError } from 'rxjs/operators';
 import { ItemComponent } from './item/item.component';
 import { User, MyUser } from './user.interface';
 
@@ -30,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   obs$!: Observable<any>;
   @ViewChild('btn', { static: true }) btn!: ElementRef;
   // @ViewChild(ItemComponent) item!: ItemComponent;
-  private url = 'https://jsonplaceholder.typicode.com/users';
+  private url = 'https://jsonplaceholder.typicode.com/user';
 
   users: MyUser[] = [];
   subscription!: Subscription;
@@ -38,6 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+
     // of(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
     //   .pipe(
     //     tap((num) => console.log('1st: ', num)),
@@ -46,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
     //   )
     //   .subscribe();
 
-    this.subscription = interval(100).pipe(tap(console.log)).subscribe();
+    // this.subscription = interval(100).pipe(tap(console.log)).subscribe();
 
     // const Users$: Observable<MyUser[]> = this.http.get<User[]>(this.url).pipe(
     //   // tap((data) => {
