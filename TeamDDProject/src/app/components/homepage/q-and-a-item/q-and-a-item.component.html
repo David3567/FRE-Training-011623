@@ -1,10 +1,12 @@
-<div class="item" [ngClass]="{ active: qna.id === activeQnAId }">
-    <p>
-        {{qna.question}}
-    </p>
-    <p>
-        {{qna.answer}}
-    </p>
-    <button (click)="onChange(qna)">
-    </button>
+<div class="item">
+    <div class="question" (click)="onChange(qna)">
+        <p>
+            {{qna.question}}
+        </p>
+    </div>
+    <div class="answer" [ngClass]="{ active: qna.id === activeQnAId }">
+        <p>
+            {{qna.answer}}
+        </p>
+    </div>
 </div>
