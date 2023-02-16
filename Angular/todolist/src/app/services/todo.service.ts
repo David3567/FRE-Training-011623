@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { Todo } from '../interfaces/todo.interface';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +21,9 @@ export class TodoService {
       tap((todolist: Todo[]) => {
         this.todos = todolist;
         this.todosSubject$.next(this.todos);
+      }),
+      catchError((err) => {
+        return throwError(() => err);
       })
     );
   }

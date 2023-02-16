@@ -24,7 +24,7 @@ export class TodolistComponent {
     //   this.todos = todolist;
     // });
     // this.todos$ = this.todoService.todosSubject$;
-    this.todoService.getTodos().subscribe();
+    this.todoService.getTodos().subscribe(() => {}, console.log);
   }
 
   deleteTodo(id: number) {
