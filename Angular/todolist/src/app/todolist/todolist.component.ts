@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, inject } from '@angular/core';
 import { Todo } from '../interfaces/todo.interface';
 import { TodoService } from '../services/todo.service';
@@ -8,18 +9,25 @@ import { TodoService } from '../services/todo.service';
   styleUrls: ['./todolist.component.scss'],
 })
 export class TodolistComponent {
-  todoService = inject(TodoService); // <-------------------------------------- inject();
-  todos!: Todo[];
+  // todoService = inject(TodoService); // <-------------------------------------- inject();
+  // todos!: Todo[];
 
-  // constructor(private todoService: TodoService) {}
+  // todos$!: Observable<Todo[]>;
+
+  constructor(public todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todoService.getTodos().subscribe((todolist) => {
-      this.todos = todolist;
-    });
+    // this.todoService.getTodos().subscribe((todolist) => {
+    //   this.todos = todolist;
+    // });
+    // this.todoService.todosSubject$.subscribe((todolist) => {
+    //   this.todos = todolist;
+    // });
+    // this.todos$ = this.todoService.todosSubject$;
+    this.todoService.getTodos().subscribe();
   }
 
   deleteTodo(id: number) {
-    console.log(`delete todo with id ${id}`);
+    this.todoService.deleteTodo(id).subscribe();
   }
 }

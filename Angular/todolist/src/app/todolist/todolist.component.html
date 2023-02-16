@@ -6,7 +6,7 @@
     <input class="todolist__input" placeholder="input your todo here..." />
     <ul id="todolist_containter">
       <app-todoitem
-        *ngFor="let todo of todos"
+        *ngFor="let todo of todoService.todosSubject$ | async"
         [todo]="todo"
         (idemiter)="deleteTodo($event)"
       ></app-todoitem>

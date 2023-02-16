@@ -12,6 +12,7 @@ import {
   interval,
   Observable,
   of,
+  Subject,
   Subscription,
   throwError,
 } from 'rxjs';
@@ -42,10 +43,28 @@ export class AppComponent implements OnInit, OnDestroy {
 
   users: MyUser[] = [];
   subscription!: Subscription;
+  subject$ = new Subject();
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.subject$.subscribe((val) => {
+      console.log('1st: ', val);
+    });
+
+    this.subject$.next('1');
+    this.subject$.next('2');
+
+    this.subject$.subscribe((val) => {
+      console.log('2nd: ', val);
+    });
+    this.subject$.next('3');
+    this.subject$.next('4');
+
+    this.subject$.subscribe((val) => {
+      console.log('3rd: ', val);
+    });
+    this.subject$.next('5');
 
     // of(1, 2, 3, 4, 5, 6, 7, 8, 9, 0)
     //   .pipe(
