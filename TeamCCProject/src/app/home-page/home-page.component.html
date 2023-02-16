@@ -1,2 +1,170 @@
-<p>home-page works!</p>
-<!-- comment by hailey-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TEAMCC Netflix Home Page</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+        <header>
+                <div>
+                        <app-search-bar></app-search-bar>
+                </div>
+
+                <nav class="navbar">
+                        <div class="navbar__brand">
+                                <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="logo"
+                                        class="brand__logo" />
+                        </div>
+
+                        <div class="navbar__nav__items">
+                                <div class="nav__item">
+                                        <div class="dropdown__container">
+                                                <i class="fas fa-globe"></i>
+                                                <select name="languages" id="languagesSelect"
+                                                        class="language__drop__down">
+                                                        <option value="english" selected>English</option>
+                                                        <option value="Chinese">中文</option>
+                                                </select>
+                                        </div>
+                                </div>
+
+                                <div class="nav__item">
+                                        <button class="signin__button">Sign in</button>
+                                </div>
+                        </div>
+                </nav>
+        </header>
+
+
+        <section class="hero">
+                <div class="hero__bg__image__container">
+                        <img src="https://w0.peakpx.com/wallpaper/828/197/HD-wallpaper-ragdoll-fluffy-cat-denectic-cat-blue-eyes-cats-pets-cute-animals-ragdoll-cats.jpg"
+                                alt="BG hero image" class="hero__bg__image" />
+                </div>
+                <div class="hero__bg__overlay"></div>
+
+                <div class="hero__card">
+                        <h1 class="hero__title">
+                                Unlimited Movies TV,<br />
+                                Shows and More.
+                        </h1>
+                        <p class="hero__subtitle">Watch anywhere and cancel anytime.</p>
+                        <p class="hero__description">
+                                Ready to watch? Enter your email to create or restart your
+                                membership .
+                        </p>
+
+                        <div class="email__form__container">
+                                <div class="form__container">
+                                        <input type="email" class="email__input" placeholder=" " />
+                                        <label class="email__label">Email Address</label>
+                                </div>
+                                <button class="start__button">
+                                        Get Started <i class="fal fa-chevron-right"></i>
+                                </button>
+                        </div>
+                </div>
+        </section>
+
+        <section class="features__container">
+                <div class="feature">
+                        <div class="feature__details">
+                                <h3 class="feature__title">Enjoy on your TV.</h3>
+                                <h5 class="feature__sub__title">
+                                        Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
+                                        Blu-ray players and more.
+                                </h5>
+                        </div>
+                        <div class="feature__image__container">
+                                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+                                        alt="Feature image" class="feature__image" />
+                                <div class="feature__backgroud__video__container">
+                                        <video autoplay="" loop="" muted="" class="feature__backgroud__video">
+                                                <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                                                        type="video/mp4" />
+                                        </video>
+                                </div>
+                        </div>
+                </div>
+        </section>
+
+        <hr>
+
+
+        <div class="cards">
+                <!-- Watch on TV-->
+                <div class="TV card">
+                        <div class="title">
+                                <h1> Enjoy on your TV. </h1>
+                                <p> Watch on Smart TVs, Playstation, Xbox, Chromecase, Apple TV, Blu-ray players, and
+                                        more. </p>
+                        </div>
+                        <div class="media">
+                                <img alt="" class="TV-img"
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+                                        data-uia="our-story-card-img">
+                                <video class="TV-video" autoplay="" playsinline="" muted="" loop="">
+                                        <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                                                type="video/mp4">
+                                </video>
+                        </div>
+                </div>
+
+                <hr>
+
+                <!-- Download-->
+                <div class="Download card">
+                        <div class="media">
+                                <img alt="" class="Download-img"
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
+                                        data-uia="our-story-card-img">
+                                <div class="download-box">
+                                        <div class="download-box-left">
+                                                <img class="download-img" alt=""
+                                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png">
+                                                <span class="download-text">
+                                                        <p class="download-text1">Stranger Tings</p>
+                                                        <p class="download-text2">Downloading...</p>
+                                                </span>
+                                        </div>
+                                        <img class="download-icon" alt=""
+                                                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif">
+                                </div>
+                        </div>
+                        <div class="title">
+                                <h1> Download your shows to watch offline.</h1>
+                                <p> Save your favorites easily and always have something to watch.</p>
+                        </div>
+                </div>
+
+                <hr>
+
+                <!-- Watch on Device-->
+                <div class="Device card">
+                        <div class="title">
+                                <h1>Watch everywhere</h1>
+                                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without
+                                        paying more.</p>
+                        </div>
+                        <div class="media">
+                                <img alt="" class="Device-img"
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png"
+                                        data-uia="our-story-card-img">
+                                <video class="Device-video" autoplay="" playsinline="" muted="" loop="">
+                                        <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+                                                type="video/mp4">
+                                </video>
+                        </div>
+                </div>
+        </div>
+
+
+</body>
+
+</html>
