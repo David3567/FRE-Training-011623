@@ -1,0 +1,30 @@
+<form>
+    <div>
+        <p>Step 3</p>
+        <h2>Choose your plan!</h2>
+    </div>
+    <div class="row plan-names">
+
+    <div *ngFor="let plan of plans; let i = index">
+        <div class="plan-name" (click)="select(i)">
+            {{plan['name']}}
+        </div>
+    </div>
+    </div>
+    <div class="features" *ngFor="let feature of planFeatures">
+        <div class="row">
+            <div class="plan-feature-name">
+                {{feature[1]}}
+            </div>
+            <div *ngFor="let plan of plans; let i = index" [ngClass]="'plan-feature'">
+                <div [ngClass]="isSelected(i) ?'selected' : '' ">
+                    {{plan[feature[0]]}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="finish()">Next</button>
+        <button type="button" class="btn btn-secondary" (click)="prevFn()">Back</button>
+    </div>
+</form>

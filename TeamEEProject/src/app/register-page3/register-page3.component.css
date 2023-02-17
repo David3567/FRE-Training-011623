@@ -1,0 +1,51 @@
+.row {
+    display: flex;
+}
+
+.selected {
+    color: red;
+}
+
+form {
+    margin:auto;
+    width: 80%;
+    
+}
+
+.plan-name {
+    color: white;
+    background: red;
+    padding: 4em;
+    border-radius: 5px;
+}
+
+.plan-feature-name {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em;
+    width: 30%;
+}
+
+.plan-feature {
+    font-size: 1em;
+    margin: 1em;
+    width: 70%;
+    text-align: center;
+}
+
+.features .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.features {
+    margin: 2em;
+    border-bottom: 1px solid #ccc;
+}
+
+.plan-names {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
