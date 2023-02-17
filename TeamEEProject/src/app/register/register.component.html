@@ -1,4 +1,4 @@
-<p>register works!</p>
+<app-register-header></app-register-header>
 <div class="register-form-container" [ngSwitch]="screen">
     <div *ngSwitchCase="1">
         <app-register-page1 [nextFn]="next_screen" [prevFn]="prev_screen" [updateFn]="update_data" ></app-register-page1>

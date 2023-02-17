@@ -43,7 +43,7 @@ export class RegisterPage3Component {
       quality: "Good",
       resolution: "720p",
       watch: true,
-      downloads: false
+      downloads: true
     },
     {
       name: "Premium",
@@ -51,7 +51,7 @@ export class RegisterPage3Component {
       quality: "Good",
       resolution: "720p",
       watch: true,
-      downloads: false
+      downloads: true
     }
   ];
 
@@ -65,6 +65,19 @@ export class RegisterPage3Component {
     }
     return false;
   }
+
+  formatValue(value: string | number | boolean) {
+    if (typeof value === "boolean") {
+      if (value) {
+        return '<span class="check">✓</span>';
+      }
+      return '<span class="check">-</span>';
+    } else if (typeof value === "number") {
+      return "$" + value;
+    }
+    return value;
+  }
+
   finish() {
 
     this.updateFn({role: this.plans[this.planSelection]['name']});

@@ -1,0 +1,22 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+    width: 12em;
+}
+
+.sign-out a{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 1em 1em;
+    cursor: pointer;
+    text-decoration: none;
+    color: darkslategray;
+}
