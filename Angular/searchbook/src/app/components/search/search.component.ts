@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import {
   Component,
   ElementRef,
@@ -22,13 +23,21 @@ import { BookService } from 'src/app/services/book.service';
 export class SearchComponent implements OnInit, OnDestroy {
   bookname: string = '';
   subsq = new Subscription();
-  @ViewChild('inputbook', { static: true }) inputbox!: ElementRef;
+  // @ViewChild('inputbook', { static: true }) inputbox!: ElementRef;
 
-  constructor(private bookService: BookService) {}
+  form!: FormGroup;
+
+  constructor(private bookService: BookService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.subsq = fromEvent(this.inputbox.nativeElement, 'keyup')
-      .pipe(
+    this.form = this.fb.group({
+      bookinput: '',
+    });
+
+    // this.subsq = fromEvent(this.inputbox.nativeElement, 'keyup')
+    this.form
+      .get('bookinput')
+      ?.valueChanges.pipe(
         debounceTime(500),
         mergeMap((_) => {
           return this.bookService.getBooks(this.bookname);

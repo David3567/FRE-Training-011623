@@ -1,6 +1,14 @@
-<input
+<!-- <input
   type="text"
   [(ngModel)]="bookname"
   #inputbook
   placeholder="search you book..."
-/>
+/> -->
+
+<form [formGroup]="form">
+  <input
+    type="text"
+    placeholder="search you book..."
+    formControlName="bookinput"
+  />
+</form>

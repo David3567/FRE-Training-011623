@@ -1,1 +1,27 @@
-<p>template-form works!</p>
+<form #contectForm="ngForm" (ngSubmit)="onSubmit(contectForm)">
+  <div class="email">
+    <label for="email">Email: </label>
+    <input
+      id="email"
+      type="text"
+      #email="ngModel"
+      ngModel
+      name="email"
+      required
+      minlength="5"
+      email
+      placeholder="input your email"
+    />
+  </div>
+  <div *ngIf="!email.valid && email.dirty && email.touched">
+    <div *ngIf="email.errors?.['required']">email is required!</div>
+  </div>
+
+  <div class="password">
+    <input type="text" ngModel name="password" />
+  </div>
+
+  <div class="btns">
+    <button type="submit" [disabled]="!contectForm.valid">Submit</button>
+  </div>
+</form>

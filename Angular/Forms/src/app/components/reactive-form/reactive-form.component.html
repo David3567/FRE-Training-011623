@@ -1,1 +1,20 @@
-<p>reactive-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="selectAll">
+    <input type="checkbox" id="selectAll" formControlName="selectAll" />
+    <label for="selectAll">Select All</label>
+  </div>
+
+  <ul formGroupName="options">
+    <li *ngFor="let item of itemlist">
+      <input type="checkbox" [id]="item" [formControlName]="item" />
+      <label [for]="item">{{ item }}</label>
+    </li>
+  </ul>
+
+  <button>Submit</button>
+</form>
+
+<h1>Selected Values</h1>
+<ul>
+  <li *ngFor="let item of selectedValues">{{ item }}</li>
+</ul>
