@@ -1,0 +1,23 @@
+div {
+    width: 60vw;
+    margin-top: 40px;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-container {
+    width: 15%;
+}
+
+.content-container {
+    width: 80%; 
+}
+
+section:hover {
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px black;
+}

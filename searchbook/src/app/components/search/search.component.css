@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 65vw;
+}
+
+.right {
+    width: 35vw;
+}

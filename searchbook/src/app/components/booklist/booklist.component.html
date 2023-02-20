@@ -1,0 +1,13 @@
+<div>
+    <section *ngFor="let book of booklist$ | async" #book (click)="addBook(book.id)">
+        <div class="img-container">
+            <img [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
+        </div>
+        <div class="content-container">
+            <h2>{{ book.volumeInfo.title }}</h2>
+            <p>Publisher: {{ book.volumeInfo.publisher }}</p>
+            <p>Published Date: {{ book.volumeInfo.publishedDate }}</p>
+            <p>Description: {{ book.volumeInfo.description }}</p>
+        </div>
+    </section>
+</div>
