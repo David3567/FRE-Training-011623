@@ -1,16 +1,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<body>
-    <div class="container">
-    <div class="logo">JTDANFLIX</div>
-      <h1>Login</h1>
-      <form>
-        <input type="text" placeholder="Username or Email" required>
-        <input type="password" placeholder="Password" required>
-        <div class="remember-me">
-          <input type="checkbox">Remember me
-        </div>
-        <input type="submit" value="Login">
-      </form>
-      <a href="#">Need help?</a>
-    </div>
-</body>
+<div class="logo">JTDANFLIX</div>
+
+<div class="container">
+    <h1>Login</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="email" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p class="invalid-login" *ngIf="invalidLogin">Invalid email or password.</p>
+    </form>
+  </div>
+  

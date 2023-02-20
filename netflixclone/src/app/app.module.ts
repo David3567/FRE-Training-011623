@@ -16,9 +16,7 @@ import { MovieitemPageComponent } from './movieitem-page/movieitem-page.componen
 import { YoutubeComponent } from './youtube/youtube.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
-import { Step1Component } from './step1/step1.component';
-import { Step2Component } from './step2/step2.component';
-import { Step3Component } from './step3/step3.component';
+import { PlansComponent } from './plans/plans.component';
 
 
 
@@ -34,9 +32,7 @@ import { Step3Component } from './step3/step3.component';
     YoutubeComponent,
     NavBarComponent,
     PageNotfoundComponent,
-    Step1Component,
-    Step2Component,
-    Step3Component
+    PlansComponent,
   ],
   imports: [
     BrowserModule,

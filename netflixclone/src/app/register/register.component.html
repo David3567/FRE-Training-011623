@@ -1,17 +1,22 @@
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<body>
-    <div class="container">
-    <div class="logo">JTDANFLIX</div>
-      <h1>New user Registeration</h1>
-      <form>
-        <input type="text" placeholder="Username or Email" required>
-        <input type="password" placeholder="Password" required>
-        <input type="password" placeholder="Password" required>
-        <div class="remember-me">
-          <input type="checkbox">Remember me
-        </div>
-        <input type="submit" value="Sign up">
-      </form>
-      <a href="#">Need help?</a>
-    </div>
-</body>
+<div class="container">
+
+<h2>Register</h2>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <br />
+      <button class="login-button" (click)="navigateToLogin()">Login</button>
+      <br />
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="name" name="name" required>
+  </div>
+  <div>
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="email" name="email" required>
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" [(ngModel)]="password" name="password" required>
+  </div>
+  <button class="submit" (click)="validateEmail()">Register ></button>
+</form>
+</div>  

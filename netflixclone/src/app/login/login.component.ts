@@ -7,16 +7,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  email: string = '';
+  password: string = '';
+  invalidLogin: boolean = false;
 
   constructor(private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit(): void {
+  }
 
-  login() {
-    // Perform login logic here
-
-    // Redirect to desired page after successful login
+  navigateToLogin() {
     this.router.navigate(['/login']);
-  } 
+  }
 
+  onSubmit() {
+    const usersString = localStorage.getItem('users');
+    if (usersString) {
+      const users = JSON.parse(usersString);
+      const authenticatedUser = users.find((user: any) => user.email === this.email && user.password === this.password);
+      if (authenticatedUser) {
+        localStorage.setItem('currentUser', JSON.stringify(authenticatedUser));
+        this.router.navigate(['home']);
+      } else {
+        this.invalidLogin = true;
+      }
+    } else {
+      this.invalidLogin = true;
+    }
+  }
+  
 }

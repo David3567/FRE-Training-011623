@@ -18,7 +18,7 @@ validateEmail() {
 
   if (re.test(String(email).toLowerCase())) {
     alert('Valid Email');
-    this.router.navigate(['/register']);
+    this.router.navigate(['/plans']);
   } else {
     alert('Invalid Email');
   }

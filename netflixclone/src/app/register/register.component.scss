@@ -1,62 +1,82 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg");
-    background-size: cover;
-    background-position: top;
-    color: white;
-  }
-  .logo {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 60px;
-    font-weight: bold;
-    color: #e50914;
+.container{
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  color: white;
+
+}
+
+
+.login-button {
     position: absolute;
     top: 20px;
-    bottom: 20px;
-    left: 20px;
-    pointer-events: none;
-    margin-left: 200px;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  .remember-me {
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-  .remember-me input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: red;
+    right: 20px;
+    background-color: #e50914;
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 10px 20px;
     font-size: 16px;
-    cursor: pointer;
+    margin-right: 100px;
+      cursor: pointer;
+
+}
+/* Title styles */
+h2 {
+    font-size: 2rem; /* Increased font size */
   }
-  a {
-    text-decoration: none;
-    color: grey !important;
-    margin-top: 20px;
-    display: block;
-    text-align: center;
+  
+  /* Form label styles */
+  label {
+    font-size: 1.2rem; /* Increased font size */
+  }
+  
+  /* Form input styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px; /* Increased input padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem; /* Increased font size */
+    width: 100%; /* Full-width input */
+    margin-bottom: 10px;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #4da6ff;
+  }
+  
+  /* Submit button styles */
+  button.submit {
+    padding: 12px 20px; /* Increased button padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Increased font size */
+    color: #fff;
+    cursor: pointer;
+    display: block; /* Full-width button */
+    width: 100%;
+    background-color: #4da6ff;
+    margin-top: 15px;
+  }
+  
+  /* Login button styles */
+  button.login-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 100px;
+    cursor: pointer;
   }
   

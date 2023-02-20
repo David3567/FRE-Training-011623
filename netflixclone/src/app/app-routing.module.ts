@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PlansComponent } from './plans/plans.component';
 import { MovielistPageComponent } from './movielist-page/movielist-page.component';
 import { CardComponent } from './card/card.component';
 import { MovieitemPageComponent } from './movieitem-page/movieitem-page.component';
@@ -19,8 +20,9 @@ const routes: Routes = [
   { path: 'movie-item', component: MovieitemPageComponent },
   { path: 'movie-list', component: MovielistPageComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'plans', component: PlansComponent },
   { path: 'youtube', component: YoutubeComponent },
-  { path: '**', component: PageNotfoundComponent }
+  { path: '**', component: PageNotfoundComponent },
 ];
 
 
@@ -30,4 +32,3 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-// npm install swagger-ui-express swagger-jsdoc swagger-ui-dist
