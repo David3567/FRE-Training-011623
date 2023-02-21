@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  FormGroup,
+  FormControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-setvalidator',
@@ -11,14 +16,14 @@ export class SetvalidatorComponent implements OnInit {
 
   notifyOptions = ['Email', 'SMS'];
 
-  get notifyVia() {
-    return this.myform.get('notifyVia');
+  get notifyVia(): FormControl {
+    return this.myform.get('notifyVia') as FormControl;
   }
-  get email() {
-    return this.myform.get('email');
+  get email(): FormControl {
+    return this.myform.get('email') as FormControl;
   }
-  get mobile() {
-    return this.myform.get('mobile');
+  get mobile(): FormControl {
+    return this.myform.get('mobile') as FormControl;
   }
 
   constructor(private fb: FormBuilder) {}
