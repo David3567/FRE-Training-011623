@@ -15,7 +15,10 @@ import { MatTableModule } from '@angular/material/table';
 import { BoxDetailPriceComponent } from './box-detail-price/box-detail-price.component';
 import { BoxDetailQualityComponent } from './box-detail-quality/box-detail-quality.component';
 import { BoxDetailResolutionComponent } from './box-detail-resolution/box-detail-resolution.component';
-import { BoxDetailDownLoadComponent } from './box-detail-down-load/box-detail-down-load.component'  
+import { BoxDetailDownLoadComponent } from './box-detail-down-load/box-detail-down-load.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieItemComponent } from './movie-item/movie-item.component'  
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { BoxDetailDownLoadComponent } from './box-detail-down-load/box-detail-do
     BoxDetailPriceComponent,
     BoxDetailQualityComponent,
     BoxDetailResolutionComponent,
-    BoxDetailDownLoadComponent
+    BoxDetailDownLoadComponent,
+    MovieListComponent,
+    MovieItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule
   ],
