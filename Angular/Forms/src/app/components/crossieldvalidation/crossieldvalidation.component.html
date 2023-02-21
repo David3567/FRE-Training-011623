@@ -1,0 +1,50 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">email: </label>
+    <input id="email" formControlName="email" />
+  </div>
+  <div *ngIf="!email.valid && (email.dirty || email.touched)">
+    <div *ngIf="email.errors?.['hasemail']" class="invalid">
+      email already exist! Try another...
+    </div>
+    <!-- <div *ngIf="email.errors?.['required']" class="invalid">
+      email is required
+    </div>
+    <div *ngIf="email.errors?.['pattern']" class="invalid">
+      pls input a valid email!
+    </div> -->
+  </div>
+
+  <!-- <hr />
+  <div formGroupName="pwd">
+    <div>
+      <label for="password">password: </label>
+      <input id="password" formControlName="password" />
+    </div>
+    <div>
+      <label for="confirm">confirm pwd: </label>
+      <input id="confirm" formControlName="confirm" />
+    </div>
+  </div>
+  <div
+    *ngIf="
+      !pwd.get('password')?.valid &&
+      (pwd.get('password')?.dirty || pwd.get('password')?.touched)
+    "
+  >
+    <div *ngIf="pwd.get('password')?.errors?.['minlen']" class="invalid">
+      password should longger then
+      {{pwd.get('password')?.errors?.['requiredLength']}}
+    </div>
+  </div>
+
+  {{ pwd.get("password")?.errors | json }} -->
+
+  <!-- <div *ngIf="!pwd.valid && (pwd.dirty || pwd.touched)">
+    <div *ngIf="pwd.errors?.[pwdNotMatch]" class="invalid">
+      password not matched!
+    </div>
+  </div> -->
+  <hr />
+  <button>Submit</button>
+</form>

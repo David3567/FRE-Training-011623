@@ -42,6 +42,7 @@ export class ReactiveFormComponent implements OnInit {
         this.itemlist.reduce((acc: { [key: string]: boolean }, cur: string) => {
           acc[cur] = false;
           return acc;
+          // return {...acc, [cur]: false};
         }, {})
       ),
     });

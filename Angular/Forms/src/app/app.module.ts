@@ -6,9 +6,15 @@ import { AppComponent } from './app.component';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrossieldvalidationComponent } from './components/crossieldvalidation/crossieldvalidation.component';
 
 @NgModule({
-  declarations: [AppComponent, TemplateFormComponent, ReactiveFormComponent],
+  declarations: [
+    AppComponent,
+    TemplateFormComponent,
+    ReactiveFormComponent,
+    CrossieldvalidationComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
