@@ -8,6 +8,7 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrossieldvalidationComponent } from './components/crossieldvalidation/crossieldvalidation.component';
+import { SetvalidatorComponent } from './components/setvalidator/setvalidator.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CrossieldvalidationComponent } from './components/crossieldvalidation/c
     TemplateFormComponent,
     ReactiveFormComponent,
     CrossieldvalidationComponent,
+    SetvalidatorComponent,
   ],
   imports: [
     BrowserModule,
