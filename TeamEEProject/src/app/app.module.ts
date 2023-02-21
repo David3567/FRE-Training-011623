@@ -1,8 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LoginInPageComponent } from './login-in-page/login-in-page.component';
 import { AppComponent } from './app.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
@@ -21,7 +20,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     AppRoutingModule,
 
   ],
-  providers: [],
+  declarations: [  
+    LoginInPageComponent,
+    AppComponent,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
