@@ -9,6 +9,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrossieldvalidationComponent } from './components/crossieldvalidation/crossieldvalidation.component';
 import { SetvalidatorComponent } from './components/setvalidator/setvalidator.component';
+import { FormarrayComponent } from './components/formarray/formarray.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SetvalidatorComponent } from './components/setvalidator/setvalidator.co
     ReactiveFormComponent,
     CrossieldvalidationComponent,
     SetvalidatorComponent,
+    FormarrayComponent,
   ],
   imports: [
     BrowserModule,

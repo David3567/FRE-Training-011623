@@ -1,0 +1,33 @@
+<form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name: </label>
+    <input id="name" formControlName="name" />
+  </div>
+  <button type="button" (click)="addSkill()">Add Skill</button>
+  <hr />
+  <h2>Skills</h2>
+
+  <div formArrayName="skills">
+    <ng-container *ngFor="let item of skills.controls; let skillindex = index">
+      <div
+        [formGroupName]="skillindex"
+        style="border: 1px solid blue; padding: 3px"
+      >
+        <div>
+          <label [for]="skillindex + 'skill'">Skill: </label>
+          <input [id]="skillindex + 'skill'" formControlName="skill" />
+        </div>
+        <div>
+          <label [for]="skillindex + 'exp'">Experience: </label>
+          <input [id]="skillindex + 'exp'" formControlName="exp" />
+        </div>
+        <button type="button" (click)="removeSkill(skillindex)">Remove</button>
+      </div>
+    </ng-container>
+  </div>
+  <button>Submit</button>
+</form>
+
+<!-- <div *ngIf="expression" >
+  <div *ngFor="let item of items"></div>
+</div> -->

@@ -4,16 +4,15 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
-import { merge, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss'],
 })
-export class ReactiveFormComponent implements OnInit, OnDestroy {
+export class ReactiveFormComponent implements OnInit {
   itemlist: string[] = [
     'Changjinhu (2021)',
     'Dune (2021)',
@@ -52,59 +51,34 @@ export class ReactiveFormComponent implements OnInit, OnDestroy {
     this.trackallitem();
     this.selectAllHandler();
   }
-  ngOnDestroy(): void {
-    this.sbp.unsubscribe();
-  }
 
   onSubmit() {
     console.log(this.form.value);
   }
 
   private trackallitem() {
-    const inputsArr = this.itemlist.map((item: string) => {
-      return this.options.get(item)?.valueChanges.pipe(
-        tap((val) => {
-          if (val && !this.selectedValues.includes(item)) {
-            this.selectedValues.push(item);
-          } else if (!val) {
-            this.selectedValues = this.selectedValues.filter(
-              (str) => str !== item
-            );
-          }
-
-          this.selectAll.setValue(
-            this.itemlist.length === this.selectedValues.length,
-            { emitEvent: false }
+    this.itemlist.forEach((item: string) => {
+      this.options.get(item)?.valueChanges.subscribe((val) => {
+        if (val && !this.selectedValues.includes(item)) {
+          this.selectedValues.push(item);
+        } else if (!val) {
+          this.selectedValues = this.selectedValues.filter(
+            (str) => str !== item
           );
-        })
-      );
+        }
+
+        this.selectAll.setValue(
+          this.itemlist.length === this.selectedValues.length,
+          { emitEvent: false }
+        );
+      });
     });
-    this.sbp = merge(...inputsArr).subscribe();
-
-    // this.itemlist.forEach((item: string) => {
-    //   this.options.get(item)?.valueChanges.subscribe((val) => {
-    //     if (val && !this.selectedValues.includes(item)) {
-    //       this.selectedValues.push(item);
-    //     } else if (!val) {
-    //       this.selectedValues = this.selectedValues.filter(
-    //         (str) => str !== item
-    //       );
-    //     }
-
-    //     this.selectAll.setValue(
-    //       this.itemlist.length === this.selectedValues.length,
-    //       { emitEvent: false }
-    //     );
-    //   });
-    // });
     // console.log(this.options);
   }
   private selectAllHandler() {
-    this.sbp.add(
-      this.selectAll.valueChanges.subscribe((val) => {
-        this.setAllItemsValue(val);
-      })
-    );
+    this.selectAll.valueChanges.subscribe((val) => {
+      this.setAllItemsValue(val);
+    });
   }
   private setAllItemsValue(boo: boolean) {
     Object.values(this.options.controls).forEach((control) => {
