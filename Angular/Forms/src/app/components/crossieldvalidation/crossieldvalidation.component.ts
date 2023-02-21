@@ -27,7 +27,10 @@ export class CrossieldvalidationComponent implements OnInit {
     return this.form.get('pwd') as FormGroup;
   }
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
