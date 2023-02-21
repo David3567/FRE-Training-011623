@@ -1,11 +1,24 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginInPageComponent } from './login-in-page/login-in-page.component';
 import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
+
+import { HomepageComponent } from './homepage/homepage.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+
 @NgModule({
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    SearchBarComponent,
+    HomepageComponent
+  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+
   ],
   declarations: [  
     LoginInPageComponent,
