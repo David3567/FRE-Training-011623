@@ -39,7 +39,7 @@ export class ReactiveFormComponent implements OnInit {
     this.form = this.fb.group({
       selectAll: false,
       options: this.fb.group(
-        this.itemlist.reduce((acc: any, cur: string) => {
+        this.itemlist.reduce((acc: { [key: string]: boolean }, cur: string) => {
           acc[cur] = false;
           return acc;
         }, {})
@@ -49,7 +49,11 @@ export class ReactiveFormComponent implements OnInit {
     this.selectAllHandler();
   }
 
-  trackallitem() {
+  onSubmit() {
+    console.log(this.form.value);
+  }
+
+  private trackallitem() {
     this.itemlist.forEach((item: string) => {
       this.options.get(item)?.valueChanges.subscribe((val) => {
         if (val && !this.selectedValues.includes(item)) {
@@ -68,19 +72,14 @@ export class ReactiveFormComponent implements OnInit {
     });
     console.log(this.options);
   }
-
-  selectAllHandler() {
+  private selectAllHandler() {
     this.selectAll.valueChanges.subscribe((val) => {
       this.setAllItemsValue(val);
     });
   }
-  setAllItemsValue(boo: boolean) {
+  private setAllItemsValue(boo: boolean) {
     Object.values(this.options.controls).forEach((control) => {
       control.setValue(boo);
     });
-  }
-
-  onSubmit() {
-    console.log(this.form.value);
   }
 }
