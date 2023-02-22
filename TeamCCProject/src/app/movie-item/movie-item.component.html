@@ -1,1 +1,31 @@
-<p>movie-item works!</p>
+<!-- <p>movie-item works!</p>
+
+<p>{{movies.title}}</p>
+
+<div>
+    <ul>
+        <li
+        *ngFor = "let movie of movies"
+        >{{movie.title}}</li>
+    </ul>
+</div> -->
+
+<!-- <div class="movie-list">
+    <app-movie-item *ngFor="let movie of movies" [movie]="movie"></app-movie-item>
+</div> -->
+
+
+
+<div class="movie-item" *ngFor="let movie of movies">
+    <div class="movie-info" >
+        <img id="image" [src]="'https://image.tmdb.org/t/p/w500' + movie.img">
+        <h2>{{ movie.title }}</h2>
+        <div class="release">
+            <p id="date"> {{ movie.date}}</p>
+            <p id="language"> {{ movie.language}}</p>
+            <p id="rate">{{ movie.rate }}</p>
+        </div>
+        <p id="description">{{ movie.description }}</p>
+        <input type="submit" id="details" value="More Details">
+    </div>
+</div>
