@@ -1,16 +1,15 @@
 <div class="movie-card">
-    <div class="content">
-        <div class="movie-img" [style.background-image]="'url('+movie.poster_path+')'">
-        </div>
-        <div class="movie-details">
-            <h1>{{movie.title}}</h1>
-            <div class="info">
-                <span class="release-year">{{movie.release_date}}</span>
-                <span class="language">{{movie.original_language}}</span>
-                <span class="rating">{{movie.vote_average}}</span>
-            </div>
-            <p class="overview">{{movie.overview}}</p>
-        </div>
+  <div class="content">
+    <div class="movie-img" [style.background-image]="'url(https://image.tmdb.org/t/p/w500'+movie.img+')'">
     </div>
-
+    <div class="movie-details">
+      <h1>{{movie.title}}</h1>
+      <div class="info">
+        <span class="release-year">{{movie.date}}</span>
+        <span class="language">{{movie.language}}</span>
+        <span class="rating">{{movie.rate}}</span>
+      </div>
+      <p class="overview">{{movie.description}}</p>
+    </div>
+  </div>
 </div>

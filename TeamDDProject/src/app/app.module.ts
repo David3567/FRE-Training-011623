@@ -21,6 +21,8 @@ import { QAndAComponent } from './components/homepage/q-and-a/q-and-a.component'
 import { QAndAItemComponent } from './components/homepage/q-and-a-item/q-and-a-item.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { MatCardModule } from '@angular/material/card';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { MatCardModule } from '@angular/material/card';
     QAndAComponent,
     QAndAItemComponent,
     MovieItemComponent,
+    MovieListComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
