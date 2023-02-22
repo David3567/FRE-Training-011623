@@ -15,6 +15,8 @@ import { KidsSectionComponent } from './components/homepage/sections/kids-sectio
 import { DownloadSectionComponent } from './components/homepage/sections/download-section/download-section.component';
 import { QAndAComponent } from './components/homepage/q-and-a/q-and-a.component';
 import { QAndAItemComponent } from './components/homepage/q-and-a-item/q-and-a-item.component';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { QAndAItemComponent } from './components/homepage/q-and-a-item/q-and-a-i
     DownloadSectionComponent,
     QAndAComponent,
     QAndAItemComponent,
+    MovieItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
