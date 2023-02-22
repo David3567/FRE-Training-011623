@@ -1,0 +1,15 @@
+<main>
+    <div class="img-container">
+        <img [src]= "movie.poster_path">
+    </div>
+    <div class="info-container">
+        <h4>{{ movie.original_title }}</h4>
+        <div class="year-language-score-container">
+            <p>{{ movie.release_date | date: 'yyyy'}}</p>
+            <p>{{ movie.original_language | uppercase }}</p>
+            <p>{{ movie.vote_average | number: '1.1-1'}}</p>
+        </div>
+        <h5>{{ movie.overview | slice:0:95 }}...</h5>
+        <button>More Details</button>
+    </div>
+</main>

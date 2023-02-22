@@ -10,6 +10,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HomepageBackgroundComponent } from './homepage-background/homepage-background.component';
 import { RegistrationTwoComponent } from './registration-two/registration-two.component';
+import { MovieItemComponent } from './movie-item/movie-item.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,14 @@ import { RegistrationTwoComponent } from './registration-two/registration-two.co
     NavbarComponent,
     HomepageComponent,
     HomepageBackgroundComponent,
-    RegistrationTwoComponent
+    RegistrationTwoComponent,
+    MovieItemComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
