@@ -12,9 +12,9 @@ export class TodolistComponent {
   // todoService = inject(TodoService); // <-------------------------------------- inject();
   // todos!: Todo[];
 
-  // todos$!: Observable<Todo[]>;
+  todos$!: Observable<Todo[]>;
 
-  constructor(public todoService: TodoService) {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     // this.todoService.getTodos().subscribe((todolist) => {
@@ -23,7 +23,8 @@ export class TodolistComponent {
     // this.todoService.todosSubject$.subscribe((todolist) => {
     //   this.todos = todolist;
     // });
-    // this.todos$ = this.todoService.todosSubject$;
+    this.todos$ = this.todoService.todos$;
+
     this.todoService.getTodos().subscribe(() => {}, console.log);
   }
 

@@ -4,15 +4,15 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription, Observable, tap, merge, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss'],
 })
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent implements OnInit, OnDestroy {
   itemlist: string[] = [
     'Changjinhu (2021)',
     'Dune (2021)',
@@ -26,7 +26,9 @@ export class ReactiveFormComponent implements OnInit {
   ];
   form!: FormGroup;
   selectedValues: string[] = [];
-  sbp = new Subscription();
+  // sbp = new Subscription();
+
+  notifier$ = new Subject();
 
   get selectAll(): FormControl {
     return this.form.get('selectAll') as FormControl;
@@ -52,33 +54,74 @@ export class ReactiveFormComponent implements OnInit {
     this.selectAllHandler();
   }
 
+  ngOnDestroy(): void {
+    // this.sbp.unsubscribe();
+    this.stopObs();
+  }
+
+  onClickHandler() {
+    this.stopObs();
+  }
+
   onSubmit() {
     console.log(this.form.value);
   }
 
-  private trackallitem() {
-    this.itemlist.forEach((item: string) => {
-      this.options.get(item)?.valueChanges.subscribe((val) => {
-        if (val && !this.selectedValues.includes(item)) {
-          this.selectedValues.push(item);
-        } else if (!val) {
-          this.selectedValues = this.selectedValues.filter(
-            (str) => str !== item
-          );
-        }
+  stopObs() {
+    this.notifier$.next(null);
+    this.notifier$.complete();
+  }
 
-        this.selectAll.setValue(
-          this.itemlist.length === this.selectedValues.length,
-          { emitEvent: false }
-        );
-      });
+  private trackallitem() {
+    const inputFCValueChanges = this.itemlist.map((item: string) => {
+      return this.options.get(item)?.valueChanges.pipe(
+        tap((val) => {
+          if (val && !this.selectedValues.includes(item)) {
+            this.selectedValues.push(item);
+          } else if (!val) {
+            this.selectedValues = this.selectedValues.filter(
+              (str) => str !== item
+            );
+          }
+
+          this.selectAll.setValue(
+            this.itemlist.length === this.selectedValues.length,
+            { emitEvent: false }
+          );
+        })
+      );
     });
+
+    merge(...inputFCValueChanges)
+      .pipe(takeUntil(this.notifier$))
+      .subscribe();
+
+    // this.itemlist.forEach((item: string) => {
+    //   this.options.get(item)?.valueChanges.subscribe((val) => {
+    //     if (val && !this.selectedValues.includes(item)) {
+    //       this.selectedValues.push(item);
+    //     } else if (!val) {
+    //       this.selectedValues = this.selectedValues.filter(
+    //         (str) => str !== item
+    //       );
+    //     }
+
+    //     this.selectAll.setValue(
+    //       this.itemlist.length === this.selectedValues.length,
+    //       { emitEvent: false }
+    //     );
+    //   });
+    // });
     // console.log(this.options);
   }
   private selectAllHandler() {
-    this.selectAll.valueChanges.subscribe((val) => {
-      this.setAllItemsValue(val);
-    });
+    // this.sbp.add(
+    this.selectAll.valueChanges
+      .pipe(takeUntil(this.notifier$))
+      .subscribe((val) => {
+        this.setAllItemsValue(val);
+      });
+    // );
   }
   private setAllItemsValue(boo: boolean) {
     Object.values(this.options.controls).forEach((control) => {

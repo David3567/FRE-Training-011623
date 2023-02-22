@@ -11,8 +11,9 @@ export class TodoService {
   private readonly baseUrl = 'https://jsonplaceholder.typicode.com';
   private readonly todoPath = 'todos';
 
-  todos: Todo[] = [];
-  todosSubject$: Subject<Todo[]> = new Subject();
+  private todos: Todo[] = [];
+  private todosSubject$: Subject<Todo[]> = new Subject();
+  todos$ = this.todosSubject$.asObservable();
 
   constructor(private http: HttpClient) {}
 
