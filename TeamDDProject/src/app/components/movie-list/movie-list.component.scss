@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: black;
+    
+}
+
+app-movie-item{
+    width: 400px;
+    height: 800px;
+    padding: 40px;
+}
