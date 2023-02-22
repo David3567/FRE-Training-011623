@@ -5,9 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/homepage/header/header.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { RegisterComponent } from './components/register-page/register/register.component';
+import { RegisterTwoComponent } from './components/register-page/register-two/register-two.component';
+import { RegisterThreeComponent } from './components/register-page/register-three/register-three.component';
 import { MatInputModule } from '@angular/material/input';
 import { TvSectionComponent } from './components/homepage/sections/tv-section/tv-section.component';
 import { WatchSectionComponent } from './components/homepage/sections/watch-section/watch-section.component';
@@ -16,7 +20,7 @@ import { DownloadSectionComponent } from './components/homepage/sections/downloa
 import { QAndAComponent } from './components/homepage/q-and-a/q-and-a.component';
 import { QAndAItemComponent } from './components/homepage/q-and-a-item/q-and-a-item.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import {MatCardModule} from '@angular/material/card';
     NavBarComponent,
     HeaderComponent,
     HomepageComponent,
+    LoginPageComponent,
+    RegisterComponent,
+    RegisterThreeComponent,
+    RegisterTwoComponent,
     TvSectionComponent,
     WatchSectionComponent,
     KidsSectionComponent,
