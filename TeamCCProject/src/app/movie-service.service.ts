@@ -19,7 +19,7 @@ export class MovieServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(page?: number, language?: string){
+  getMovies(page?: number, language?: string){
     page = page? page : 1;
     language = language? language : "en-US";
     return this.http.get<ApiData>(baseUrl + AriaApiKey  + "&language=" + language + "&page=" + page).pipe(
