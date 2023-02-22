@@ -1,22 +1,7 @@
-
-
-<p> welcome</p>
-<table>
-    <tr *ngFor="let row of rows">
-      <td *ngFor="let movie of row">
-        <div class="movie-item">
-          <div class="movie-info">
-            <img [src]="'https://image.tmdb.org/t/p/w500' + movie.img">
-            <h2>{{ movie.title }}</h2>
-            <div class="release">
-              <p id="date">{{ movie.date }}</p>
-              <p id="language">{{ movie.language }}</p>
-              <p id="rate">{{ movie.rate }}</p>
-            </div>
-            <p id="description">{{ movie.description }}</p>
-            <input type="submit" id="details" value="More Details">
-          </div>
-        </div>
-      </td>
-    </tr>
-  </table>
+<div>
+  <ul>
+      <li
+      *ngFor = "let movie of movieList"
+      >{{movie.title}}</li>
+  </ul>
+</div>
