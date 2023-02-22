@@ -14,10 +14,9 @@
     <app-movie-item *ngFor="let movie of movies" [movie]="movie"></app-movie-item>
 </div> -->
 
-
-
-<div class="movie-item" *ngFor="let movie of movies">
-    <div class="movie-info" >
+<!-- 
+<div class="loop" *ngFor="let movie of movies"> -->
+<div class="movie-item">
         <img id="image" [src]="'https://image.tmdb.org/t/p/w500' + movie.img">
         <h2>{{ movie.title }}</h2>
         <div class="release">
@@ -27,5 +26,4 @@
         </div>
         <p id="description">{{ movie.description }}</p>
         <input type="submit" id="details" value="More Details">
-    </div>
 </div>
