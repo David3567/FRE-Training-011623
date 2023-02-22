@@ -1,0 +1,19 @@
+.container {
+    .email-input {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        max-width: 40%;
+
+        mat-form-field {
+            width: 70%;
+        }
+
+        button {
+            width: 30%;
+            height: 56px;
+            font-size: 25px;
+            font-weight: 400;
+        }
+    }
+}

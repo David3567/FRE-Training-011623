@@ -1,0 +1,50 @@
+.card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 8px solid #222;
+    padding: 5% 10%;
+    flex-direction: row-reverse;
+
+    .text-col {
+        flex-basis: 50%;
+        max-width: 40%;
+        margin: 0 0 0 auto;
+
+        h2 {
+            font-size: 4em;
+            font-weight: 600;
+            line-height: 2em;
+        }
+
+        p {
+            font-size: 2em;
+            font-weight: 300;
+            line-height: 1.5em;
+        }
+    }
+
+    .img-col {
+        flex-basis: 50%;
+        position: relative;
+
+        img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 12%;
+            left: 24%;
+            max-width: 52%;
+            max-height: 54%;
+
+            video {
+                width: 100%;
+            }
+        }
+    }
+}
