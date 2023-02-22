@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { RegisterTwoComponent } from './register-two/register-two.component';
-import { RegisterThreeComponent } from './register-three/register-three.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './register-page/register/register.component';
+import { RegisterTwoComponent } from './register-page/register-two/register-two.component';
+import { RegisterThreeComponent } from './register-page/register-three/register-three.component';
+import { HeaderComponent } from './register-page/components/header/header.component';
+import { FooterComponent } from './register-page/components/footer/footer.component';
 
 @NgModule({
   declarations: [
