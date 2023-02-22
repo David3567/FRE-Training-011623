@@ -4,8 +4,7 @@ import { MoviesService, Movie } from '../movies.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css'],
-  providers: [MoviesService]
+  styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
   movies! : Movie[];
@@ -14,7 +13,7 @@ export class HomepageComponent {
       this.movies = movies;
       console.log(this.movies)
     })
-    this.moviesService.getLatestMovies();
+    this.moviesService.discoverMovies({page:2});
   }
   constructor(private moviesService: MoviesService) {
   }
