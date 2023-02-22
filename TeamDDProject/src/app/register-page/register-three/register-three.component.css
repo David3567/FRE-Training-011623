@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%
+}
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 800px;
+    margin-top: 50px;
+}
+
+.topContainer p {
+    display: flex;
+    font-size: medium;
+}
+
+.topContainer h1 {
+    display: flex;
+    font-size: 2rem;
+}
+.topContainer ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.topContainer ul li {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.bottomContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.fist-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.contentContainer {
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    border-bottom: 1px solid rgb(217, 216, 216);
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(178, 0, 0);
+    color: white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.feature {
+    padding-left: 1rem;
+}
+
+.first-row .last-row {
+    border-bottom: none;
+}
+
+.left {
+    margin-left: 300px;
+}
+
+.first-column .second-column .third-column {
+    width: 100px;
+    margin: 0.2rem 0.5rem;
+    padding: 1rem;
+    color: rgb(214, 212, 212);
+    text-align: center;
+}
+
+.nextButton{
+    height: 6vh;
+    width: 100%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    border: 0px;
+    background-color: rgb(178, 0, 0);
+}
