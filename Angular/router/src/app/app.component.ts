@@ -10,4 +10,5 @@ export class AppComponent {
 
   pageNum = 0;
   name = '';
+  page = 0;
 }

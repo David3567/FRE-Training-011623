@@ -1,29 +1,18 @@
-<div>
-  <button [routerLink]="['home']">home</button>
-  <button [routerLink]="['contact']">contact</button>
-  <button [routerLink]="['product']">product</button>
-</div>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" [routerLink]="['/']"
+          ><strong> {{ title }} </strong></a
+        >
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['home']">Home</a></li>
+        <li><a [routerLink]="['product']">Product</a></li>
+        <li><a [routerLink]="['contact']">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<hr />
-<div>
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Page No"
-    [(ngModel)]="pageNum"
-  />
+  <router-outlet></router-outlet>
 </div>
-<div>
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Name"
-    [(ngModel)]="name"
-  />
-</div>
-<hr />
-<button [routerLink]="['/product']" [queryParams]="{pageNum, name}">
-  Product btn
-</button>
-
-<router-outlet></router-outlet>
