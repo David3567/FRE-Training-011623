@@ -1,10 +1,19 @@
+import { NotFoundComponent } from './not-found/not-found.component';
+import { TestsubjectComponent } from './testsubject/testsubject.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
+import { TodolistComponent } from './todolist/todolist.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'home', component: TodolistComponent },
+  { path: 'test', component: TestsubjectComponent },
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

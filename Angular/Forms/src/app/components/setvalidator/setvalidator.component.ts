@@ -14,7 +14,8 @@ import {
 export class SetvalidatorComponent implements OnInit {
   myform!: FormGroup;
 
-  notifyOptions = ['Email', 'SMS'];
+  // notifyOptions: ValidteType[] = [ValidteType.Email, ValidteType.SMS];
+  notifyOptions: ('Email' | 'SMS')[] = ['Email', 'SMS'];
 
   get notifyVia(): FormControl {
     return this.myform.get('notifyVia') as FormControl;
@@ -45,7 +46,7 @@ export class SetvalidatorComponent implements OnInit {
   }
 
   private changeValidators(val: string) {
-    if (val === 'Email') {
+    if (ValidteType.Email === val) {
       this.email?.setValidators([Validators.required, Validators.email]);
       this.mobile?.clearValidators();
     } else if (val === 'SMS') {
@@ -59,4 +60,9 @@ export class SetvalidatorComponent implements OnInit {
     this.email?.updateValueAndValidity();
     this.mobile?.updateValueAndValidity();
   }
+}
+
+enum ValidteType {
+  Email = 'Email',
+  SMS = 'SMS',
 }

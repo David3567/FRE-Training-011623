@@ -1,21 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable, Subject, throwError } from 'rxjs';
 import { Todo } from '../interfaces/todo.interface';
 import { tap, catchError } from 'rxjs/operators';
+import { BaseUrl } from '../app.module';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TodoService {
-  private readonly baseUrl = 'https://jsonplaceholder.typicode.com';
+  // private readonly baseUrl = 'https://jsonplaceholder.typicode.com';
   private readonly todoPath = 'todos';
 
   private todos: Todo[] = [];
   private todosSubject$: Subject<Todo[]> = new Subject();
   todos$ = this.todosSubject$.asObservable();
 
-  constructor(private http: HttpClient) {}
+  randomNo = Math.floor(Math.random() * 1000);
+
+  constructor(
+    private http: HttpClient,
+    @Inject(BaseUrl) private readonly baseUrl: string
+  ) {}
 
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>([this.baseUrl, this.todoPath].join('/')).pipe(

@@ -18,7 +18,19 @@ export class FormarrayComponent implements OnInit {
   ngOnInit(): void {
     this.skillsForm = this.fb.group({
       name: '',
-      skills: this.fb.array([]),
+      skills: this.fb.array([
+        // this.fb.group({
+        //   skill: '',
+        //   exp: '',
+        // })
+        // this.fb.group({}),
+        // this.fb.group({}),
+        // this.fb.group({}),
+        // this.fb.group({}),
+        // this.fb.group({}),
+        // this.fb.group({}),
+        // this.fb.group({}),
+      ]),
     });
   }
 
