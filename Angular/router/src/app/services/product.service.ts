@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductService {
-  products = [
+  private readonly products = [
     new Product(1, 'Memory Card', 500),
     new Product(2, 'Pen Drive', 750),
     new Product(3, 'Power Bank', 100),
@@ -20,9 +20,13 @@ export class ProductService {
 }
 
 export class Product {
-  constructor(
-    public productID: number,
-    public name: string,
-    public price: number
-  ) {}
+  public productID!: number;
+  public name!: string;
+  public price!: number;
+
+  constructor(productID: number, name: string, price: number) {
+    this.productID = productID;
+    this.name = name;
+    this.price = price;
+  }
 }

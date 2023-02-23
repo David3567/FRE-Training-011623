@@ -1,0 +1,29 @@
+<div>
+  <button [routerLink]="['home']">home</button>
+  <button [routerLink]="['contact']">contact</button>
+  <button [routerLink]="['product']">product</button>
+</div>
+
+<hr />
+<div>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Page No"
+    [(ngModel)]="pageNum"
+  />
+</div>
+<div>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Name"
+    [(ngModel)]="name"
+  />
+</div>
+<hr />
+<button [routerLink]="['/product']" [queryParams]="{pageNum, name}">
+  Product btn
+</button>
+
+<router-outlet></router-outlet>

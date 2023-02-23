@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ProductGuard } from './product.guard';
 
 describe('ProductGuard', () => {
