@@ -10,8 +10,7 @@ import { Product, ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
   product!: Product;
-  id: any;
-  sub = new Subscription();
+  private sub = new Subscription();
 
   constructor(
     private router: Router,
@@ -20,21 +19,20 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('params: ', this.activatedRoute.snapshot.params);
+    // console.log('params: ', this.activatedRoute.snapshot.params);
 
-    this.id = this.activatedRoute.snapshot.params?.['id'];
-    this.product = this.productService.getProduct(this.id);
+    // const id = this.activatedRoute.snapshot.params?.['id'];
+    // this.product = this.productService.getProduct(id);
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    // this.sub = this.activatedRoute.paramMap.subscribe((params) => {
-    //   console.log(params);
-    //   this.id = params.get('id');
-
-    //   this.product = this.productService.getProduct(this.id);
-    // });
+    this.sub = this.activatedRoute.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      if (id) {
+        this.product = this.productService.getProduct(id);
+      }
+    });
   }
-
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
