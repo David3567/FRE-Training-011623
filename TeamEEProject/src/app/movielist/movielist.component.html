@@ -1,0 +1,8 @@
+<div>
+    <app-search-bar></app-search-bar>
+</div>
+<hr>
+<div>
+<app-movieitem *ngFor="let movie of movies"
+[movie] = "movie" ></app-movieitem>
+</div>
