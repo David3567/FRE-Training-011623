@@ -20,7 +20,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule
   ],
   providers: [HttpClient, MoviesService],
