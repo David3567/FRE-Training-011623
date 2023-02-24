@@ -23,19 +23,21 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.products = this.productService.getProducts();
 
-    // this.snapshotPageNo =
-    //   this.activatedRoute.snapshot.queryParamMap.get('pageNum') || '0';
+    this.snapshotPageNo =
+      this.activatedRoute.snapshot.queryParamMap.get('pageNum') || '0';
     // const name =
     //   this.activatedRoute.snapshot.queryParamMap.get('name') || 'no-name';
 
-    // this.activatedRoute.queryParamMap.subscribe((params) => {
-    //   this.pageNo = params.get('pageNum') || '0';
-    //   this.name = params.get('name') || '';
-    //   console.log('Query params ', this.pageNo, name);
-    // });
+    this.activatedRoute.queryParamMap.subscribe((params) => {
+      this.pageNo = params.get('pageNum') || '0';
+      // this.name = params.get('name') || '';
+      // console.log('Query params ', this.pageNo, name);
+    });
   }
 
   nextPage() {
-    this.router.navigate(['product']);
+    this.router.navigate(['product'], {
+      queryParams: { pageNum: +this.pageNo + 1 },
+    });
   }
 }
