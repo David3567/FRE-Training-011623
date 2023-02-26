@@ -10,17 +10,32 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MoviesService, Movie } from './movies.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { RegisterComponent } from './register/register.component';
+import { RegisterPage1Component } from './register-page1/register-page1.component';
+import { RegisterPage2Component } from './register-page2/register-page2.component';
+import { RegisterPage3Component } from './register-page3/register-page3.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterHeaderComponent } from './register-header/register-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SearchBarComponent,
-    HomepageComponent
+    LoginInPageComponent,
+    HomepageComponent,
+    RegisterComponent,
+    RegisterPage1Component,
+    RegisterPage2Component,
+    RegisterPage3Component,
+    RegisterHeaderComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClient, MoviesService],
   bootstrap: [AppComponent]
