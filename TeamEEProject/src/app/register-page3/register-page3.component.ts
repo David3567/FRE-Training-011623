@@ -1,6 +1,4 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 interface Plan {
   [key: string]: string | number | boolean;
@@ -10,9 +8,7 @@ interface Plan {
   selector: 'app-register-page3',
   templateUrl: './register-page3.component.html',
   styleUrls: ['./register-page3.component.css'],
-  inputs: ['nextFn', 'prevFn'],
-  standalone: true,
-  imports: [FormsModule, CommonModule]
+  inputs: ['nextFn', 'prevFn']
 })
 export class RegisterPage3Component {
   @Input() nextFn!: Function;

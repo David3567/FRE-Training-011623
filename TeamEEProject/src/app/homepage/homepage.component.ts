@@ -13,7 +13,7 @@ export class HomepageComponent {
       this.movies = movies;
       console.log(this.movies)
     })
-    this.moviesService.discoverMovies({page:2});
+    this.moviesService.discoverMovies({page:2}).subscribe();
   }
   constructor(private moviesService: MoviesService) {
   }

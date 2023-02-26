@@ -1,35 +1,46 @@
-import { Component, Input, isStandalone, Output, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Input, isStandalone, Output, NgModule, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-page1',
   templateUrl: './register-page1.component.html',
   styleUrls: ['./register-page1.component.css'],
-  inputs: ['nextFn', 'prevFn'],
-  imports: [FormsModule],
-  standalone: true
+  inputs: ['nextFn', 'prevFn']
 })
-export class RegisterPage1Component {
+export class RegisterPage1Component implements OnInit {
+  form!: FormGroup;
   password: string = '';
   confirm_password: string = "";
   @Input() nextFn!: Function;
   @Input() prevFn!: Function;
   @Input() updateFn!: Function;
+  displayErrors: boolean = false;
 
-  validate () {
-    if (this.password === this.confirm_password) {
-      console.log("Passwords match");
-      return true;
+
+
+  constructor(private fb:FormBuilder) { }
+
+  ngOnInit(): void { 
+    this.form = this.fb.group({
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirm_password: ['', [Validators.required, Validators.minLength(8) ]]
+    }, {validator: this.validate.bind(this)})
+  }
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    const password = control.get('password');
+    const confirm_password = control.get('confirm_password');
+    if (password?.value !== confirm_password?.value) {
+      return {passwordsDontMatch: true};
     }
-    else {
-      console.log("Passwords do not match");
-      return false;
-    }
+    return null;
   }
   finish () {
-    if (this.validate()) {
-      this.updateFn({password: this.password})
+    if (this.form.valid) {
+      this.updateFn({password: this.form.value.password})
       this.nextFn();
+    } else {
+      this.displayErrors = true;
     }
   }
 }

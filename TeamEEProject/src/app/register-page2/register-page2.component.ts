@@ -1,29 +1,34 @@
-import { Component, importProvidersFrom, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { Component, importProvidersFrom, Input, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register-page2',
   templateUrl: './register-page2.component.html',
   styleUrls: ['./register-page2.component.css'],
-  inputs: ['nextFn', 'prevFn'],
-  standalone: true,
-  imports: [FormsModule]
+  inputs: ['nextFn', 'prevFn']
 })
-export class RegisterPage2Component {
+export class RegisterPage2Component implements OnInit{
   @Input() nextFn!: Function;
   @Input() prevFn!: Function;
   @Input() updateFn!: Function;
-  api: string = "";
-  username: string = "";
+  form!: FormGroup;
+  displayErrors: boolean = false;
 
-  validate () {
-    return true;
+
+  constructor(private fb:FormBuilder) { }
+
+  ngOnInit(): void { 
+    this.form = this.fb.group({
+      api: ['', [Validators.required]],
+      username: ['', [Validators.required]]
+    })
   }
 
   finish() {
-    if (this.validate()) {
-      this.updateFn({tmbd_key: this.api, username: this.username})
+    if (this.form.valid){
+      this.updateFn({tmbd_key: this.form.value.api, username: this.form.value.username})
       this.nextFn();
+    } else {
+      this.displayErrors = true;
     }
   }
 }

@@ -1,6 +1,7 @@
 form {
     margin:auto;
-    width: 50%;
+    width: 35em;
+    max-width: 90%;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 16px;
@@ -42,3 +43,13 @@ h2 {
     font-weight: bold;
     margin: 0 0 1em 0;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+label {
+    text-align: left;
+}
+
