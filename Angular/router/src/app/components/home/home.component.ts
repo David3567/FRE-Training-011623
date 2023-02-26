@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     this.returnUrl = this.activatedRoute.snapshot.queryParamMap.get(
       'url'
     ) as string;
-    console.log(this.returnUrl);
+    console.log('home');
   }
 
   toProduct() {

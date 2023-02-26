@@ -11,11 +11,13 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   // { path: 'product', component: ProductComponent },
+  // { path: 'product/:id', component: ProductDetailComponent },
 
   {
     path: 'product',
+    component: ProductComponent,
     children: [
-      { path: '', component: ProductComponent, canActivate: [ProductGuard] },
+      // { path: '', component: ProductComponent },
       { path: ':id', component: ProductDetailComponent },
     ],
   },

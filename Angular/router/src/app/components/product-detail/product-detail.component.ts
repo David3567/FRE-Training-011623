@@ -19,19 +19,19 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // console.log('params: ', this.activatedRoute.snapshot.params);
+    // console.log('params: ', this.activatedRoute.snapshot.params?.['name']);
 
-    // const id = this.activatedRoute.snapshot.params?.['id'];
-    // this.product = this.productService.getProduct(id);
+    const id = this.activatedRoute.snapshot.params?.['id'];
+    this.product = this.productService.getProduct(id);
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    this.sub = this.activatedRoute.paramMap.subscribe((params) => {
-      const id = params.get('id');
-      if (id) {
-        this.product = this.productService.getProduct(id);
-      }
-    });
+    // this.sub = this.activatedRoute.paramMap.subscribe((params) => {
+    //   const id = params.get('id');
+    //   if (id) {
+    //     this.product = this.productService.getProduct(id);
+    //   }
+    // });
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
