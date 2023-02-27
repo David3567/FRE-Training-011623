@@ -20,7 +20,7 @@ export class Product1Component implements OnInit {
     console.log('ngOnInit');
 
     this.productService.getProducts().subscribe((data) => {
-      this.products = data;
+      this.products = data.reverse();
     });
   }
 }
