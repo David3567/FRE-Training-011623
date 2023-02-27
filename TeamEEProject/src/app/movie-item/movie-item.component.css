@@ -6,6 +6,10 @@
   color: white;
 
 }
+
+img {
+  width: 60%;
+}
 .content{
   display: flex, center;
   margin: 10%; 

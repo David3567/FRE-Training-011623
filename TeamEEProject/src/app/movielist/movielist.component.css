@@ -3,3 +3,12 @@ hr {
     margin: 0;
     z-index: 10000;
 }
+.movielist {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+app-movie-item {
+    width: 25%;
+}
