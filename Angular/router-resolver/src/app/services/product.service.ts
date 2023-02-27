@@ -22,7 +22,7 @@ export class ProductService {
 
   getProduct(id: string): Observable<Product | null> {
     const product = this.products.find((i) => +i.productID === +id);
-    if (product) return of(product).pipe(delay(1500));
+    if (product) return of(product).pipe(delay(3000));
 
     return of(null);
   }

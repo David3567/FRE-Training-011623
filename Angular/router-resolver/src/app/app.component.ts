@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Routing Module: router-resolver';
 
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   switchTo(userRole: 'User' | 'Super' | 'Admin') {
     const nameList = ['Velen', 'Illidan', 'Muradin', 'Sylvanas'];

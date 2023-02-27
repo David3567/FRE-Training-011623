@@ -18,13 +18,10 @@ import { Product1DetailComponent } from './components/product1-detail/product1-d
     Product1Component,
     Product2Component,
     Product2DetailComponent,
-    Product1DetailComponent
+    Product1DetailComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

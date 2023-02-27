@@ -17,6 +17,8 @@ export class AuthService {
     return this.currentUser$.value;
   }
 
+  loading$ = new BehaviorSubject(false);
+
   constructor() {}
 }
 

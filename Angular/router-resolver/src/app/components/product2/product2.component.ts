@@ -12,12 +12,12 @@ export class Product2Component {
   public products!: Product[];
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private productService: ProductService
   ) {}
 
   ngOnInit() {
     console.log('product2 init');
-    this.products = this.route.snapshot.data['products'];
+    this.products = this.activatedRoute.snapshot.data['products']; // 'products'
   }
 }

@@ -7,6 +7,7 @@ import { Product1Component } from './components/product1/product1.component';
 import { Product2DetailComponent } from './components/product2-detail/product2-detail.component';
 import { Product2Component } from './components/product2/product2.component';
 import { ProductListResolver } from './services/product-list.resolver';
+import { ProductGuard } from './services/product.guard';
 
 import { ProductResolver } from './services/product.resolver';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   {
     path: 'product1',
     component: Product1Component,
+    canActivate: [ProductGuard],
   },
   {
     path: 'product2',
