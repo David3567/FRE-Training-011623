@@ -51,8 +51,14 @@ export class MoviesService {
     return this.http
       .get<MoviesServiceResponse>(url)
       .pipe(
-        tap((movies: MoviesServiceResponse) =>
+        tap((movies: MoviesServiceResponse) => {
+          movies.results = movies.results?.map((movie) => {
+            movie.poster_path = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            movie.backdrop_path = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
+            return movie
+          })
           this.movies$.next(movies.results as Movie[])
+        }
         )
       )
   }
