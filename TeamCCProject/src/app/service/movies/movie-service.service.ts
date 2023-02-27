@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, of, Subject, tap } from 'rxjs';
-import { Movie, ApiData } from '../interface/movie-interface';
+import { Movie, ApiData, MovieDetail, RootObject } from '../interface/movie-interface';
 
 // example "https://api.themoviedb.org/3/movie/upcoming?api_key=add383172f3c204e39552dc7a72bc49c&language=en-US&page=1"
+// example id "https://api.themoviedb.org/3/movie/646389?api_key=add383172f3c204e39552dc7a72bc49c"
+const idBaseUrl : string = "https://api.themoviedb.org/3/movie/"
 const baseUrl : string = "https://api.themoviedb.org/3/movie/upcoming?"
 const DanielApiKey : string = "api_key=add383172f3c204e39552dc7a72bc49c"
 const AriaApiKey : string = "api_key=a9c291520b450b9f1145350f124d2d2b"
@@ -16,6 +18,26 @@ export class MovieServiceService {
 
   MovieList : Movie[] = [];
   MovieList$ = new Subject<Movie[]>();
+
+  MovieDetail: MovieDetail = {
+    adult: false,
+    img: '',
+    budget: 0,
+    id: 0,
+    language: '',
+    title: '',
+    description: '',
+    popularity: 0,
+    date: '',
+    revenue: 0,
+    runtime: 0,
+    status: '',
+    tagline: '',
+    video: false,
+    vote_average: 0,
+    vote_count: 0
+  };
+  MovieDetail$ = new Subject<MovieDetail>();
 
   constructor(private http: HttpClient) { }
 
@@ -47,5 +69,34 @@ export class MovieServiceService {
       })
     )
   }
-
+  getMovieByID(id: string){
+    return this.http.get<ApiData>(idBaseUrl + id + "?" + AriaApiKey).pipe(
+      tap((data: any) =>{
+        this.MovieDetail = {
+          adult: data.adult,
+          img: data.backdrop_path,
+          budget: data.budget,
+          id: data.id,
+          language: data.original_language,
+          title: data.title? data.title : data.original_title,
+          description: data.overview,
+          popularity: data.popularity,
+          date: data.release_date,
+          revenue: data.revenue,
+          runtime: data.runtime,
+          status: data.status,
+          tagline: data.tagline,
+          video: data.video,
+          vote_average: data.vote_average,
+          vote_count: data.vote_count
+        } as MovieDetail
+        this.MovieDetail$.next(this.MovieDetail);
+        console.log(this.MovieDetail);
+      }),
+      catchError((err : any) =>{
+        console.log(err);
+        return err
+      })
+    )
+  }
 }
