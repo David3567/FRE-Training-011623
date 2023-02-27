@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
 import { Product } from 'src/app/model/Product.class';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,15 +12,18 @@ export class Product1Component implements OnInit {
   products: Product[] = [];
 
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
     private productService: ProductService
-  ) {}
+  ) {
+    this.router.events.subscribe((event) => console.log(event));
+  }
 
   ngOnInit() {
-    console.log('ngOnInit');
-
     this.productService.getProducts().subscribe((data) => {
-      this.products = [...data.reverse()];
+      if (data && data.length) {
+        this.products = data.reverse();
+      }
     });
   }
 }
