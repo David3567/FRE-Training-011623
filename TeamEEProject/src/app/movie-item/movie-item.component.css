@@ -1,0 +1,53 @@
+*{
+  box-sizing: border-box;
+}
+.movie-card{
+  background-color: black;
+  color: white;
+
+}
+.content{
+  display: flex, center;
+  margin: 10%; 
+}
+.poster_img{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 50px;
+}
+
+.movie_info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.release_date{
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: rgba(163, 4, 4, 0.945);
+  border-radius: 15px;
+}
+.original_language{
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: rgba(163, 4, 4, 0.945);;
+  border-radius: 15px;
+}
+.rate{  
+  color: rgb(5, 243, 152);
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: rgba(163, 4, 4, 0.945);;
+  border-radius: 15px;
+
+}
+.more_details{
+  color: white;
+  background-color: transparent;
+  border-color: white;
+  margin-bottom: 50px;
+  padding: 10px;
+  border: solid, thin;
+}
