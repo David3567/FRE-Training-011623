@@ -24,10 +24,10 @@ export class ProductService {
     return of(this.products).pipe(delay(1500));
   }
 
-  getProduct(id: string): Observable<Product> | null {
+  getProduct(id: string): Observable<Product | null> {
     const product = this.products.find((i) => +i.productID === +id);
     if (product) return of(product).pipe(delay(1500));
 
-    return null;
+    return of(null);
   }
 }
