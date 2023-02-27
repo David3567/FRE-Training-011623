@@ -13,8 +13,8 @@ export class AppComponent {
 
   switchTo(userRole: 'User' | 'Super' | 'Admin') {
     const nameList = ['Velen', 'Illidan', 'Muradin', 'Sylvanas'];
-    const i = Math.floor(Math.random() * nameList.length);
-    const userName = nameList[i];
+    const userName = nameList[Math.floor(Math.random() * nameList.length)];
+
     const user = new User(userName, Role[userRole], `${userName}@gmail.com`);
 
     this.authService.user = user;

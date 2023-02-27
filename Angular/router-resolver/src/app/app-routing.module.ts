@@ -7,12 +7,16 @@ import { Product1Component } from './components/product1/product1.component';
 import { Product2DetailComponent } from './components/product2-detail/product2-detail.component';
 import { Product2Component } from './components/product2/product2.component';
 import { ProductListResolver } from './services/product-list.resolver';
+
 import { ProductResolver } from './services/product.resolver';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'product1', component: Product1Component },
+  {
+    path: 'product1',
+    component: Product1Component,
+  },
   {
     path: 'product2',
     component: Product2Component,
