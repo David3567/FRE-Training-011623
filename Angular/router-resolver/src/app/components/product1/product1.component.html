@@ -1,6 +1,6 @@
 <h1 style="color: blue">Without Resolve</h1>
-<div *ngIf="!products || !products.length">Loading...</div>
-<div class="table-responsive" *ngIf="products.length">
+<div *ngIf="products.length === 0">Loading...</div>
+<div class="table-responsive" *ngIf="products.length !== 0">
   <table class="table">
     <thead>
       <tr>
@@ -11,8 +11,8 @@
     <tbody>
       <tr *ngFor="let product of products">
         <td>
-          <a [routerLink]="['/product1', product.productID]"
-            >{{ product.name }}
+          <a [routerLink]="['/product1', product.productID]">
+            {{ product.name }}
           </a>
         </td>
         <td>{{ product.price }}</td>

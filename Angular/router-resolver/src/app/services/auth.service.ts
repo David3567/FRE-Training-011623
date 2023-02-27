@@ -6,10 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private currentUser$: BehaviorSubject<User> = new BehaviorSubject(
-    new User(1, 'Tom', Role.Use, 'Tom@gmail.com')
+    new User('Tom', Role.User, 'Tom@gmail.com')
   );
 
   set user(newUser: User) {
+    console.log(newUser);
     this.currentUser$.next(newUser);
   }
   get user(): User {
@@ -20,16 +21,11 @@ export class AuthService {
 }
 
 export enum Role {
-  Use = 'user',
+  User = 'user',
   Super = 'super',
   Admin = 'admin',
 }
 
 export class User {
-  constructor(
-    public id: number,
-    public name: string,
-    public role: Role,
-    public email: string
-  ) {}
+  constructor(public name: string, public role: Role, public email: string) {}
 }

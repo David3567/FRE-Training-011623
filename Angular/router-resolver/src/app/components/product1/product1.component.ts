@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product1.component.scss'],
 })
 export class Product1Component implements OnInit {
-  public products!: Product[];
+  products: Product[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -20,7 +20,7 @@ export class Product1Component implements OnInit {
     console.log('ngOnInit');
 
     this.productService.getProducts().subscribe((data) => {
-      this.products = data.reverse();
+      this.products = [...data.reverse()];
     });
   }
 }

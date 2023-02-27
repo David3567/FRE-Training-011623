@@ -17,6 +17,7 @@ export class Product2Component {
   ) {}
 
   ngOnInit() {
+    console.log('product2 init');
     this.products = this.route.snapshot.data['products'];
   }
 }
