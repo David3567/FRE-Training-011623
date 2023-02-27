@@ -16,7 +16,7 @@ export class Product1Component implements OnInit {
     private activatedRoute: ActivatedRoute,
     private productService: ProductService
   ) {
-    this.router.events.subscribe((event) => console.log(event));
+    // this.router.events.subscribe((event) => console.log(event));
   }
 
   ngOnInit() {
