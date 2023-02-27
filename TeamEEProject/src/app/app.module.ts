@@ -16,6 +16,8 @@ import { RegisterPage2Component } from './register-page2/register-page2.componen
 import { RegisterPage3Component } from './register-page3/register-page3.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterHeaderComponent } from './register-header/register-header.component';
+import { MovielistComponent } from './movielist/movielist.component';
+import { MovieItemComponent } from './movie-item/movie-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { RegisterHeaderComponent } from './register-header/register-header.compo
     RegisterPage1Component,
     RegisterPage2Component,
     RegisterPage3Component,
-    RegisterHeaderComponent
+    RegisterHeaderComponent,
+    MovielistComponent,
+    MovieItemComponent
+
   ],
   imports: [
     BrowserModule,
