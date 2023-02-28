@@ -1,5 +1,4 @@
-import { Router } from './../../../services/node_modules/@types/express-serve-static-core/index.d';
-import { InjectionToken, NgModule } from '@angular/core';
+import { InjectionToken, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,8 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TestsubjectComponent } from './testsubject/testsubject.component';
 import { TodoService } from './services/todo.service';
-import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './Ngrx/todos.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from './Ngrx/todos.effects';
 
 export const BaseUrl = new InjectionToken<string>('');
 
@@ -23,7 +26,21 @@ export const BaseUrl = new InjectionToken<string>('');
     TestsubjectComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    StoreModule.forRoot({
+      todos: todoReducer,
+      // products: productsReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      name: 'Todos Demo',
+    }),
+    EffectsModule.forRoot([TodoEffects]),
+  ],
   providers: [
     TodoService,
     { provide: BaseUrl, useValue: 'https://jsonplaceholder.typicode.com' },
