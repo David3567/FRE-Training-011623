@@ -6,12 +6,16 @@
         <h1>Create a password to start your membership</h1>
         <p>Just a few more steps and you're done!</p>
         <p>We hate paperwork, too.</p>
-        <form>
-            <input type="email" placeholder="Email">
-            <p>Email is required!</p>
-            <input type="password" placeholder="Add a password">
-            <p>Password is required!</p>
-            <button>Next</button>
+        <form [formGroup]="registerForm1" (ngSubmit)="onSubmit()" novalidate>
+            <input type="email" placeholder="Email" formControlName="email">
+            <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                <p>Email is required!</p>
+            </div>
+            <input type="password" placeholder="Add a password" formControlName="password">
+            <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                <p>Your password must contain between 4 and 60 characters.!</p>
+            </div>
+            <button [disabled]="!registerForm1?.valid">Next</button>
         </form>
     </div>
 </main>
