@@ -1,0 +1,16 @@
+mat-form-field {
+  width: 100%;
+  margin-top: 1rem;
+  background-color: blue;
+}
+
+input {
+  background-color: red;
+  height: 50px;
+  width: 100%;
+}
+
+::ng-deep .bookinput .mat-mdc-text-field-wrapper {
+  background-color: yellow;
+  width: 100%;
+}

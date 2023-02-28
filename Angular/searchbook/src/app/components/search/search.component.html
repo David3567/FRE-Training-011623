@@ -4,11 +4,19 @@
   #inputbook
   placeholder="search you book..."
 /> -->
-
 <form [formGroup]="form">
-  <input
-    type="text"
-    placeholder="search you book..."
-    formControlName="bookinput"
-  />
+  <mat-form-field appearance="fill" class="bookinput">
+    <mat-label>Input your Book Name: </mat-label>
+    <input
+      matInput
+      placeholder="Placeholder"
+      type="text"
+      placeholder="search you book..."
+      formControlName="bookinput"
+    />
+    <mat-icon matSuffix>bookmark_border</mat-icon>
+    <mat-hint
+      >Each Typing will trigger request base on your input keyword</mat-hint
+    >
+  </mat-form-field>
 </form>

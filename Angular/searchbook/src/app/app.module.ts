@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { BooklistComponent } from './components/booklist/booklist.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
