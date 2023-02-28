@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<main>
+    <div class="container">
+        <p>STEP 2 OF 3</p>
+        <h1>Create a Username and Add your Tmdb Api_Key</h1>
+        <p>Just a few more steps and you're done!</p>
+        <p>We hate paperwork, too.</p>
+        <form [formGroup]="registerForm2" (ngSubmit)="onSubmit()" novalidate>
+            <label>Username</label>
+            <input type="string" placeholder="Add a username" formControlName="username">
+            <div *ngIf="!username?.valid && (username?.dirty || username?.touched)">
+                <p>Username is required!</p>
+            </div>
+            <label>Tmdb Api_Key</label>
+            <input type="string" placeholder="Add a Tmdb Api_Key" formControlName="api_key">
+            <div *ngIf="!api_key?.valid && (api_key?.dirty || api_key?.touched)">
+                <p>Tmdb Api_Key is required!</p>
+            </div>
+            <button [disabled]="!registerForm2?.valid">Next</button>
+        </form>
+    </div>
+</main>

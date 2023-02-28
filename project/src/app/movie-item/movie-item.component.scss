@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main {
+    width: 260px;
+    margin: 10px;
+    background-color: black;
+    color: white;
+}
+.img-container {
+    display: flex;
+    justify-content: end;
+}
+img {
+    width: 50%;
+    margin: 10px;
+}
+.info-container {
+    margin: 10px;
+}
+h4 {
+    margin-top: 10px;
+}
+.year-language-score-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+p {
+    color: white;
+    background-color: brown;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}
+button {
+    background-color: transparent;
+    color: white;
+    width: 50%;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}

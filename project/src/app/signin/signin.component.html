@@ -1,0 +1,27 @@
+<div>
+    <img src="../../assets/logo.png" alt="logo">
+</div>
+<main>
+    <div class="form-container">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h1>sign in</h1>
+            <input placeholder="Email or phone number" class="info" formControlName="email">
+            <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                <p>Please enter a valid email</p>
+            </div>
+            
+            <input placeholder="Password" class="info" formControlName="password">
+            <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                <p>Your password must contain between 4 and 60 characters.</p>
+            </div>
+            <button [disabled]="!loginForm?.valid">sign in</button>
+            <div class="remember-help-container">
+                <span><input type="checkbox" name="remember-me" value="remember me" checked id="checkbox">Remember Me</span>
+                <a id="help">Need help?</a>
+            </div>
+            
+            <p class="signup">New to Notflix? <a id="signup">Sign up now</a></p>
+            <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a id="learnmore">Learn more.</a></p>
+        </form>
+    </div>
+</main>
