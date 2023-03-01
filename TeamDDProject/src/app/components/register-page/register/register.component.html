@@ -6,17 +6,40 @@
     <p>Just a few more steps and you're done!</p>
     <p>We hate paperwork, too.</p>
     <br>
-    <div class="form-group">
-      <input type="email" name="name" id="email" class="form-control" placeholder="Enter your email">
+    <div class="userInputContainer">
+      <form [formGroup]="registerForm1" (ngSubmit)="onSubmit()" novalidate>
+        <p>
+          <!-- <label for="email">Email </label> -->
+          <input type="text" id="email" name="email" formControlName="email" placeholder="Email or phone number *">
+        </p>
+        <div
+          *ngIf="registerForm1.get('email')?.invalid && (registerForm1.get('email')?.dirty || registerForm1.get('email')?.touched)">
+          <div [hidden]="!registerForm1.get('email')?.errors?.['required']">
+            Email is required
+          </div>
+          &nbsp;
+          <div [hidden]="!registerForm1.get('email')?.errors?.['email']">
+            Invalid email format
+          </div>
+        </div>
+
+        <p>
+          <!-- <label for="password">Password </label> -->
+          <input type="text" id="password" name="password" formControlName="password"
+            placeholder="password or phone number *">
+        </p>
+        <div
+          *ngIf="registerForm1.get('password')?.invalid && (registerForm1.get('password')?.dirty || registerForm1.get('password')?.touched)">
+          <div [hidden]="!registerForm1.get('password')?.errors?.['required']">
+            password is required
+          </div>
+        </div>
+        <p>
+          <button class="nextButton" type="submit" [disabled]="!registerForm1.valid">Next</button>
+        </p>
+      </form>
     </div>
-    <br>
-    <div class="form-group">
-      <input type="password" name="name" id="password" class="form-control" placeholder="Enter your password">
-    </div>
-    <br>
-    <div>
-      <button type="next" class="nextButton">Next</button>
-    </div>
+
   </form>
   <!-- <app-footer></app-footer> -->
 </div>

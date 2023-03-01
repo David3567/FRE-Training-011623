@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { groupBy } from 'rxjs/internal/operators/groupBy';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -17,6 +16,10 @@ export class LoginPageComponent {
   }
   get email() {
     return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
   }
 
   onSubmit() {

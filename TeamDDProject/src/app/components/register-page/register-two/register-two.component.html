@@ -6,16 +6,33 @@
     <p>Just a few more steps and you are done!</p>
     <p>We hate paperwork, too.</p>
     <br>
-    <div class="form-group">
-      <input type="text" name="Username" id="Username" class="form-control" placeholder="Enter your name">
-    </div>
-    <br>
-    <div class="form-group">
-      <input type="text" name="Api_Key" id="Api_Key" class="form-control" placeholder="Enter your Tmdb Api_Key">
-    </div>
-    <br>
-    <div>
-      <button type="next" class="nextButton">Next</button>
+    <div class="userInputContainer">
+      <form [formGroup]="registerForm2" (ngSubmit)="onSubmit()" novalidate>
+        <p>
+          <input type="text" id="username" name="username" formControlName="username"
+            placeholder="Username or phone number *">
+        </p>
+        <div
+          *ngIf="registerForm2.get('username')?.invalid && (registerForm2.get('username')?.dirty || registerForm2.get('username')?.touched)">
+          <div [hidden]="!registerForm2.get('username')?.errors?.['required']">
+            username is required
+          </div>
+        </div>
+
+        <p>
+          <input type="text" id="tmdbApiKey" name="Tmdb Api Key" formControlName="tmdbApiKey"
+            placeholder="Tmdb Api Key or phone number *">
+        </p>
+        <div
+          *ngIf="registerForm2.get('tmdbApiKey')?.invalid && (registerForm2.get('tmdbApiKey')?.dirty || registerForm2.get('tmdbApiKey')?.touched)">
+          <div [hidden]="!registerForm2.get('tmdbApiKey')?.errors?.['required']">
+            Tmdb Api Key is required
+          </div>
+        </div>
+        <p>
+          <button class="nextButton" type="submit" [disabled]="!registerForm2.valid">Next</button>
+        </p>
+      </form>
     </div>
   </form>
   <!-- <app-footer></app-footer> -->
