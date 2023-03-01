@@ -1,0 +1,14 @@
+<div class="movie-item">
+  <app-header></app-header>
+
+  <div class="movie-info">
+    <h1>{{ movie.title }}</h1>
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+
+    <p>{{ movie.overview }}</p>
+    <p>Release Date: {{ movie.release_date | date }}</p>
+    <p>Rating: {{ movie.vote_average }}</p>
+
+    <button class="watch-trailer-btn" (click)="watchTrailer(movie.id)">Watch Trailer</button>
+  </div>
+</div>

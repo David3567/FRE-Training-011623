@@ -1,0 +1,35 @@
+<!-- <img [src]="imageUrl" > -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<body>
+    <div class="container">
+      <div class="logo">JTDANFLIX</div>
+      <div class="message">
+        <h1>{{ message }}</h1>
+        <br />
+        <p class="center">Watch anywhere. Cancel anytime.</p>
+        <br />
+        <p class="center">Ready to watch? Enter your email to create or restart your membership.</p>
+      </div>
+      <br />
+      <button class="login-button" (click)="navigateToLogin()">Login</button>
+      <br />
+      <form class="email-form">
+        <input type="email" placeholder="Enter your email address" required/>
+        <br />
+        <button class="get-started-button" (click)="validateEmail()">Get Started ></button>
+      </form>
+    </div>
+    </body>
+<!-- <script>
+    function validateEmail() {
+      const email = document.getElementById("email").value;
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      
+      if (email.match(emailRegex)) {
+        alert("Valid email address");
+        // Add your code here to submit the form or perform other actions
+      } else {
+        alert("Invalid email address");
+      }
+    }
+    </script> -->

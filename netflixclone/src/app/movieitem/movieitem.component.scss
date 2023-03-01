@@ -1,0 +1,45 @@
+.movie-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.movie-info {
+  direction: ltr;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.movie-info h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.movie-info p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.movie-info img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.watch-trailer-btn {
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.watch-trailer-btn:hover {
+  background-color: #b2070e;
+}

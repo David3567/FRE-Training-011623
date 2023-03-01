@@ -1,0 +1,22 @@
+
+  
+<div class="movie-list">
+    
+    <app-header ></app-header>
+    <div class="movie-card" *ngFor="let movie of movies"(click)="goToMovieDetails(movie.id)">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}">
+      <div class="movie-info">
+        <h2>{{ movie.title }}</h2>
+        <p class="release-date">{{ movie.release_date | date }}</p>
+        <p class="rating">{{ movie.vote_average }}</p>
+        <p class="overview">{{ movie.overview }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="PageButtons">
+    <button class="load-more-btn" (click)="loadMore()">Next Page</button>
+    <button class="previousPage" *ngIf="page > 1" (click)="loadMore()">Previous page</button>
+  </div>
+  
+
+  
