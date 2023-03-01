@@ -5,20 +5,33 @@
 <main class="container">  
   <h2>Sign In</h2>
   <body>
-    <form class="sign-up-form">
+    <form class="sign-up-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <input 
         class="user-name"
         type="text"
-        name="username"
+        name="userName"
         placeholder="Email or phone number"
+        formControlName="userName" 
       />
+      <div *ngIf="loginForm.get('userName')?.invalid && (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched)">
+        <div *ngIf="loginForm.get('userName')?.errors?.['required']">Username is required.</div>
+        <div *ngIf="loginForm.get('userName')?.errors?.['invalidUsername']">Invalid username format.</div>
+      </div>
+
+      
+    
       <input 
       class="password"
       type="password"
       name="password"
       placeholder="Password"
+      formControlName="password" 
       />
-      <button class="login-btn" type="submit">Sign In</button>
+      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</div>
+      </div>
+
+      <button class="login-btn" type="submit" [disabled]="loginForm.invalid">Sign In</button>
       <div class="login-help">
         <div class="binary-input">
           <input type="checkbox" name="rememberMe">
