@@ -13,12 +13,40 @@
   </div>
   <div class="container">
     <form>
-      <h1>Sign In</h1>
-      <input placeholder="Email or phone number" class="user-info">
-      <p>Please enter a valid email or phone number.</p>
-      <input placeholder="Enter your Password" class="user-info">
-      <p>Your password must contain between 4 and 60 characters.</p>
-      <button>Sign In</button>
+      <h1 style="text-align: center;">Sign In</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <p>
+          <label for="email">Email </label>
+          <input type="text" id="email" name="email" formControlName="email" placeholder="Email or phone number *">
+        </p>
+        <div
+          *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          <div [hidden]="!loginForm.get('email')?.errors?.['required']">
+            Email is required
+          </div>
+          &nbsp;
+          <div [hidden]="!loginForm.get('email')?.errors?.['email']">
+            Invalid email format
+          </div>
+        </div>
+
+        <p>
+          <label for="password">Password </label>
+          <input type="text" id="password" name="password" formControlName="password"
+            placeholder="password or phone number *">
+        </p>
+        <div
+          *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          <div [hidden]="!loginForm.get('password')?.errors?.['required']">
+            password is required
+          </div>
+        </div>
+        <p>
+          <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+        </p>
+
+      </form>
       <div class="remember-help-container">
         <span><input type="checkbox" name="remember-me" value="remember me" checked id="checkbox">Remember Me</span>
         <a href="#" id="help">Need help?</a>
