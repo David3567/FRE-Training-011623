@@ -27,6 +27,11 @@ p {
     font-size: 1.2rem;
 }
 
+form {
+    width: 60%;
+    padding-left: 20%;
+}
+
 input{
     width: 400px;
     height: 60px;
@@ -48,4 +53,11 @@ button {
 
 button:hover {
     background-color: rgb(186, 7, 7);
+}
+
+.invalid {
+    color:red;
+    font-size: 19.6px;
+    text-align: left;
+    padding-left: 10px;
 }

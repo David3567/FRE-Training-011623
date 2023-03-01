@@ -6,6 +6,20 @@
         <h1>Unlimited movies, TV shows, and more.</h1>
         <h2>Watch anywhere. Cancel anytime.</h2>
         <p>Ready to watch? Enter your email to create or reset your membership.</p>
-        <input type="text" name="email" placeholder="Email address"> <button>Get Started ></button>
+        <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+        <input type="text" id="email" formControlName="email" name="email" placeholder="Email address"> 
+        <button>Get Started ></button>
+        <div *ngIf="!email.valid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors?.['required']" class="invalid">
+                Email is required.
+            </div>
+            <div *ngIf="email.errors?.['pattern']" class="invalid">
+                Please input a valid email                                   
+            </div>
+            <div *ngIf="email.errors?.['hasEmail']" class="invalid">
+                This email is already exist, try another one!                                
+            </div>
+        </div>
+        </form>
     </div>
 </div>
