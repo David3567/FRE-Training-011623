@@ -21,6 +21,7 @@
           <div [hidden]="!registerForm1.get('email')?.errors?.['email']">
             Invalid email format
           </div>
+          <div *ngIf="email?.errors?.['emailExists']">Email already exists!</div>
         </div>
 
         <p>
