@@ -55,15 +55,59 @@ h2{
     font-size: 30px;
 }
 
-.sign_in form {
+/* .sign_in form {
     box-sizing: border-box; 
-}
+} */
+
+/* .hint{
+    font-size: 1rem;;
+    color: orange;
+} */
+
+mat-form-field,
+    .identification{
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    #email-input {
+        border-radius: 4px;
+        height: 50px;
+    }
+
+    #pw-input {
+        border-radius: 4px;
+        height: 50px;
+    }
+
+mat-label {
+    color:grey;
+  }
+
+/* ::ng-deep .mat-form-field{
+    background-color : yellow;
+  } */
+
+/* ::ng-deep .login_username{
+    background-color : white;
+  } */
+
+
+
+mat-error,
+        .login_error {
+          font-size: 1px;
+          color: rgb(232, 124, 3);
+        }
+
+
 
 form .identifies{
     position: relative;
-    border-bottom: 2px solid orange;
+    /* border-bottom: 2px solid orange; */
     margin: 30px 0;
 }
+
 
 .identifies input{
     width: 100%;
@@ -116,6 +160,7 @@ form .identifies{
 
 /*BUTTON*/
 input[type="submit"]{
+    margin-top: 20px;
     background-color: red;
     width:100%;
     border-radius: 5px;

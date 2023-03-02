@@ -1,1 +1,87 @@
-<app-login-page></app-login-page>
+<!-- <app-login-page></app-login-page> -->
+<div class="background">
+    <img class='background-image'
+      src='https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg'>
+  </div>
+  
+  
+  <h1>NOTFLIX</h1>
+  <div class="sign_in">
+    <h2>Sign In</h2>
+  
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login_form">
+  
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-icon matSuffix *ngIf="email?.valid">done</mat-icon>
+        <mat-error *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <span *ngIf="email?.hasError('required')">Email is required</span>
+        </mat-error>
+      </mat-form-field> -->
+     
+      <mat-form-field class="identification">
+        <mat-label>Email or phone number</mat-label>
+        <input type="email" matInput formControlName="email" id="email-input" />
+  
+        <mat-error
+          *ngIf="email?.hasError('email') && !email?.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email?.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="identification">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password"  id="pw-input"/>
+  
+        <mat-error
+          *ngIf="password?.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="password?.hasError('required')">
+          Please enter a valid password
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- <div class="identifies">
+  
+        <input type="text" required id="email" formControlName="email" (focus)="clicked = true">
+        <span></span>
+        <label>Email or phone number</label>
+  
+        <div class="hint" *ngIf="email?.invalid && (email?.touched || clicked)">
+          <div *ngIf="email?.hasError('required')">
+            Email is <strong>required</strong>
+          </div>
+          <div *ngIf="email?.hasError('email') && !email?.hasError('required')">
+            Please enter a valid email address
+          </div>
+        </div>
+      </div> -->
+  
+      <div class="signIn_button">
+        <input type="submit" id="sign-in" value="Sign In">
+      </div>
+  
+      <div class="other_option">
+        <div class="checkbox_remember">
+          <input type="checkbox" id="remember me">
+          <label value='remember me'>Remember me</label>
+        </div>
+        <div class="help">
+          <a href="#" class="text">Need help?</a>
+        </div>
+      </div>
+  
+      <div class="sign_up">
+        New to Notflix? <a href="#" class="text">Sign up now</a>.
+      </div>
+  
+      <div class="support">
+        This page is protected by Google reCAPTCHA to ensure you're not a bot.
+        <a href="#" class="text">Learn More.</a>
+      </div>
+    </form>
