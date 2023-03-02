@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterComponent } from './register.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -12,6 +13,7 @@ import { BoxDetailPriceComponent } from './components/box-detail-price/box-detai
 import { BoxDetailQualityComponent } from './components/box-detail-quality/box-detail-quality.component'
 import { BoxDetailResolutionComponent } from './components/box-detail-resolution/box-detail-resolution.component'
 import { PlanBoxComponent } from './components/plan-box/plan-box.component'
+
 
 const routes: Routes = [
   {
@@ -38,6 +40,6 @@ const routes: Routes = [
     BoxDetailResolutionComponent,
     PlanBoxComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes), ReactiveFormsModule ],
 })
 export class RegisterModule {}
