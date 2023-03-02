@@ -32,7 +32,10 @@ p{
 .form-group{
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: 50px;
+    max-height: 120px;
+    margin-bottom: 15px;
+    max-width: 423px;
 }
 .form-control{
     height: 100%;
@@ -62,4 +65,21 @@ p{
     /* float: left; */
     color: aliceblue;
     background-color: red;
+}
+.invalid{
+    color: red;
+    font-weight: bolder;
+}
+.NVnext{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-right: 5px;
+    /* height: 100%;
+    width: 100%; */
+    border-radius: 10px;
+    /* float: left; */
+    color: aliceblue;
+    background-color: gray;
 }
