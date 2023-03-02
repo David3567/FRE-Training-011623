@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { debounce, debounceTime, map, Observable, of } from 'rxjs';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.css']
+
 })
 export class SearchBarComponent implements OnInit {
   form!:FormGroup
