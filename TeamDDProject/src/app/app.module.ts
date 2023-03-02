@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     QAndAItemComponent,
     MovieItemComponent,
     MovieListComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,
