@@ -19,6 +19,8 @@ import { RegisterHeaderComponent } from './register-header/register-header.compo
 import { MovielistComponent } from './movielist/movielist.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 
+const API_BASE_URL = 'http://localhost:4231/';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,10 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
     CommonModule,
     ReactiveFormsModule
   ],
-  providers: [HttpClient, MoviesService],
+  providers: [HttpClient, MoviesService, {
+    provide: 'API_BASE_URL',
+    useValue: API_BASE_URL
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

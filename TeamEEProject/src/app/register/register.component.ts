@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 
 interface signupData {
@@ -26,10 +27,11 @@ export class RegisterComponent {
     }
     screen: number = 1;
 
-    constructor() { 
+    constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseUrl: string) { 
       this.next_screen = this.next_screen.bind(this);
       this.prev_screen = this.prev_screen.bind(this);
       this.update_data = this.update_data.bind(this);
+      this.submit_form = this.submit_form.bind(this);
     }
 
     next_screen() {
@@ -52,7 +54,7 @@ export class RegisterComponent {
     }
     
     submit_form() {
-      console.log(this.data);
+      this.http.post(this.baseUrl + 'auth/signup', this.data).subscribe( (data: any) => { console.log(data) });
     }
 
 }

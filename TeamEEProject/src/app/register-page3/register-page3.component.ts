@@ -24,6 +24,8 @@ export class RegisterPage3Component {
     ["watch", "Watch on any device"],
     ["downloads", "Download videos"]
   ]
+  planToEnum : {[key:string]:string}= { "Basic with ads": "USER", "Standard": "SUPERUSER", "Premium": "ADMIN" };
+
   plans: Plan[] = [
     {
       name: "Basic with ads",
@@ -75,8 +77,8 @@ export class RegisterPage3Component {
   }
 
   finish() {
-
-    this.updateFn({role: this.plans[this.planSelection]['name']});
+    const plan: string = this.plans[this.planSelection]['name'] as string;
+    this.updateFn({role: this.planToEnum[plan]});
     this.submitFn();
   }
 }
