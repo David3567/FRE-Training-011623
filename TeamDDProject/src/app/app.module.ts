@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { YoutubePlayerComponent } from '../app/components/youtube-player/youtube-player.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
@@ -45,6 +46,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     QAndAItemComponent,
     MovieItemComponent,
     MovieListComponent,
+    MovieDetailsComponent,
     YoutubePlayerComponent,
   ],
   imports: [
