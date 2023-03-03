@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/service/authService/auth-service.service';
 import { Plans } from 'src/app/service/interface/movie-interface';
 
 @Component({
@@ -34,6 +36,7 @@ export class RegisterPageThreeComponent {
       select : false,
     }
   ]
+  constructor(private router: Router, private userServer:AuthServiceService){}
   category : string[] = ['Monthly Price', 'Video quality', 'Resolution', 'Watch on your TV, computer, mobile phone and tablet', 'Downloads']
   changeSelect(namep: string){
     this.select = namep;
@@ -45,5 +48,9 @@ export class RegisterPageThreeComponent {
         ele.select = false;
       }
     })
+  }
+  onNext(){
+    this.userServer.addNewUser({role: this.select})
+    this.router.navigate(['/home']);
   }
 }
