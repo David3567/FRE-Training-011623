@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, Subject, tap } from 'rxjs';
-import { Movie, ApiData } from './interface/movie-interface';
+import { Movie, ApiData, Video } from './interface/movie-interface';
 import { MovieDetails } from './interface/movie-details-interface';
 
 // example "https://api.themoviedb.org/3/movie/upcoming?api_key=b58da010083caad9ac63eee587b4999a&language=en-US&page=1"
@@ -55,7 +55,7 @@ export class MovieServiceService {
   };
 
   // https://api.themoviedb.org/3/movie/315162/videos?api_key=b58da010083caad9ac63eee587b4999a&language=en-US
-  getVideosById(id: string) {
+  getVideosById(id: number) {
     const getVideoUrl = `${this.idBaseUrl}${id}/videos?api_key=${this.miffyApiKey}&language=en-US`;
     return this.http.get<ApiData>(getVideoUrl).pipe(
       tap((data) => {

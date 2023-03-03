@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Video } from 'src/app/interface/movie-interface';
 import { MovieServiceService } from 'src/app/movie-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,17 +11,28 @@ import { MovieServiceService } from 'src/app/movie-service.service';
 })
 export class YoutubePlayerComponent implements OnInit{
   name = "Angular";
-  id = '315162'
+  
+  // id = 315162
+  // id!: string;
   videos: Video[] = [];
-  constructor(private movieService: MovieServiceService) {}
+  movieId!: number;
+  constructor(
+    private movieService: MovieServiceService,
+    private route: ActivatedRoute
+    ) {}
   ngOnInit() {
+    console.log('run')
     // const tag = document.createElement("script");
     // tag.src = "https://www.youtube.com/iframe_api";
     // document.body.appendChild(tag);
-    this.movieService.getVideosById(this.id).subscribe();
-    this.movieService.VideoList$.subscribe((data: Video[]) => {
-      this.videos = data;
-      console.log('hhhhh')
+    this.route.params.subscribe(params => {
+      this.movieId = params['id'];
+      console.log(this.movieId)
+      this.movieService.getVideosById(this.movieId).subscribe();
+      this.movieService.VideoList$.subscribe((data: Video[]) => {
+        this.videos = data;
+        console.log(this.videos)
+    })
     });
   }
 

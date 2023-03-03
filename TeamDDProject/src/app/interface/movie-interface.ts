@@ -8,7 +8,7 @@ export interface Video {
   type: string;
   official: boolean,
   published_at: string;
-  id: string;
+  id: number;
 }
 
 

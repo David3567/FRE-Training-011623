@@ -1,5 +1,5 @@
-<div class="container"
-    [style.background-image]="'url(https://image.tmdb.org/t/p/original'+movieDetails.backdrop_path+')'">
+<div class="container" 
+    >
     <div class="content">
         <h1>{{movieDetails.title}}</h1>
         <span class="genres" *ngFor="let genre of movieDetails.genres; let last = last">{{genre.name}}{{last
@@ -17,7 +17,10 @@
             <p>{{movieDetails.overview}}</p>
         </div>
         <div class="button">
-            <button mat-stroked-button id="trailer">Play trailer</button>
+            <button mat-stroked-button id="trailer" (click)="goToPlayer()">Play trailer</button>
         </div>
     </div>
 </div>
+
+
+<!-- [style.background-image]="'url(https://image.tmdb.org/t/p/original'+movieDetails.backdrop_path+')'" -->

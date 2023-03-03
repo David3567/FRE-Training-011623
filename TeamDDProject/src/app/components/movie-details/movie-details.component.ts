@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieServiceService } from 'src/app/movie-service.service';
 import { MovieDetails } from 'src/app/interface/movie-details-interface';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -10,10 +12,11 @@ import { MovieDetails } from 'src/app/interface/movie-details-interface';
 })
 
 export class MovieDetailsComponent {
+  // movieId = 123
   movieId!: number;
   movieDetails!: MovieDetails;
 
-  constructor(private movieService: MovieServiceService, private route: ActivatedRoute) { }
+  constructor(private movieService: MovieServiceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -28,5 +31,10 @@ export class MovieDetailsComponent {
       this.movieDetails = data;
       console.log(this.movieDetails);
     });
+  }
+
+
+  goToPlayer(): void{
+    this.router.navigate([`movies/:id/videos`]);
   }
 }
