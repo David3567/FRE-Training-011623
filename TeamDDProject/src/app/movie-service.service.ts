@@ -40,7 +40,7 @@ export class MovieServiceService {
         }));
         this.MovieList = movies;
         this.MovieList$.next(movies);
-        console.log(movies);
+        // console.log(movies);
       }),
       catchError((err: any) => {
         console.log(err);
@@ -50,7 +50,7 @@ export class MovieServiceService {
   }
 
   getMovieDetails(movieId: number): Observable<MovieDetails>{
-    const url = `${this.apiUrl}${movieId}?api_key=${this.miffyApiKey}&append_to_response=credits`;
+    const url = `${this.apiUrl}${movieId}?api_key=${this.miffyApiKey}&language=en-US`;
     return this.http.get<MovieDetails>(url);
   }
 }

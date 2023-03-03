@@ -18,14 +18,15 @@ export class MovieDetailsComponent {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.movieId = params['id'];
+      console.log(this.movieId);
+      this.getMovieDetails(this.movieId);
     });
-    this.getMovieDetails();
   }
 
-  getMovieDetails() {
-    this.movieService.getMovieDetails(this.movieId).subscribe((data: MovieDetails) => {
+  getMovieDetails(movieId: number): void {
+    this.movieService.getMovieDetails(movieId).subscribe((data: MovieDetails) => {
       this.movieDetails = data;
       console.log(this.movieDetails);
-    })
+    });
   }
 }

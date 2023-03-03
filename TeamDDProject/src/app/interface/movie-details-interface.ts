@@ -8,7 +8,4 @@ export interface MovieDetails {
     overview: string;
     poster_path: string;
     backdrop_path: string;
-    credits: {
-        cast: { id: number, name: string, profile_path: string }[]
-    };
 }
