@@ -1,4 +1,7 @@
 <main>
+    <div class="spinner_container" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+    </div>
     <div class="img-container">
         <img [src]= "movie.poster_path">
     </div>
@@ -10,6 +13,6 @@
             <p>{{ movie.vote_average | number: '1.1-1'}}</p>
         </div>
         <h5>{{ movie.overview | slice:0:95 }}...</h5>
-        <button>More Details</button>
+        <button (click)="goToDetailPage()">More Details</button>
     </div>
 </main>

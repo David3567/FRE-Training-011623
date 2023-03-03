@@ -1,0 +1,22 @@
+
+<main>
+    <app-navbar></app-navbar>
+    <div class="container">
+        <div class="card">
+            <h1>Unlimited movies, TV shows, and more.</h1>
+            <h4>Watch anywhere. Cancel anytime.</h4>
+            <h5>Ready to watch? Enter your email to create or restart your membership.</h5>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+                <div class="email-container">
+                <input type="email" placeholder="Email address" formControlName="email">
+                <button type="submit" [disabled]="!form.valid">Get Started ></button>
+                </div>
+                <div *ngIf="!email.valid && (email.dirty || email.touched)">
+                    <div *ngIf="email.errors?.['required']">Email is required!</div>
+                    <div *ngIf="email.errors?.['email']">Please enter a valid email address!</div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</main>

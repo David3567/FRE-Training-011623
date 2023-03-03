@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { debounceTime, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
@@ -7,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent {
-  loginForm;
+  loginForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
@@ -25,4 +27,6 @@ export class SigninComponent {
   onSubmit() {
 
   }
+
+  
 }

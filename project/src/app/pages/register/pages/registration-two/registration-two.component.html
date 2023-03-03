@@ -14,7 +14,8 @@
             <label>Tmdb Api_Key</label>
             <input type="string" placeholder="Add a Tmdb Api_Key" formControlName="api_key">
             <div *ngIf="!api_key?.valid && (api_key?.dirty || api_key?.touched)">
-                <p>Tmdb Api_Key is required!</p>
+                <p *ngIf="api_key?.errors?.['required']">Tmdb Api_Key is required!</p>
+                <p *ngIf="api_key?.errors?.['minLength']">Tmdb Api_Key is not valid!</p>
             </div>
             <button [disabled]="!registerForm2?.valid">Next</button>
         </form>

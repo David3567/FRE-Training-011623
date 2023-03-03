@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Movie } from '../movie.interface';
-import { MovieService } from '../movie.service';
+import { Movie } from '../../movie.interface';
+import { MovieService } from '../../movie.service';
 
 @Component({
   selector: 'app-movie-list',
