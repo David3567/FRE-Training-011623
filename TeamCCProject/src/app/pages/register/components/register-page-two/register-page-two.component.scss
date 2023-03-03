@@ -29,23 +29,18 @@ p{
     margin-bottom: 15px;
     max-width: 423px;
 }
-.form-group{
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-}
 .input-label{
     width: 100%;
     height: 100%;
     position: relative;
 }
-.form-control{
-    height: 100%;
-    width: 99%;
-    border: 0px;
-    border-bottom: 1px solid black;
-    background-color: rgb(236, 236, 236);
-    position: relative;
+.form-group{
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    max-height: 120px;
+    margin-bottom: 15px;
+    max-width: 423px;
 }
 .placeLabel{
     color: #8c8c8c;
@@ -64,6 +59,13 @@ p{
     top: 5%;
     transform: translateY(-50%);
     // transition: font .1s ease,top .1s ease,transform .1s ease;
+}
+.form-control{
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid black;
+    background-color: rgb(236, 236, 236);
 }
 
 .NextButton{
@@ -87,4 +89,21 @@ p{
     /* float: left; */
     color: aliceblue;
     background-color: red;
+}
+.invalid{
+    color: red;
+    font-weight: bolder;
+}
+.NVnext{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-right: 5px;
+    /* height: 100%;
+    width: 100%; */
+    border-radius: 10px;
+    /* float: left; */
+    color: aliceblue;
+    background-color: gray;
 }
