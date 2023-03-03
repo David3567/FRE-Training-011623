@@ -25,6 +25,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { YoutubePlayerComponent } from '../app/components/youtube-player/youtube-player.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     MovieItemComponent,
     MovieListComponent,
     MovieDetailsComponent,
+    YoutubePlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     MatCardModule,
     HttpClientModule,
     ReactiveFormsModule,
+    YouTubePlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
