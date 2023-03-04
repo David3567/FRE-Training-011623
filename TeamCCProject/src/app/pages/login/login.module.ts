@@ -1,25 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+// import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './login.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { LoginPageComponent } from './components/login-page/login-page.component';
-
-const routes: Routes = [{
-  path: '',
-  component: LoginComponent
-},];
+const routes: Routes = [
+  {
+    path: '',
+    component: AppComponent
+  }
+]
 
 
 @NgModule({
   declarations: [
-    LoginPageComponent,
-    LoginComponent],
+    AppComponent
+  ],
   imports: [
-    CommonModule, 
-    SharedModule, 
-    RouterModule.forChild(routes)],
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    RouterModule.forChild(routes),
+  ],
   providers: [],
+  bootstrap: [AppComponent]
 })
-export class LoginModule { }
+export class AppModule { }
