@@ -1,0 +1,12 @@
+.movie-title{
+    padding: 15px;
+    font-size: 26px;
+    transition: background-color 300ms ease-out 100ms;
+}
+
+
+
+.movie-title:hover {
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.2);
+}

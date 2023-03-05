@@ -11,3 +11,4 @@ import { Movie } from '../../../../movies.service';
 export class MovieItemComponent {
   @Input() movie!: Movie;
 }
+

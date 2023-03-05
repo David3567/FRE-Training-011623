@@ -1,10 +1,15 @@
 *{
   box-sizing: border-box;
+  --movie-infor-bg-color: rgba(93, 9, 26, 0.945);
 }
 .movie-card{
-  background-color: black;
   color: white;
+  background-size: cover;
 
+}
+.movie_details{
+
+  text-align: left;
 }
 
 img {
@@ -20,30 +25,25 @@ img {
   padding-top: 50px;
 }
 
-.movie_info{
-  display: flex;
-  justify-content: space-between;
-}
-
 .release_date{
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: rgba(163, 4, 4, 0.945);
+  padding: 0 5%;
+  margin-right: 5px;
+  background-color: var(--movie-infor-bg-color);
   border-radius: 15px;
 }
 .original_language{
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: rgba(163, 4, 4, 0.945);;
+  padding: 0 5%;
+  margin-right: 5px;
+  background-color: var(--movie-infor-bg-color);
   border-radius: 15px;
 }
 .rate{  
-  color: rgb(5, 243, 152);
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: rgba(163, 4, 4, 0.945);;
+  color: white;
+  padding: 0 5%;
+  margin-right: 5px;
+  background-color: var(--movie-infor-bg-color);
   border-radius: 15px;
 
 }
@@ -52,6 +52,16 @@ img {
   background-color: transparent;
   border-color: white;
   margin-bottom: 50px;
+  border-radius: 8px;
   padding: 10px;
   border: solid, thin;
 }
+
+.overview {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+}
+
+

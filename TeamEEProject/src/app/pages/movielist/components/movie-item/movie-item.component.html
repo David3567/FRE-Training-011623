@@ -1,4 +1,4 @@
-<div class="movie-card">
+<div class="movie-card" style="background-image:linear-gradient(to top,rgba(0, 0, 0, 0.85) 0, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.85) 100%),url({{movie.poster_path}})">
     <div class="content">
         <div class="poster_img">
             <img 
@@ -9,7 +9,7 @@
         <div class="movie_details">
             <h1>{{ movie.original_title }}</h1>
             <div class="movie_info">
-                <span class="release_date">{{movie.release_date}}</span>
+                <span class="release_date">{{movie.release_date.split("-")[0]}}</span>
                 <span class="original_language">{{movie.original_language}}</span>
                 <span class="rate">{{movie.vote_average}}</span>
             </div>

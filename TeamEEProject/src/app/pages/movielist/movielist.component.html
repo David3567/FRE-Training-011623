@@ -1,5 +1,11 @@
-<div>
-    <app-search-bar></app-search-bar>
+<div class="popular-list-container" style="background-image: linear-gradient(to top,rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 100%),url({{background}})">
+    <div class="popular-list">
+        <app-popular-movie
+        *ngFor="let popularmovie of popularMovies; let i = index"
+        [idx] = "i"
+        [movie]= "popularmovie"
+        (idxEmiter) = "changeBackground($event)"></app-popular-movie>
+    </div>
 </div>
 <hr>
 <div class="movielist">
