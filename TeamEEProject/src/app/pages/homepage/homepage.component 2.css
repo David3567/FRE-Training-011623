@@ -1,0 +1,111 @@
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    max-width: 1200px;
+    min-width: 1000px;
+    margin: 30px auto;
+}
+.search-section {
+    width: 100%;
+}
+
+
+.l1 {
+    /* border: solid green; */
+    width: 45%;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+
+.r1 {
+    /* border: solid blue; */
+    width: 50%;
+    position: relative;   /* NOTE: this is to make children with position=absolute to work*/
+}
+
+.r1 > img {
+    width: 100%;
+    /* border: solid pink 10px; */
+}
+
+hr {
+    border: solid rgba(255, 255, 255, 0.15) 5px;
+    margin: 0;
+    z-index: 10000;
+}
+
+img {
+    z-index: 20;
+}
+
+.our-story-card-video {
+    position: absolute;
+    top: 20.8%;
+    left: 13.2%;
+    width: 72.7%;
+    z-index: -1000;
+}
+
+.mac-video {
+    position: absolute;
+    top: 11%;
+    left: 19%;
+    width: 61%;
+    z-index: -1000;
+}
+
+.download-dialog {
+    position: absolute;
+    border: solid rgb(61, 59, 59) 2px;
+    top:69%;
+    left:16%;
+    width:68%;
+    background-color: black;
+    border-radius: 15px;
+    height: 96px;
+}
+
+.download-dialog-flex {
+    margin: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.download-dialog-left {
+    height: 100%;
+}
+
+.st-movie{
+    display: inline-block;
+    height: 100%;
+}
+
+.text1 {
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    top: -25px;
+    left: 10px;
+}
+
+.sText {
+    margin: 0 0;
+    font-size: 110%;
+    font-weight: bold;
+}
+.dText {
+    margin: 0 0;
+    font-size: 80%;
+    color:rgb(42,111,220);
+}
+
+.download-mark {
+    width: 50px;
+    height: 50px;
+}

@@ -1,0 +1,17 @@
+<div class="register-page-container">
+<app-register-header></app-register-header>
+<div class="register-form-container" [ngSwitch]="screen">
+    <div *ngSwitchCase="1">
+        <app-register-page1 [nextFn]="next_screen" [prevFn]="prev_screen" [updateFn]="update_data" ></app-register-page1>
+    </div>
+    <div *ngSwitchCase="2">
+        <app-register-page2 [nextFn]="next_screen" [prevFn]="prev_screen" [updateFn]="update_data"></app-register-page2>
+    </div>
+    <div *ngSwitchCase="3">
+        <app-register-page3 [nextFn]="next_screen" [prevFn]="prev_screen" [updateFn]="update_data" [submitFn]="submit_form"></app-register-page3>
+    </div>
+</div>
+<footer>
+    
+</footer>
+</div>
