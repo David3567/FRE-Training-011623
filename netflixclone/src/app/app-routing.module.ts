@@ -23,11 +23,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'movies/:id', component: MovieitemComponent, canActivate:[AuthGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'plans', component: PlansComponent, canActivate:[AuthGuard]},
+  { path: 'plans', component: PlansComponent, },
   { path: 'youtube', component: YoutubeComponent },
   { path: 'movielist', component: MovielistComponent, canActivate:[AuthGuard] },
   { path: 'header', component: HeaderComponent, canActivate:[AuthGuard]},
-  { path: '**', component: PageNotfoundComponent, canActivate:[AuthGuard] },
+  { path: '**', component: PageNotfoundComponent },
 
 ];
 
