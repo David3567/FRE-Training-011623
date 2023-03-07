@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 
@@ -44,6 +45,7 @@ import { MovieitemComponent } from './movieitem/movieitem.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    YouTubePlayerModule, 
     FormsModule,
     HttpClientModule
   ],

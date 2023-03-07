@@ -21,6 +21,7 @@ export class MovielistComponent implements OnInit {
 
     this.http.get<any>(apiUrl).subscribe(data => {
       this.movies = data.results;
+      this.total_pages = data.total_pages;
     });
 
     const currentUserString = localStorage.getItem('currentUser');
@@ -29,10 +30,18 @@ export class MovielistComponent implements OnInit {
     }
   }
 
+  loadNextPage() {
+    if (this.page < this.total_pages) {
+      this.page++;
+      this.getMovies();
+    }
+  }
 
-  loadMore() {
-    this.page++;
-    this.getMovies();
+  loadPreviousPage() {
+    if (this.page > 1) {
+      this.page--;
+      this.getMovies();
+    }
   }
 
   getMovies() {
@@ -40,7 +49,8 @@ export class MovielistComponent implements OnInit {
     const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${this.page}`;
 
     this.http.get(apiUrl).subscribe((data: any) => {
-      this.movies = [...this.movies, ...data.results];
+      this.movies = data.results;
+      this.total_pages = data.total_pages;
     });
   }
 
