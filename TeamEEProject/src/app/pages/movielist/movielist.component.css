@@ -1,5 +1,5 @@
 hr {
-    border: solid rgba(255, 255, 255, 0.15) 5px;
+    border: solid rgba(255, 255, 255, 0.15) 3px;
     margin: 0;
     z-index: 10000;
 }
@@ -11,7 +11,9 @@ hr {
 }
 
 app-movie-item {
-    width: 22%;
+    width: 18%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .popular-list {
