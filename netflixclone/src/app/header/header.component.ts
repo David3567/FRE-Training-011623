@@ -10,7 +10,7 @@ export class HeaderComponent {
   constructor(private router: Router){}
 
   logout() {
-    this.router.navigate(['/homepage']);
+    this.router.navigate(['']);
     // localStorage.removeItem('currentUser');
     // this.loggedIn =false;
   }

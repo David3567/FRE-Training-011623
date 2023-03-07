@@ -14,8 +14,8 @@
     </div>
   </div>
   <div class="PageButtons">
-    <button class="load-more-btn" (click)="loadMore()">Next Page</button>
-    <button class="previousPage" *ngIf="page > 1" (click)="loadMore()">Previous page</button>
+    <button class="NextPage" (click)="loadNextPage()">Next Page</button>
+    <button class="previousPage" *ngIf="page > 1" (click)="loadPreviousPage()">Previous page</button>
   </div>
   
 
