@@ -19,7 +19,7 @@ export class MovielistComponent {
     this.movieService.movies$.subscribe((movies:Movie[]) => {
       this.movies = movies;
     })
-    this.movieService.discoverMovies({page:3}).subscribe();
+    this.movieService.discoverMovies({page:3}).subscribe((movie:any) => console.log(movie));
     this.subpm$ = this.movieService.popularmovies$.subscribe((movies:popularMovie[]) => {
       this.popularMovies = movies;
       if (movies.length > 0) {

@@ -17,12 +17,13 @@ import { RegisterModule } from './pages/register/register.module';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { MoviedetailModule } from './pages/moviedetail/moviedetail.module';
 
 const API_BASE_URL = 'http://localhost:4231/';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ const API_BASE_URL = 'http://localhost:4231/';
     ReactiveFormsModule,
     RegisterModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MoviedetailModule
   ],
   providers: [HttpClient, MoviesService, {
     provide: 'API_BASE_URL',

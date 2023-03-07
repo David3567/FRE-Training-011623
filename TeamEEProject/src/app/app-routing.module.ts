@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes : Routes = [
   {path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule)},
   {path: 'movielist', loadChildren: () => import('./pages/movielist/movielist.module').then(m => m.MovielistModule)},
+  {path: 'moviedetail', loadChildren: () => import('./pages/moviedetail/moviedetail.module').then(m => m.MoviedetailModule)},
   {path: 'homepage', loadChildren: () => import('./pages/homepage/homepage.module').then(m => m.HomepageModule)},
   {path: 'login', loadChildren: () => import('./pages/login-in-page/login-in-page.module').then(m => m.LoginInPageModule)},
   {path: '', redirectTo: 'homepage', pathMatch: 'full'},
