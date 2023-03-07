@@ -1,0 +1,79 @@
+
+.table-container {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        height: 20%;
+        margin-left: 80px;
+  }
+  .logo {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: #e50914;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    pointer-events: none;
+    margin-left: 100px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 50px;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 30px;
+    line-height: 0.1;
+    border: 50px solid white;
+  }
+  
+  th:nth-child(2),
+  th:nth-child(3),
+  th:nth-child(4) {
+    background-color: red;
+    color: white;
+  }
+  
+  td.checkmark:before {
+    content: '\2714';
+  }
+  
+  
+
+  .choose{
+    background-color: #e50914;
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .choose {
+    background-color: #ff2e2e;
+    cursor: pointer;
+  }
+  .login-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 100px;
+    cursor: pointer;
+  }

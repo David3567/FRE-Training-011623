@@ -1,0 +1,45 @@
+<div class="table-container">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <table>
+      <thead>
+        <button class="login-button" (click)="navigateToLogin()">Login</button>
+
+        <div class="logo">JTDANFLIX</div>
+        <tr>
+          <th> Feature </th>
+          <th> Basic </th>
+          <th> Standard</th>
+          <th> Premium </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Easy to use</td>
+          <td class="checkmark"></td>
+          <td class="checkmark"></td>
+          <td class="checkmark"></td>
+        </tr>
+        <tr>
+          <td>Customizable</td>
+          <td class="checkmark"></td>
+          <td class="checkmark"></td>
+          <td class="checkmark"></td>
+        </tr>
+        <tr>
+          <td>Reliable</td>
+          <td class="checkmark"></td>
+          <td class="checkmark"></td>
+          <td class="checkmark"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <!-- <button type="submit" class="btn btn-primary">Login</button> -->
+            <td><button class="choose" (click)="navigateToRegister()">Choose Plan</button></td>
+            <td><button class="choose" (click)="navigateToRegister()">Choose Plan</button></td>
+            <td><button class="choose" (click)="navigateToRegister()">Choose Plan</button></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  
