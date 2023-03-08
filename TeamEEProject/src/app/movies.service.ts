@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, pluck, Subject, tap, catchError } from "rxjs";
+
+import { BehaviorSubject, map, pluck, Subject, take, tap, catchError } from "rxjs";
+
 
 const API_KEY = "b2979efe3455e63e15acabc8179486e1";
 
@@ -19,6 +21,11 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+export interface popularMovie {
+  name: string;
+  poster: string;
 }
 
 export interface MoviesServiceResponse {
@@ -45,7 +52,9 @@ export interface Video{
 })
 export class MoviesService {
   //Variables
+  
   movies$ = new BehaviorSubject<Movie[]>([]);
+  popularmovies$ = new BehaviorSubject<popularMovie[]>([]);
   //Lifecycle
   constructor(private http: HttpClient) {}
   //Methods
@@ -129,5 +138,17 @@ export class MoviesService {
         })
       );
     }
+
+  getPopularMovies() {
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+    return this.http.get<MoviesServiceResponse>(url).pipe(
+      map((movies:MoviesServiceResponse) => movies.results),
+      map((movies:any) => movies.slice(0,6).map((movie:any) => ({
+        name:movie.title,
+        poster: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+      }))),
+      tap((movies:any) => this.popularmovies$.next(movies)),
+    )
+  }
 
 }

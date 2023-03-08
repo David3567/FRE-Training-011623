@@ -1,14 +1,20 @@
 *{
   box-sizing: border-box;
+  --movie-infor-bg-color: rgba(93, 9, 26, 0.945);
 }
 .movie-card{
-  background-color: black;
   color: white;
+  background-size: cover;
 
+}
+.movie_details{
+
+  text-align: left;
 }
 
 img {
   width: 60%;
+  transition:0.3s;
 }
 .content{
   display: flex, center;
@@ -20,28 +26,27 @@ img {
   padding-top: 50px;
 }
 
-.movie_info{
-  display: flex;
-  justify-content: space-between;
-}
-
 .release_date{
   color: white;
-  padding: 10px;
-  background-color: rgba(163, 4, 4, 0.945);
-  border-radius: 5px;
+
+  padding: 0 5%;
+  margin-right: 5px;
+  background-color: var(--movie-infor-bg-color);
+  border-radius: 15px;
 }
 .original_language{
   color: white;
-  padding: 10px;
-  background-color: rgba(163, 4, 4, 0.945);;
-  border-radius: 5px;
+  padding: 0 5%;
+  margin-right: 5px;
+  background-color: var(--movie-infor-bg-color);
+  border-radius: 15px;
 }
 .rate{  
-  color: rgb(5, 243, 152);
-  padding: 10px;
-  background-color: rgba(163, 4, 4, 0.945);;
-  border-radius: 5px;
+  color: white;
+  padding: 0 5%;
+  margin-right: 5px;
+  background-color: var(--movie-infor-bg-color);
+  border-radius: 15px;
 
 }
 .more_details{
@@ -49,8 +54,28 @@ img {
   background-color: transparent;
   border-color: white;
   margin-bottom: 50px;
+  border-radius: 8px;
   padding: 10px;
   border: solid, thin;
   display: flex;
   
 }
+
+.overview {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+}
+
+.more_details{
+  transition:0.3s;
+}
+
+.more_details:hover{
+  cursor: pointer;
+  background-color: rgba(71, 67, 67, 0.8);
+}
+
+
+
