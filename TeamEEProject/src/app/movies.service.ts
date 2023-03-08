@@ -44,7 +44,6 @@ export interface MoviesServiceResponse {
 
 export interface moviePoster{
   backdrops:[];
-  posters:[];
 }
 
 export interface movieCredit {

@@ -1,1 +1,23 @@
-<p>moviedetail works!</p>
+<div style="background-image: linear-gradient(to top,rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 100%), url({{moviedetail.backdrop_path}})">
+    <div class="movie-detail-card">
+        <h1>{{moviedetail.title}}</h1>
+        <pre>⭐{{moviedetail.vote_average | number:'1.0-1'}} | {{moviedetail.vote_count}}    {{moviedetail.runtime}}mins - {{moviedetail.genres}} {{moviedetail.release_date.split("-")[0]}}</pre>
+        <p>{{moviedetail.overview}}</p>
+        <button>PLAY NOW </button>
+        <button class="trailer">TRAILER</button>
+    </div>
+    <div class="movie-photo">
+        <p class="poster-font">Poster</p>
+        <app-movieposter
+        *ngFor="let poster of movieposter"
+        [poster] = "poster"
+        ></app-movieposter>
+        <p class="actor-font">Actors</p>
+        <div class="movie-actors">
+            <app-movieactor
+            *ngFor="let actor of moviecredits" 
+            [actor] = actor
+            ></app-movieactor>
+        </div>
+    </div>
+</div>
