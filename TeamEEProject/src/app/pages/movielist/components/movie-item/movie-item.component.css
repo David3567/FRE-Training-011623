@@ -27,24 +27,21 @@ img {
 
 .release_date{
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 10px;
   background-color: rgba(163, 4, 4, 0.945);
-  border-radius: 15px;
+  border-radius: 5px;
 }
 .original_language{
   color: white;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 10px;
   background-color: rgba(163, 4, 4, 0.945);;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 .rate{  
   color: rgb(5, 243, 152);
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 10px;
   background-color: rgba(163, 4, 4, 0.945);;
-  border-radius: 15px;
+  border-radius: 5px;
 
 }
 .more_details{
@@ -54,4 +51,6 @@ img {
   margin-bottom: 50px;
   padding: 10px;
   border: solid, thin;
+  display: flex;
+  
 }
