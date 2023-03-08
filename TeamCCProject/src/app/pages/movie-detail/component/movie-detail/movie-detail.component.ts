@@ -26,7 +26,7 @@ export class MovieDetailComponent {
     video: false,
     vote_average: 0,
     vote_count: 0
-  };;
+  };
   pageNo !: string
 
   constructor(private movieService :MovieServiceService, private activatedRoute: ActivatedRoute){ }
@@ -35,8 +35,9 @@ export class MovieDetailComponent {
     this.movieService.MovieDetail$.subscribe((data) =>{
       this.movies = data;
     })
-    this.activatedRoute.queryParamMap.subscribe((params) => {
-      this.movieService.getMovieByID(params.get('id') || "646389").subscribe()
+    this.activatedRoute.paramMap.subscribe((params) => {
+      // console.log(params);
+      this.movieService.getMovieByID(params.get('id')!).subscribe()
     })
     // this.movieService.getMovieByID(this.pageNo).subscribe();
   }
