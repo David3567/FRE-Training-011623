@@ -10,8 +10,25 @@
         <form [formGroup] = "RegisterFormOne" (ngSubmit) = "onNext()">
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" name="Email" id="Email" class="form-control" placeholder="Enter your email" formControlName="email">
+                <input matInput  type="text" name="Email" id="Email" class="form-control" placeholder="Enter your email" formControlName="email">
+                <br>
+                <mat-spinner matSuffix *ngIf="isLoading" [diameter]="25"></mat-spinner>
+                <mat-icon
+                class="check_email_ok"
+                *ngIf="!RegistEmail?.errors?.['hasEmail'] && !isLoading"
+                matSuffix
+                >
+                check_circle_outline
+                </mat-icon>
+                <mat-icon
+                class="check_email_not"
+                *ngIf="RegistEmail?.errors?.['hasEmail'] && !isLoading"
+                matSuffix
+                >
+                not_interested
+                </mat-icon>
             </div>
+            <br>
             <div *ngIf = "!RegistEmail?.valid && (RegistEmail.dirty || RegistEmail.touched)" >
                 <br>
                 <div *ngIf = "RegistEmail.errors?.['required']" class = "invalid">
@@ -19,6 +36,9 @@
                 </div>
                 <div *ngIf = "RegistEmail.errors?.['email']" class = "invalid">
                     input must a valid email!!!
+                </div>
+                <div *ngIf = "RegistEmail?.errors?.['hasEmail']" class = "invalid">
+                    This email already exist...
                 </div>
             </div>
             <br>

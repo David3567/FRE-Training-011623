@@ -13,6 +13,9 @@ import { BoxDetailPriceComponent } from './components/box-detail-price/box-detai
 import { BoxDetailQualityComponent } from './components/box-detail-quality/box-detail-quality.component'
 import { BoxDetailResolutionComponent } from './components/box-detail-resolution/box-detail-resolution.component'
 import { PlanBoxComponent } from './components/plan-box/plan-box.component'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 
 const routes: Routes = [
@@ -40,6 +43,13 @@ const routes: Routes = [
     BoxDetailResolutionComponent,
     PlanBoxComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes), ReactiveFormsModule ],
+  imports: [CommonModule,
+    SharedModule, 
+    RouterModule.forChild(routes), 
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatIconModule,
+  ],
 })
 export class RegisterModule {}
