@@ -7,6 +7,7 @@ const routes : Routes = [
   {path: 'movielist', loadChildren: () => import('./pages/movielist/movielist.module').then(m => m.MovielistModule)},
   {path: 'homepage', loadChildren: () => import('./pages/homepage/homepage.module').then(m => m.HomepageModule)},
   {path: 'login', loadChildren: () => import('./pages/login-in-page/login-in-page.module').then(m => m.LoginInPageModule)},
+  {path: 'ytplayer', loadChildren: () => import('./pages/movielist/components/movie-item/youtube-player/youtube-player.module').then(m => m.YoutubePlayerModule)},
   {path: '', redirectTo: 'homepage', pathMatch: 'full'},
   {path: '**', redirectTo: 'homepage', pathMatch: 'full'}
 ]

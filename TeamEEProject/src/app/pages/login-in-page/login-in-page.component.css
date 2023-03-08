@@ -8,12 +8,10 @@
 
 }
 
-h1{
+.logo{
   position: absolute;
-  color: red;
-  font-weight: bold;
-  left: 20px;
-  top: -5px;
+  left:10px;
+  top: 10px;
 }
 h2{
   padding: 0;
@@ -37,9 +35,10 @@ main{
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 5px;
-  width: 15rem;
+  width: 17rem;
   display: flex;
   flex-direction: row;
+  margin: 1rem auto;
 }
 
 .login-btn{
@@ -51,6 +50,7 @@ main{
   margin-top: 20px;
   margin-bottom: 10px;
   width: 17rem;
+  
 }
 
 .login-help{

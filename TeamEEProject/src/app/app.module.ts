@@ -17,11 +17,15 @@ import { RegisterModule } from './pages/register/register.module';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { YoutubePlayerComponent } from './pages/movielist/components/movie-item/youtube-player/youtube-player.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 const API_BASE_URL = 'http://localhost:4231/';
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent
   ],
   imports: [
@@ -32,7 +36,10 @@ const API_BASE_URL = 'http://localhost:4231/';
     ReactiveFormsModule,
     RegisterModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [HttpClient, MoviesService, {
     provide: 'API_BASE_URL',

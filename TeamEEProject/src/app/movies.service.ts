@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, map, pluck, Subject, take, tap } from "rxjs";
+
+import { BehaviorSubject, map, pluck, Subject, take, tap, catchError } from "rxjs";
+
 
 const API_KEY = "b2979efe3455e63e15acabc8179486e1";
 
@@ -30,6 +32,20 @@ export interface MoviesServiceResponse {
   page: number;
   results?: Movie[] | null;
 }
+
+export interface Video{
+  iso_639_1: string; //language
+  iso_3166_1: string; // country
+  name: string;
+  key: string; //video key 
+  site: string; //yt
+  size: number; // 1080
+  type: string; //trailer
+  official: boolean, 
+  published_at: string; // publish date
+  id: number;
+}
+
 
 @Injectable({
   providedIn: "root",
@@ -89,6 +105,39 @@ export class MoviesService {
         )
       )
   }
+  
+  VideoList: Video[] = [];
+  VideoList$ = new Subject<Video[]>();
+
+  getVideosById(id: number) {  
+    const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
+    return this.http.get<MoviesServiceResponse>(url)
+    .pipe(
+      tap((data) => {
+        const videos = data.results?.map((each: any) => ({
+          iso_639_1: each.iso_639_1,
+          iso_3166_1: each.iso_3166_1,
+          name: each.name,
+          key: each.key,
+          site: each.site,
+          size: each.size,
+          type: each.type,
+          official: each.official,
+          published_at: each.published_at,
+          id: each.id,
+          }));
+          
+          this.VideoList = videos || [];
+          this.VideoList$.next(videos || []);
+          console.log(videos);
+          console.log('new video here')
+        }),
+        catchError((err: any) => {
+          console.log(err);
+          return err;
+        })
+      );
+    }
 
   getPopularMovies() {
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
