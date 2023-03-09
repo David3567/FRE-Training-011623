@@ -77,5 +77,14 @@ img {
   background-color: rgba(71, 67, 67, 0.8);
 }
 
+mat-spinner{
+  position:relative;
+  bottom:150px;
+  left:120px;
+  width: 6px;
+  opacity: 0.48;
+  z-index: 1000;
+}
+
 
 

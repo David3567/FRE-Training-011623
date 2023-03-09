@@ -19,8 +19,14 @@
             </div>
             <p class="overview">{{movie.overview}}</p>
             <button class="more_details"
+            (click) = "clickButton = true"
             [ngStyle]="{'opacity': onhover === true ? '0.9': '0.0'}"
+            [routerLink]="['/movielist', movie.id]"
             >More Details</button>
+            <mat-spinner
+            *ngIf="showLoading && clickButton === true" 
+            ></mat-spinner>
         </div>
+        
     </div>
 </div>

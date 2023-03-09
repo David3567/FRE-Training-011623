@@ -21,12 +21,13 @@ import { YoutubePlayerComponent } from './pages/movielist/components/movie-item/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MoviedetailModule } from './pages/moviedetail/moviedetail.module';
 
 const API_BASE_URL = 'http://localhost:4231/';
 
 @NgModule({
-  declarations: [ 
-    AppComponent
+  declarations: [
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ const API_BASE_URL = 'http://localhost:4231/';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MoviedetailModule,
   ],
   providers: [HttpClient, MoviesService, {
     provide: 'API_BASE_URL',
