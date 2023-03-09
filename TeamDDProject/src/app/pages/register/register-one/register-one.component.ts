@@ -11,10 +11,10 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  templateUrl: './register-one.component.html',
+  styleUrls: ['./register-one.component.css'],
 })
-export class RegisterComponent {
+export class RegisterOneComponent {
   registerForm1!: FormGroup;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     this.registerForm1 = this.formBuilder.group({

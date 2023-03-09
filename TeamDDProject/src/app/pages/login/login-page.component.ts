@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-root',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
-export class LoginPageComponent {
+export class AppComponent {
   loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
