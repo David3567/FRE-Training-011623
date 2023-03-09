@@ -43,11 +43,20 @@ export interface MovieDetail{
     video: boolean;
     vote_average: number;
     vote_count: number;
+    poster_path: string;
 }
 
 export interface Genre {
     id: number;
     name: string;
+}
+
+export interface Person {
+    id: number;
+    name: string;
+    biography: string;
+    profile_path: string;
+    movies: Movie[];
 }
 
 export interface ProductionCompany {
