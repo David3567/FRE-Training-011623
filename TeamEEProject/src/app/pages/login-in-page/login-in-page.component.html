@@ -1,7 +1,7 @@
 <div class="login-wrapper-background">
-  <img class="concord-img vlv-creative" src="https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_small.jpg" srcset="https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w" alt="">
+  <img class="concord-img vlv-creative" src="../../../assets/images/login-background.jpeg" alt="">
 </div>
-<h1>NETFLIX</h1>
+<div class="logo"><img src="../../../assets/images/logo_transparent.png" alt="logo" [routerLink]="['/homepage']" ></div>
 <main class="container">  
   <h2>Sign In</h2>
   <body>
@@ -12,6 +12,7 @@
         name="userName"
         placeholder="Email or phone number"
         formControlName="userName" 
+        
       />
       <div *ngIf="loginForm.get('userName')?.invalid && (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched)">
         <div *ngIf="loginForm.get('userName')?.errors?.['required']">Username is required.</div>

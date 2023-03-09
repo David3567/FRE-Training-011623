@@ -14,6 +14,7 @@
 
 img {
   width: 60%;
+  transition:0.3s;
 }
 .content{
   display: flex, center;
@@ -27,6 +28,7 @@ img {
 
 .release_date{
   color: white;
+
   padding: 0 5%;
   margin-right: 5px;
   background-color: var(--movie-infor-bg-color);
@@ -55,6 +57,8 @@ img {
   border-radius: 8px;
   padding: 10px;
   border: solid, thin;
+  display: flex;
+  
 }
 
 .overview {
@@ -63,5 +67,24 @@ img {
   -webkit-box-orient: vertical; 
   overflow: hidden; 
 }
+
+.more_details{
+  transition:0.3s;
+}
+
+.more_details:hover{
+  cursor: pointer;
+  background-color: rgba(71, 67, 67, 0.8);
+}
+
+mat-spinner{
+  position:relative;
+  bottom:150px;
+  left:120px;
+  width: 6px;
+  opacity: 0.48;
+  z-index: 1000;
+}
+
 
 
