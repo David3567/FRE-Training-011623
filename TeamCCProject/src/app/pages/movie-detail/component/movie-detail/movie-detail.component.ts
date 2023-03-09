@@ -34,7 +34,6 @@ export class MovieDetailComponent implements OnInit{
     vote_count: 0,
     poster_path: '',
   };
-
   pageNo !: string
   imageUrl !: string
 
@@ -45,11 +44,17 @@ export class MovieDetailComponent implements OnInit{
     this.movieService.MovieDetail$.subscribe((data) =>{
       this.movies = data;
     })
+
     this.activatedRoute.queryParamMap.subscribe((params) => {
       this.movieService.getMovieByID(params.get('id')|| "646389").subscribe()
       this.imageUrl = `https://image.tmdb.org/t/p/w92/qi9r5xBgcc9KTxlOLjssEbDgO0J.jpg`;
 
       // this.imageUrl = `https://image.tmdb.org/t/p/w500${this.movies.poster_path}`;
+
+    this.activatedRoute.paramMap.subscribe((params) => {
+      // console.log(params);
+      this.movieService.getMovieByID(params.get('id')!).subscribe()
+
     })
     // this.movieService.getMovieByID(this.pageNo).subscribe();|| '{}'|| "646389"
   }
