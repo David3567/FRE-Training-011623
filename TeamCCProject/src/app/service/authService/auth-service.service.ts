@@ -5,7 +5,7 @@ import { AddNewUser, UserSubInfo } from '../interface/user-interface';
   providedIn: 'root'
 })
 export class AuthServiceService {
-  private AddNewUser: AddNewUser = {
+  public AddNewUser: AddNewUser = {
     username: '',
     password: '',
     email: '',
@@ -19,6 +19,6 @@ export class AuthServiceService {
       ...this.AddNewUser,
       ...userSubInfo,
     }
-    console.log(this.AddNewUser);
+    // console.log(this.AddNewUser);
   }
 }

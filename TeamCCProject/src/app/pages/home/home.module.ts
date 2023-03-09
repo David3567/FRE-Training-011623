@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { HomePageComponent } from './components/home-page/home-page.component'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
   ]
 })
 export class HomeModule { }
