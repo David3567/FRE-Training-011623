@@ -18,6 +18,7 @@ import { HomepageModule } from './pages/homepage/homepage.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MoviedetailModule } from './pages/moviedetail/moviedetail.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const API_BASE_URL = 'http://localhost:4231/';
 
@@ -34,7 +35,8 @@ const API_BASE_URL = 'http://localhost:4231/';
     RegisterModule,
     SharedModule,
     AppRoutingModule,
-    MoviedetailModule
+    MoviedetailModule,
+    BrowserAnimationsModule
   ],
   providers: [HttpClient, MoviesService, {
     provide: 'API_BASE_URL',

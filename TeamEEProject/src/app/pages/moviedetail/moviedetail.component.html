@@ -1,7 +1,10 @@
-<div style="background-image: linear-gradient(to top,rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 100%), url({{moviedetail.backdrop_path}})">
+<div
+*ngIf="moviedetail" 
+style="background-image: linear-gradient(to top,rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%), url({{moviedetail.backdrop_path}})">
     <div class="movie-detail-card">
         <h1>{{moviedetail.title}}</h1>
-        <pre>⭐{{moviedetail.vote_average | number:'1.0-1'}} | {{moviedetail.vote_count}}    {{moviedetail.runtime}}mins - {{moviedetail.genres}} {{moviedetail.release_date.split("-")[0]}}</pre>
+        <pre>⭐{{moviedetail.vote_average | number:'1.0-1'}} | {{moviedetail.vote_count}}  {{moviedetail.runtime}}mins </pre> 
+        <pre>{{moviedetail.genres}} {{moviedetail.release_date.split("-")[0]}}</pre>
         <p>{{moviedetail.overview}}</p>
         <button>PLAY NOW </button>
         <button class="trailer">TRAILER</button>

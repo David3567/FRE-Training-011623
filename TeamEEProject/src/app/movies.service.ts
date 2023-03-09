@@ -168,7 +168,8 @@ export class MoviesService {
     return this.http.get<any>(url).pipe(
       map((movie:any) => movie.cast),
       map((casts:any) => casts.slice(0,8).map((cast:any) =>
-        ({
+        (
+          {
           name: cast.name,
           profile_path:`https://image.tmdb.org/t/p/original${cast.profile_path}`
         })
