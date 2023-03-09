@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup,FormControl,Validators,FormArray, AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn} from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login-in-page',
   templateUrl: './login-in-page.component.html',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginInPageComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { 
+  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) { 
     this.loginForm = this.fb.group({
       userName: ['', [Validators.required, this.emailOrPhoneNumberValidator()]],
       password: ['', Validators.required],
@@ -50,15 +51,9 @@ export class LoginInPageComponent implements OnInit {
 
   // Check whether the username and password match the register data
   // Send an HTTP request to validate the credentials?
-  this.http.post('/api/login', { userName, password })
-    .subscribe(
-      (response) => {
-        // Successful login, redirect to home page)
-        },
-        (error) => {
-          // Invalid login, display error message
-          console.error(error);
-        }
-      );
+    this.authService.loginUser(userName, password).subscribe((data: any) => {
+      console.log(data);
+    }
+    );
   }
 }
