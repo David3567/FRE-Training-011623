@@ -54,8 +54,10 @@ export class MovieDetailComponent implements OnInit{
     this.activatedRoute.paramMap.subscribe((params) => {
       // console.log(params);
       this.movieService.getMovieByID(params.get('id')!).subscribe()
-
-    })
+    });
+    });
     // this.movieService.getMovieByID(this.pageNo).subscribe();|| '{}'|| "646389"
   }
 }
+
+
