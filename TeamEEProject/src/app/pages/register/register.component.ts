@@ -1,15 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-
-interface signupData {
- [key: string]: string
-  username: string;
-  password: string;
-  email: string;
-  role: string;
-  tmbd_key: string;
-}
-
+import { Router } from '@angular/router';
+import { signupData } from 'src/app/interfaces/signupData';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +20,7 @@ export class RegisterComponent {
     }
     screen: number = 1;
 
-    constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseUrl: string) { 
+    constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseUrl: string, private authService: AuthService, private router: Router) { 
       this.next_screen = this.next_screen.bind(this);
       this.prev_screen = this.prev_screen.bind(this);
       this.update_data = this.update_data.bind(this);
@@ -54,7 +47,9 @@ export class RegisterComponent {
     }
     
     submit_form() {
-      this.http.post(this.baseUrl + 'auth/signup', this.data).subscribe( (data: any) => { console.log(data) });
+      this.authService.registerUser(this.data).subscribe((data: any) => {
+        console.log(data);
+        this.router.navigate(['/movielist']);
+      });
     }
-
 }
