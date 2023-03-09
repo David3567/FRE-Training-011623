@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, of, Subject, tap } from 'rxjs';
 import { Movie, ApiData, MovieDetail, RootObject } from '../interface/movie-interface';
 
+
 // example "https://api.themoviedb.org/3/movie/upcoming?api_key=add383172f3c204e39552dc7a72bc49c&language=en-US&page=1"
 // example id "https://api.themoviedb.org/3/movie/646389?api_key=add383172f3c204e39552dc7a72bc49c"
 const idBaseUrl : string = "https://api.themoviedb.org/3/movie/"
@@ -35,7 +36,8 @@ export class MovieServiceService {
     tagline: '',
     video: false,
     vote_average: 0,
-    vote_count: 0
+    vote_count: 0,
+    poster_path: '',
   };
   MovieDetail$ = new Subject<MovieDetail>();
 
@@ -99,4 +101,5 @@ export class MovieServiceService {
       })
     )
   }
+
 }
