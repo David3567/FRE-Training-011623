@@ -15,6 +15,7 @@ import { DownloadSectionComponent } from './homepage/sections/download-section/d
 import { KidsSectionComponent } from './homepage/sections/kids-section/kids-section.component';
 import { TvSectionComponent } from './homepage/sections/tv-section/tv-section.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -32,6 +33,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
   ],
   imports: [
     MatFormFieldModule,
+    MatInputModule,
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
