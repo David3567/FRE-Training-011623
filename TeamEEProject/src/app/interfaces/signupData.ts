@@ -4,5 +4,5 @@ export interface signupData {
      password: string;
      email: string;
      role: string;
-     tmbd_key: string;
+     tmdb_key: string;
    }

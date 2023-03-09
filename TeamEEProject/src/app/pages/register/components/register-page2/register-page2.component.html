@@ -7,10 +7,10 @@
     </div>
     <div class="form-group">
         <label for="tmdb-api">TMDB Api Key</label>
-        <input formControlName="api" type="password" class="form-control" id="tmdb-api" placeholder="TMDB Api Key" name="tmdb-api">
+        <input formControlName="tmdb-api" type="password" class="form-control" id="tmdb-api" placeholder="TMDB Api Key" name="tmdb-api">
     </div>
     <div *ngIf="displayErrors" class="form-errors">
-        <span *ngIf="this.form.get('api')?.errors">
+        <span *ngIf="this.form.get('tmdb-api')?.errors">
             <p class="error-message">API Key is required</p>
         </span>
         <span *ngIf="this.form.get('username')?.errors">

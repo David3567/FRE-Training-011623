@@ -18,8 +18,8 @@ export class AuthService {
   registerUser(user: signupData) { 
     return this.http.post(`${this.baseUrl}auth/signup`, user).pipe(
       tap((data: any) => {
-        localStorage.setItem('token', data.token);
-        console.log(jwt_decode(data.token));
+        localStorage.setItem('token', data.accessToken);
+        console.log(jwt_decode(data.accessToken));
         this.userSubject$.next(data)
       })
 
@@ -33,4 +33,5 @@ export class AuthService {
       })
     );
   }
+
 }
