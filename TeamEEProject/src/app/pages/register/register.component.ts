@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { signupData } from 'src/app/interfaces/signupData';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -16,15 +16,22 @@ export class RegisterComponent {
       password: "",
       email: "",
       role: "",
-      tmbd_key: ""
+      tmdb_key: ""
     }
     screen: number = 1;
 
-    constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseUrl: string, private authService: AuthService, private router: Router) { 
+    constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseUrl: string, private authService: AuthService, private router: Router, private route: ActivatedRoute) { 
       this.next_screen = this.next_screen.bind(this);
       this.prev_screen = this.prev_screen.bind(this);
       this.update_data = this.update_data.bind(this);
       this.submit_form = this.submit_form.bind(this);
+    }
+
+    ngOnInit(): void {
+      this.route.queryParams.subscribe(params => {
+        if (params['email']) { this.data.email = params['email']; }
+        console.log(params)
+      });
     }
 
     next_screen() {
@@ -47,6 +54,7 @@ export class RegisterComponent {
     }
     
     submit_form() {
+      console.log(this.data)
       this.authService.registerUser(this.data).subscribe((data: any) => {
         console.log(data);
         this.router.navigate(['/movielist']);

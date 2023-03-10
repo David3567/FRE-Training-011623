@@ -18,14 +18,14 @@ export class RegisterPage2Component implements OnInit{
 
   ngOnInit(): void { 
     this.form = this.fb.group({
-      api: ['', [Validators.required]],
+      "tmdb-api": ['', [Validators.required]],
       username: ['', [Validators.required]]
     })
   }
 
   finish() {
     if (this.form.valid){
-      this.updateFn({tmbd_key: this.form.value.api, username: this.form.value.username})
+      this.updateFn({tmdb_key: this.form.value['tmdb-api'], username: this.form.value.username})
       this.nextFn();
     } else {
       this.displayErrors = true;

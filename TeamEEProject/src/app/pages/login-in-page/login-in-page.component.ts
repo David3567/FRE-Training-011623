@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup,FormControl,Validators,Form
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-in-page',
   templateUrl: './login-in-page.component.html',
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginInPageComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) { 
+  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService, private router:Router) { 
     this.loginForm = this.fb.group({
       userName: ['', [Validators.required, this.emailOrPhoneNumberValidator()]],
       password: ['', Validators.required],
@@ -53,6 +54,7 @@ export class LoginInPageComponent implements OnInit {
   // Send an HTTP request to validate the credentials?
     this.authService.loginUser(userName, password).subscribe((data: any) => {
       console.log(data);
+      this.router.navigate(['/movielist']);
     }
     );
   }
