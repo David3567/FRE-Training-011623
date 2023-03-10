@@ -44,10 +44,10 @@ export class MovieDetailComponent implements OnInit{
     this.movieService.MovieDetail$.subscribe((data) =>{
       this.movies = data;
     })
-
-    this.activatedRoute.queryParamMap.subscribe((params) => {
-      this.movieService.getMovieByID(params.get('id')|| "646389").subscribe()
-      this.imageUrl = `https://image.tmdb.org/t/p/w92/qi9r5xBgcc9KTxlOLjssEbDgO0J.jpg`;
+    this.activatedRoute.paramMap.subscribe((params) => {
+      console.log(params.get('id'))
+      this.movieService.getMovieByID(params.get('id')!).subscribe()
+      // this.imageUrl = `https://image.tmdb.org/t/p/w92/qi9r5xBgcc9KTxlOLjssEbDgO0J.jpg`;
 
       // this.imageUrl = `https://image.tmdb.org/t/p/w500${this.movies.poster_path}`;
 
