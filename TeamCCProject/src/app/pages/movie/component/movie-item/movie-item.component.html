@@ -25,5 +25,5 @@
             <p id="rate">{{ movie.rate }}</p>
         </div>
         <p id="description">{{ movie.description }}</p>
-        <input type="submit" id="details" value="More Details">
+        <input type="submit" id="details" value="More Details" [routerLink]="['/movies/' + movie.id]">
 </div>

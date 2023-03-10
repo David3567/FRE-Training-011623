@@ -7,9 +7,19 @@
             <span>Movies</span>
         </div>
     </div>
-    <div class="rightdiv">
+    <div class="rightdiv"
+    *ngIf="this.user.email === ''" >
         <div class="navBut">
             <button class="signBut" [routerLink]="['/login']">Sign In</button>
+        </div>
+    </div>
+    <div class="rightdiv"
+    *ngIf="this.user.email !== ''" >
+        <div class="navBut">
+            <p>{{this.user.username}}</p>
+        </div>
+        <div class="navBut">
+            <button class="signBut" (click) = "logout()">Log Out</button>
         </div>
     </div>
 </div>
