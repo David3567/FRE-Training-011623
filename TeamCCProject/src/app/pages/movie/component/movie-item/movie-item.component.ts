@@ -1,5 +1,6 @@
 
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from 'src/app/service/interface/movie-interface';
 import { MovieServiceService } from 'src/app/service/movies/movie-service.service';
 
@@ -18,7 +19,7 @@ export class MovieItemComponent{
 
   // movies: Movie[] = [];
 
-  // constructor(private MovieService: MovieServiceService) { }
+  constructor(public route:Router) { }
 
   // // ngOnInit() {
   // //   this.getMovies();
