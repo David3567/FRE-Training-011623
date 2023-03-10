@@ -11,8 +11,11 @@ import { Video } from 'src/app/service/interface/video-interface';
 
 
 export class MovieDialogComponent implements OnInit {
-        movieVideo = new Video();
-        // movieVideos: Video[] = [];
+        movieVideo!: Video;
+        id!: string;
+        // prefix: string = "https://www.youtube.com/watch?v=";
+        // id = 
+        // movieVideos: Video;
         // hasposter_img = true;
         // hasbackdrop_img = true;
         // poster_img_high = '';
@@ -24,7 +27,8 @@ export class MovieDialogComponent implements OnInit {
         ) { }
 
         ngOnInit(): void {
-                this.movieVideo = this.data.movieVideo;
+                this.id = this.data.id;
+                // https://www.youtube.com/watch?v=JepMpjhkt-4
                 // this.movieVideos = this.data.movieVideos;
                 // this.hasbackdrop_img = this.data.hasbackdrop_img;
                 // this.hasposter_img = this.data.hasposter_img;

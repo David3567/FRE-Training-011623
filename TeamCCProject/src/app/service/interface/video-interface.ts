@@ -7,5 +7,4 @@ export interface Video {
         official?: boolean;
         published_at?: string;
         id?: string;
-
 }
