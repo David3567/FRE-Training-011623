@@ -1,5 +1,4 @@
 <main>
-    <app-navbar></app-navbar>
     <div class="container">
         <p class="left">STEP 1 OF 3</p>
         <h1>Choose the plan that’s right for you</h1>
@@ -11,9 +10,9 @@
         <div class="row first-row">
             <p></p>
             <div class="content-container">
-                <div class="first-column box"><p>Basic with ads</p></div>
-                <div class="second-column box"><p>Standard</p></div>
-                <div class="third-column box"><p>Premium</p></div>
+                <div class="first-column box" (click)="selectPlan('USER')"><p>Basic with ads</p></div>
+                <div class="second-column box" (click)="selectPlan('SUPERUSER')"><p>Standard</p></div>
+                <div class="third-column box" (click)="selectPlan('ADMIN')"><p>Premium</p></div>
             </div>
             
         </div>
@@ -57,6 +56,6 @@
                 <p class="third-column">YES</p>
             </div>
         </div>
-        <button>Next</button>
+        <button (click)="handleNavigate()">Submit</button>
     </div>
 </main>

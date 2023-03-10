@@ -1,0 +1,120 @@
+@import "../../../style.variables.scss";
+.host {
+  position: relative;
+  min-height: max-content;
+  min-width: max-content;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
+  background-size: auto;
+
+  .container {
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 10%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    height: 100vh;
+    width: 100vw;
+    @include flex(center, flex-end);
+
+    .fc {
+      color: rgb(175, 178, 188);
+    }
+
+    .movie_info {
+      height: 50%;
+      width: 50%;
+      margin: 3% 0 3% 3%;
+      padding: 3% 0 3% 3%;
+      color: white;
+      @include flex(flex-start, flex-start, column);
+
+      p {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      .homepage {
+        font-size: 1.2rem;
+      }
+      .description {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        letter-spacing: 0.1rem;
+      }
+      .list {
+        width: 100%;
+        overflow: auto;
+        @include flex(flex-start);
+
+        .poster_item {
+          height: 10rem;
+          width: 15rem;
+          padding: 0.5rem;
+          flex-shrink: 0;
+          img {
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+          }
+        }
+        .actor_item {
+          height: 9.5rem;
+          width: 5rem;
+          padding: 0.5rem;
+          margin-right: 1rem;
+          flex-shrink: 0;
+          @include flex(flex-start, center, column);
+          img {
+            height: 100%;
+            width: 100%;
+            border-radius: 10%;
+          }
+        }
+      }
+      h1 {
+        padding: 0.5rem;
+      }
+
+      .movie_name {
+        color: white;
+        font-size: 3rem;
+        font-weight: 900;
+        font-family: "Roboto Condensed", sans-serif;
+        margin-bottom: 6rem;
+      }
+      .movie_info_list {
+        font-size: 1.2rem;
+        @include flex(flex-start);
+
+        mat-icon {
+          color: yellow;
+          font-size: 1rem;
+          @include flex();
+        }
+      }
+      .btn_list {
+        @include flex(flex-start);
+
+        .btn {
+          background-color: rgb(31, 88, 255);
+          border: none;
+          height: 4rem;
+          width: 10rem;
+          border-radius: 10px;
+          margin-right: 2.5rem;
+          padding-top: 0.1rem;
+          @include flex();
+        }
+        .btn:nth-child(1) {
+          padding-right: 0.5rem;
+          background-color: rgba(55, 62, 73, 0.5);
+        }
+        .btn:nth-child(2) {
+          color: white;
+        }
+      }
+    }
+  }
+}

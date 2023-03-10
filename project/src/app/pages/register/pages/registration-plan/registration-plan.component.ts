@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { UserRole } from 'src/app/services/interfaces/user-auth.interface';
 
 @Component({
   selector: 'app-registration-plan',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration-plan.component.scss']
 })
 export class RegistrationPlanComponent {
+  selecedColumn: 'USER' | 'SUPERUSER' | 'ADMIN' = 'ADMIN';
 
+  constructor(private readonly authService: AuthService) {}
+
+  selectPlan(user: 'USER' | 'SUPERUSER' | 'ADMIN') {
+    this.selecedColumn = user;
+  }
+  handleNavigate() {
+    console.log('click')
+    this.authService.signup({ role: UserRole[this.selecedColumn] }).subscribe();
+  }
 }

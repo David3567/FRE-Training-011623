@@ -4,18 +4,21 @@ import { RouterModule, Routes } from "@angular/router";
 import { MoviesGuard } from "src/app/core/guards/movies.guard";
 import { UserRole } from "src/app/services/interfaces/user-auth.interface";
 import { SharedModule } from "src/app/shared/shared.module";
-import { MovieItemComponent } from "./movie-item/movie-item.component";
-import { MovieListComponent } from "./movie-list.component";
+import { MovieItemComponent } from "./movie-item.component";
+import { YoutubeComponent } from "./youtube/youtube.component";
+
 
 const routes: Routes = [
-    {path: '', component: MovieListComponent,
-        canActivate: [MoviesGuard],
-        data: { claimType: [UserRole.ADMIN, UserRole.SUPERUSER, UserRole.USER] }}
+    {path: '', component: MovieItemComponent,
+     canActivate: [MoviesGuard],
+     data: {
+        claimType: [UserRole.ADMIN, UserRole.SUPERUSER],
+      },   }
 ]
 @NgModule({
     declarations: [
-        MovieItemComponent,
-        MovieListComponent
+        YoutubeComponent,
+        MovieItemComponent
     ],
     imports: [
         CommonModule,
@@ -26,4 +29,4 @@ const routes: Routes = [
 
     ]
 })
-export class MovieListModule {}
+export class MovieItemModule {}

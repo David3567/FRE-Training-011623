@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module'
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CoreModule.forRoot(),
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModule

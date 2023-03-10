@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime, map, Observable, tap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-registration-one',
@@ -12,7 +14,7 @@ export class RegistrationOneComponent implements OnInit {
   registerForm1!: FormGroup;
   isLoading = false;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService ) {
     
   }
 
@@ -30,7 +32,8 @@ export class RegistrationOneComponent implements OnInit {
     return this.registerForm1.get('password');
   }
   onSubmit() {
-
+    this.authService.addUserInfo(this.registerForm1.value)
+    this.router.navigate(['/register/2'])
   }
 
   checkEmail = (control: AbstractControl): Observable<ValidationErrors | null> => {
