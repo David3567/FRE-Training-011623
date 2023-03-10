@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [NavBarComponent],
@@ -16,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
   ],
   exports: [NavBarComponent],
 })

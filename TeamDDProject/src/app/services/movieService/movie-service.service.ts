@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, Subject, tap } from 'rxjs';
-import { Movie, ApiData, Video } from './interface/movie-interface';
-import { MovieDetails } from './interface/movie-details-interface';
+import { Movie, ApiData, Video } from '../interface/movie-interface';
+import { MovieDetails } from '../interface/movie-details-interface';
 
 // example "https://api.themoviedb.org/3/movie/upcoming?api_key=b58da010083caad9ac63eee587b4999a&language=en-US&page=1"
 
@@ -14,7 +14,7 @@ export class MovieServiceService {
   private miffyApiKey = 'b58da010083caad9ac63eee587b4999a';
   // private queenieApiKey = '024af1dd67c6b784093e06ce104dd99e';
   private imgBaseUrl: string = 'https://image.tmdb.org/t/p/w500';
-  private idBaseUrl : string = "https://api.themoviedb.org/3/movie/"
+  private idBaseUrl: string = 'https://api.themoviedb.org/3/movie/';
 
   MovieList: Movie[] = [];
   MovieList$ = new Subject<Movie[]>();
@@ -28,7 +28,7 @@ export class MovieServiceService {
   getMovies(page = 1, language = 'en-US') {
     const url = `${this.apiUrl}upcoming?api_key=${this.miffyApiKey}&language=${language}&page=${page}`;
     // const url = `${this.apiUrl}${this.queenieApiKey}&language=${language}&page=${page}`;
-    
+
     return this.http.get<ApiData>(url).pipe(
       tap((data) => {
         const movies = data.results.map((each: any) => ({
@@ -52,7 +52,7 @@ export class MovieServiceService {
         return err;
       })
     );
-  };
+  }
 
   // https://api.themoviedb.org/3/movie/315162/videos?api_key=b58da010083caad9ac63eee587b4999a&language=en-US
   getVideosById(id: number) {
@@ -74,7 +74,7 @@ export class MovieServiceService {
         this.VideoList = videos;
         this.VideoList$.next(videos);
         console.log(videos);
-        console.log('here')
+        console.log('here');
       }),
       catchError((err: any) => {
         console.log(err);
@@ -83,7 +83,7 @@ export class MovieServiceService {
     );
   }
 
-  getMovieDetails(movieId: number): Observable<MovieDetails>{
+  getMovieDetails(movieId: number): Observable<MovieDetails> {
     const url = `${this.apiUrl}${movieId}?api_key=${this.miffyApiKey}&language=en-US`;
     return this.http.get<MovieDetails>(url);
   }

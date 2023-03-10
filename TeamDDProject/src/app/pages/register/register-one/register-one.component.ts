@@ -1,60 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
+  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/authService/auth-service.service';
+import { CustomValidator } from 'src/app/services/custom.validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register-one.component.html',
   styleUrls: ['./register-one.component.css'],
 })
-export class RegisterOneComponent {
+export class RegisterOneComponent implements OnInit {
   registerForm1!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
-    this.registerForm1 = this.formBuilder.group({
-      email: [
-        '',
-        {
-          validators: [Validators.required, Validators.email],
-          asyncValidators: [this.emailExistsValidator.bind(this)],
-          updateOn: 'blur',
-        },
-      ],
-      password: ['', Validators.required],
-    });
-  }
+  isLoading: false | undefined;
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private authService: AuthService,
+    private customValidator: CustomValidator
+  ) {}
   get email() {
-    return this.registerForm1.get('email');
+    return this.registerForm1.get('email') as FormControl;
   }
 
   get password() {
-    return this.registerForm1.get('password');
+    return this.registerForm1.get('password') as FormControl;
   }
 
-  onSubmit() {
+  ngOnInit() {
+    this.registerForm1 = this.formBuilder.group({
+      email: [
+        this.authService.addNewUser.email,
+        [Validators.email, Validators.required],
+        [this.customValidator.emailExists(this)],
+      ],
+      password: ['', [Validators.required]],
+    });
+  }
+
+  onNext() {
     console.log(this.registerForm1.value);
+    this.authService.setNewUser(this.registerForm1.value);
+    this.router.navigate(['/register/2']);
   }
 
-  checkEmailExists(email: string): Observable<boolean> {
-    return this.http.get<any>(`/auth/check-email?email=${email}`).pipe(
-      map((response) => {
-        return response.exists;
-      })
-    );
-  }
-  emailExistsValidator(
-    control: AbstractControl
-  ): Observable<{ [key: string]: any } | null> {
-    return this.checkEmailExists(control.value).pipe(
-      map((exists) => {
-        return exists ? { emailExists: true } : null;
-      })
-    );
-  }
+  // onSubmit() {
+  //   console.log(this.registerForm1.value);
+  // }
 }

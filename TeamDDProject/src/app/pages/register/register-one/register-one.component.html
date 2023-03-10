@@ -7,11 +7,14 @@
     <p>We hate paperwork, too.</p>
     <br>
     <div class="userInputContainer">
-      <form [formGroup]="registerForm1" (ngSubmit)="onSubmit()" novalidate>
+      <form [formGroup]="registerForm1" (ngSubmit)="onNext()" novalidate>
         <p>
           <!-- <label for="email">Email </label> -->
           <input type="text" id="email" name="email" formControlName="email" placeholder="Email or phone number *">
+          <br>
+
         </p>
+
         <div
           *ngIf="registerForm1.get('email')?.invalid && (registerForm1.get('email')?.dirty || registerForm1.get('email')?.touched)">
           <div [hidden]="!registerForm1.get('email')?.errors?.['required']">
@@ -21,13 +24,15 @@
           <div [hidden]="!registerForm1.get('email')?.errors?.['email']">
             Invalid email format
           </div>
-          <div *ngIf="email?.errors?.['emailExists']">Email already exists!</div>
+
+          <div [hidden]="!registerForm1.get('email')?.errors?.['emailExists']">
+            Email already exists
+          </div>
         </div>
 
         <p>
           <!-- <label for="password">Password </label> -->
-          <input type="text" id="password" name="password" formControlName="password"
-            placeholder="password or phone number *">
+          <input type="text" id="password" name="password" formControlName="password" placeholder="password *">
         </p>
         <div
           *ngIf="registerForm1.get('password')?.invalid && (registerForm1.get('password')?.dirty || registerForm1.get('password')?.touched)">

@@ -7,7 +7,7 @@
     <p>We hate paperwork, too.</p>
     <br>
     <div class="userInputContainer">
-      <form [formGroup]="registerForm2" (ngSubmit)="onSubmit()" novalidate>
+      <form [formGroup]="registerForm2" (ngSubmit)="onNext()" novalidate>
         <p>
           <input type="text" id="username" name="username" formControlName="username"
             placeholder="Username or phone number *">
@@ -17,16 +17,21 @@
           <div [hidden]="!registerForm2.get('username')?.errors?.['required']">
             username is required
           </div>
+          <div [hidden]="!registerForm2.get('username')?.errors?.['minLength']">
+            username length need to be longer than 6
+          </div>
         </div>
 
         <p>
-          <input type="text" id="tmdbApiKey" name="Tmdb Api Key" formControlName="tmdbApiKey"
-            placeholder="Tmdb Api Key or phone number *">
+          <input type="text" id="tmdb_key" name="Tmdb Api Key" formControlName="tmdb_key" placeholder="Tmdb Api Key *">
         </p>
         <div
-          *ngIf="registerForm2.get('tmdbApiKey')?.invalid && (registerForm2.get('tmdbApiKey')?.dirty || registerForm2.get('tmdbApiKey')?.touched)">
-          <div [hidden]="!registerForm2.get('tmdbApiKey')?.errors?.['required']">
+          *ngIf="registerForm2.get('tmdb_key')?.invalid && (registerForm2.get('tmdb_key')?.dirty || registerForm2.get('tmdb_key')?.touched)">
+          <div [hidden]="!registerForm2.get('tmdb_key')?.errors?.['required']">
             Tmdb Api Key is required
+          </div>
+          <div [hidden]="!registerForm2.get('tmdb_key')?.errors?.['minLength']">
+            tmdb_key length need to be longer than 6
           </div>
         </div>
         <p>

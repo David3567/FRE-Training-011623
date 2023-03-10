@@ -1,25 +1,27 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieServiceService } from 'src/app/movie-service.service';
-import { MovieDetails } from 'src/app/interface/movie-details-interface';
+import { MovieServiceService } from 'src/app/services/movieService/movie-service.service';
+import { MovieDetails } from 'src/app/services/interface/movie-details-interface';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.scss']
+  styleUrls: ['./movie-details.component.scss'],
 })
-
 export class MovieDetailsComponent {
   // movieId = 123
   movieId!: number;
   movieDetails!: MovieDetails;
 
-  constructor(private movieService: MovieServiceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private movieService: MovieServiceService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.movieId = params['id'];
       console.log(this.movieId);
       this.getMovieDetails(this.movieId);
@@ -27,14 +29,15 @@ export class MovieDetailsComponent {
   }
 
   getMovieDetails(movieId: number): void {
-    this.movieService.getMovieDetails(movieId).subscribe((data: MovieDetails) => {
-      this.movieDetails = data;
-      console.log(this.movieDetails);
-    });
+    this.movieService
+      .getMovieDetails(movieId)
+      .subscribe((data: MovieDetails) => {
+        this.movieDetails = data;
+        console.log(this.movieDetails);
+      });
   }
 
-
-  goToPlayer(): void{
+  goToPlayer(): void {
     this.router.navigate([`movies/:id/videos`]);
   }
 }
