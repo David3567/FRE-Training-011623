@@ -37,7 +37,7 @@ export class RegisterOneComponent implements OnInit {
   ngOnInit() {
     this.registerForm1 = this.formBuilder.group({
       email: [
-        this.authService.addNewUser.email,
+        this.authService.usertoAdd.email,
         [Validators.email, Validators.required],
         [this.customValidator.emailExists(this)],
       ],

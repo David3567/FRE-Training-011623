@@ -18,7 +18,7 @@
             username is required
           </div>
           <div [hidden]="!registerForm2.get('username')?.errors?.['minLength']">
-            username length need to be longer than 6
+            username must be longer than or equal to 6 characters
           </div>
         </div>
 
@@ -31,7 +31,7 @@
             Tmdb Api Key is required
           </div>
           <div [hidden]="!registerForm2.get('tmdb_key')?.errors?.['minLength']">
-            tmdb_key length need to be longer than 6
+            tmdb_key must be longer than or equal to 15 characters
           </div>
         </div>
         <p>

@@ -30,7 +30,7 @@ export class RegisterTwoComponent implements OnInit {
   ngOnInit() {
     this.registerForm2 = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(6)]],
-      tmdb_key: ['', [Validators.required, Validators.minLength(6)]],
+      tmdb_key: ['', [Validators.required, Validators.minLength(15)]],
     });
   }
   onNext() {

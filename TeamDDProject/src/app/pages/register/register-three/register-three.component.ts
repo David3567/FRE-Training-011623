@@ -13,6 +13,8 @@ export class RegisterThreeComponent {
   // Todo: Add selector to this page
   onNext() {
     this.authService.setNewUser({ role: 'USER' });
+    this.authService.registerUser().subscribe();
+    // this.authService.clearNewUser();
     this.router.navigate(['/home']);
   }
 }

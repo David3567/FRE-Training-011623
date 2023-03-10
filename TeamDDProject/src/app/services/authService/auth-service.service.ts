@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, timestamp } from 'rxjs/operators';
-import { AddNewUser, UserSubInfo } from '../interface/user-interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+
+import {
+  userToAdd,
+  UserSubInfo,
+  AppUserAuthCookie,
+} from '../interface/user-interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:4231/api/auth';
-  public addNewUser: AddNewUser = {
+  private apiUrl = 'http://localhost:4231/auth';
+  public usertoAdd: userToAdd = {
     username: '',
     password: '',
     email: '',
@@ -24,23 +28,27 @@ export class AuthService {
   //     return this.http.post<boolean>(url, { email });
   //   }
 
-  registerUser(userSubInfo: UserSubInfo): Observable<any> {
-    const url = `${this.apiUrl}/signup`;
-    return this.http.post<any>(url, userSubInfo);
-  }
-
   setNewUser(userSubInfo: UserSubInfo) {
-    console.log(userSubInfo);
-    console.log('Setting new user');
-    this.addNewUser = {
-      ...this.addNewUser,
+    console.log('current user information', userSubInfo);
+    // console.log('Setting new user');
+    this.usertoAdd = {
+      ...this.usertoAdd,
       ...userSubInfo,
     };
-    console.log(this.addNewUser);
+    console.log('iiiii', this.usertoAdd);
+  }
+
+  registerUser(): Observable<any> {
+    const url = `${this.apiUrl}/signup`;
+    const { username, password, email, role, tmdb_key } = this.usertoAdd;
+    if (!username || !password || !email || !role || !tmdb_key)
+      return of('Register failed');
+    console.log(this.usertoAdd);
+    return this.http.post<any>(url, this.usertoAdd);
   }
 
   clearNewUser() {
-    this.addNewUser = {
+    this.usertoAdd = {
       username: '',
       password: '',
       email: '',
