@@ -58,6 +58,28 @@ export class MovieDetailComponent implements OnInit{
     });
     // this.movieService.getMovieByID(this.pageNo).subscribe();|| '{}'|| "646389"
   }
+
+   //& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Transfer data into dialog
+   openDialog(): void {
+    const dialogRef = this.dialog.open(MovieDialogComponent, {
+      data: {
+        movieVideos: this.movieVideos,
+        hasposter_img: this.hasposter_img,
+        hasbackdrop_img: this.hasbackdrop_img,
+        poster_img_high: this.poster_img_high,
+        backdrop_img_high: this.backdrop_img_high,
+      },
+      backdropClass: 'backdropBackground',
+      panelClass: 'my-panel',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+    });
+  }
+
+
+  
 }
 
 
