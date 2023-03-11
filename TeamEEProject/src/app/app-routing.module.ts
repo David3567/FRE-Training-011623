@@ -16,7 +16,7 @@ const routes : Routes = [
 
   {path: 'login', loadChildren: () => import('./pages/login-in-page/login-in-page.module').then(m => m.LoginInPageModule)},
 
-  {path: 'ytplayer', loadChildren: () => import('./pages/movielist/components/movie-item/youtube-player/youtube-player.module').then(m => m.YoutubePlayerModule)},
+  //{path: 'ytplayer', loadChildren: () => import('./pages/moviedetail/youtube-player/youtube-player.module').then(m => m.YoutubePlayerModule)},
 
   {path: '', redirectTo: 'homepage', pathMatch: 'full'},
   {path: '**', redirectTo: 'homepage', pathMatch: 'full'}

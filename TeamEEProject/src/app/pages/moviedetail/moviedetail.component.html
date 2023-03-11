@@ -7,7 +7,7 @@ style="background-image: linear-gradient(to top,rgba(0, 0, 0, 0.2) 0, rgba(0, 0,
         <pre>{{moviedetail.genres}} {{moviedetail.release_date.split("-")[0]}}</pre>
         <p>{{moviedetail.overview}}</p>
         <button>PLAY NOW </button>
-        <button class="trailer">TRAILER</button>
+        <button class="trailer" (click)="playTrailer()">TRAILER</button>
     </div>
     <div class="movie-photo">
         <p class="poster-font">Poster</p>

@@ -17,7 +17,7 @@ import { RegisterModule } from './pages/register/register.module';
 import { HomepageModule } from './pages/homepage/homepage.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { YoutubePlayerComponent } from './pages/movielist/components/movie-item/youtube-player/youtube-player.component';
+import { YoutubePlayerComponent } from './pages/moviedetail/youtube-player/youtube-player.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';

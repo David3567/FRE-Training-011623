@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, tap } from 'rxjs';
 import { Movie, movieCredit, movieDetail, moviePoster, MoviesService } from 'src/app/movies.service';
 
@@ -56,8 +56,10 @@ export class MoviedetailComponent {
 
   }
 
-  constructor(private activateRoute: ActivatedRoute) {
-    
+  constructor(private activateRoute: ActivatedRoute, private router: Router) {
+  }
+  playTrailer(){
+    this.router.navigate([`movies/:id/videos`])
   }
   
 }
