@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { PlansComponent } from './plans/plans.component';
-import { CardComponent } from './card/card.component';
-import { MovieitemComponent } from './movieitem/movieitem.component';
-import { MovielistComponent } from './movielist/movielist.component';
-import { YoutubeComponent } from './youtube/youtube.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HeaderComponent } from './header/header.component';
-import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
+import { HomepageComponent } from '../components/homepage/homepage.component';
+import { LoginComponent } from '../components/login/login.component';
+import { RegisterComponent } from '../components/register/register.component';
+import { PlansComponent } from '../components/plans/plans.component';
+import { MovieitemComponent } from '../components/movieitem/movieitem.component';
+import { MovielistComponent } from '../components/movielist/movielist.component';
+import { YoutubeComponent } from '../components/youtube/youtube.component';
+import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
+import { HeaderComponent } from '../components/header/header.component';
+import { PageNotfoundComponent } from '../components/page-notfound/page-notfound.component';
 import { AuthGuard } from './auth.guard';
 
 
