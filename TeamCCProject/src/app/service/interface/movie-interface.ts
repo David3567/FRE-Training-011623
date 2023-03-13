@@ -9,6 +9,7 @@ export interface Movie {
     popularity: number;
     video: boolean;
     adult:boolean;
+    isLoading: boolean;
 }
 
 export interface ApiData {
