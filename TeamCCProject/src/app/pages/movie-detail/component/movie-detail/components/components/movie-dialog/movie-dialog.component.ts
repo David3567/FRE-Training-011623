@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Video } from 'src/app/service/interface/video-interface';
+
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Video } from 'src/app/service/interface/video-interface';
 
 
 export class MovieDialogComponent implements OnInit {
-        movieVideo!: Video;
+        // @ViewChild('player') player: YoutubePlayerComponent;
+        // movieVideo!: Video;
         id!: string;
         // prefix: string = "https://www.youtube.com/watch?v=";
         // id = 
@@ -21,13 +23,18 @@ export class MovieDialogComponent implements OnInit {
         // poster_img_high = '';
         // backdrop_img_high = '';
 
+        // constructor(
+        //         private readonly dialogRef: MatDialogRef<MovieDialogComponent>,
+        //         @Inject(MAT_DIALOG_DATA) private data: any
+        // ) { }
+
         constructor(
-                private readonly dialogRef: MatDialogRef<MovieDialogComponent>,
-                @Inject(MAT_DIALOG_DATA) private data: any
-        ) { }
+                public dialogRef: MatDialogRef<MovieDialogComponent>,
+                @Inject(MAT_DIALOG_DATA) public data: { videoId: string }
+              ) {}
 
         ngOnInit(): void {
-                this.id = this.data.id;
+                this.id = this.data.videoId;
                 // https://www.youtube.com/watch?v=JepMpjhkt-4
                 // this.movieVideos = this.data.movieVideos;
                 // this.hasbackdrop_img = this.data.hasbackdrop_img;

@@ -1,5 +1,5 @@
 import { Credits } from './../../../../service/interface/credits';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetail } from 'src/app/service/interface/movie-interface';
 import { MovieServiceService } from 'src/app/service/movies/movie-service.service';
@@ -7,6 +7,8 @@ import { Movie } from 'src/app/service/interface/movie-interface';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieDialogComponent } from './components/components/movie-dialog/movie-dialog.component';
+
+import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
   selector: 'app-movie-detail',
@@ -16,6 +18,10 @@ import { MovieDialogComponent } from './components/components/movie-dialog/movie
 
 export class MovieDetailComponent implements OnInit {
   // @Input() movie !: Movie;
+
+  @ViewChild(YouTubePlayer, { static: true })
+  private youTubePlayer!: YouTubePlayer;
+
 
   movies: MovieDetail = {
     adult: false,
@@ -64,10 +70,10 @@ export class MovieDetailComponent implements OnInit {
   }
 
   //& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Transfer data into dialog
-  openDialog(): void {
+  openDialog(videoId: string): void {
     const dialogRef = this.dialog.open(MovieDialogComponent, {
       data: {
-        id: this.movies.id, // get the if of this current video
+        id: videoId, // get the if of this current video
 
         // movieVideos: this.movieVideos,
         // hasposter_img: this.hasposter_img,

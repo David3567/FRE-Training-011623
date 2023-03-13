@@ -1,64 +1,24 @@
-@import "../../../../../styles.variables.scss";
+// @import "../../../../../styles.variables.scss";
 
 .video_holder {
+  display: flex;
   position: relative;
   margin-top: 2em;
   height: 38.75rem;
   width: 76.9rem;
   background-color: black;
   border-radius: 20px;
-  @include flex();
 
   button {
     color: white;
   }
 
   .video_list {
+    display: flex;
     height: 100%;
     flex-wrap: nowrap;
-    @include flex();
 
-    .no_signal {
-      position: absolute;
-      top: 0;
+    
 
-      img:nth-child(1) {
-        height: $reuse_600;
-        width: $reuse_1200;
-      }
-      img:nth-child(2) {
-        position: absolute;
-        bottom: 2em;
-        right: 2em;
-        height: 30%;
-        width: auto;
-        border-radius: 2px;
-      }
-    }
-
-    .video_switcher_left,
-    .video_switcher_right {
-      @include flex();
-
-      position: absolute;
-      top: 50%;
-      font-size: 2em;
-      height: $reuse_80;
-      width: $reuse_80;
-      border-radius: 50%;
-      background-color: #8d143c;
-    }
-    .video_switcher_left {
-      left: 0;
-      transform: translate(-120%, -50%);
-    }
-    .video_switcher_right {
-      right: 0;
-      transform: translate(120%, -50%);
-    }
-    .video_switcher_left:hover,
-    .video_switcher_right:hover {
-      background-color: #bc0643;
-    }
   }
 }
