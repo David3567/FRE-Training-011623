@@ -50,7 +50,16 @@ export class RegisterPageThreeComponent {
     })
   }
   onNext(){
-    this.userServer.addNewUser({role: this.select})
-    this.router.navigate(['/home']);
+    let myRole = ''
+    if(this.select === 'Basic with ads'){
+      myRole = 'USER';
+    }
+    else if(this.select === 'Standard'){
+      myRole = 'SUPERUSER';
+    }
+    else{
+      myRole = 'ADMIN';
+    }
+    this.userServer.sighup({role: myRole}).subscribe();
   }
 }
