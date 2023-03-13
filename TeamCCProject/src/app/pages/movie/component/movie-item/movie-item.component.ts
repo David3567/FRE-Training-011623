@@ -1,4 +1,5 @@
 
+
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/service/interface/movie-interface';
@@ -19,24 +20,24 @@ export class MovieItemComponent{
 
   // movies: Movie[] = [];
 
-  constructor(public route:Router) { }
+  constructor(private movieService: MovieServiceService, private router: Router) { }
 
-  // // ngOnInit() {
-  // //   this.getMovies();
-  // // }
+  onMovieDetailClick(){
+    this.movie.isLoading = true;
+    this.movieService.getMovieDetails(this.movie.id).subscribe(
+      (data) => {
+        this.movie = { ... this.movie, ...data };
+        this.movie.isLoading = false;
 
-  // // getMovies(): void {
-  // //   this.MovieService.getMovies()
-  // //     .subscribe((data: Movie[]) => {
-  // //       this.movies = data;
-  // //     });
+        this.router.navigate(['/movies/', this.movie.id]);
+      },
+      (error) => {
+        console.log('Error fetching movie details', error);
+        this.movie.isLoading = false;
+      }
+    )
+  }
 
-  // ngOnInit(): void {
-  //   this.MovieService.getBooks().subscribe();
-  //   this.MovieService.MovieList$.subscribe((data) => {
-  //     this.movies = data;
-  //   })
-  // }
 
 }
 

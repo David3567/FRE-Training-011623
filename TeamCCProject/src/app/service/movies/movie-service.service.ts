@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, of, Subject, tap } from 'rxjs';
@@ -60,6 +61,7 @@ export class MovieServiceService {
             popularity: each.popularity,
             video: each.video,
             adult: each.adult,
+            isLoading: each.isLoading,
           }
         })
         this.MovieList$.next(this.MovieList);
@@ -100,6 +102,14 @@ export class MovieServiceService {
         return err
       })
     )
+  }
+
+  getMovieDetails(id: number): Observable<Movie>{
+    return this.http.get<Movie>(idBaseUrl + id + "?" + AriaApiKey).pipe(
+      tap((data) => {
+        console.log("Movie details retrieved successfully", data);
+      })
+    );
   }
 
 }
