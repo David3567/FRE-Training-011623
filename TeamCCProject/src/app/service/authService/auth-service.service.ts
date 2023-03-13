@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, of, tap, throwError } from 'rxjs';
-import { AddNewUser, AppUserAuthCookie, login, UserSubInfo } from '../interface/user-interface';
+import { AddNewUser, AppUserAuthCookie, AppUserToken, login, UserSubInfo } from '../interface/user-interface';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -36,19 +37,28 @@ export class AuthServiceService {
   login(loginInfo: login){
     // console.log(loginInfo)
     return this.http
-      .post<AppUserAuthCookie>(
-        'http://localhost:4231/auth-c/signin',
+      .post<AppUserToken>(
+        'http://localhost:4231/auth/signin',
         { email: loginInfo.email, password: loginInfo.password },
         { withCredentials: true }
       )
       .pipe(
-        map((user: AppUserAuthCookie) => {
-          this.userSubject$.next(user);
+        map((user: AppUserToken) => {
+          let userInfo: any = jwt_decode(user.accessToken);
+          userInfo.role = user.role;
+          // userInfo.role = user.role;
+          // console.log(userInfo)
+          localStorage.setItem("accessToken", user.accessToken);
+          localStorage.setItem("role", user.role);
+          this.userSubject$.next(userInfo);
           return user;
+        }),
+        catchError((error) => {
+          return throwError('SomeThing Wrong during sign in!', error);
         })
       );
   };
-  sighup(userRole: { role: string }): Observable<AppUserAuthCookie | string> {
+  sighup(userRole: { role: string }): Observable<AppUserToken | string> {
     this.AddNewUser = {
       ...this.AddNewUser,
       ...userRole,
@@ -59,13 +69,18 @@ export class AuthServiceService {
       return of('Register failed');
     console.log(this.AddNewUser);
     return this.http
-      .post<AppUserAuthCookie>(
-        'http://localhost:4231/auth-c/signup',
+      .post<AppUserToken>(
+        'http://localhost:4231/auth/signup',
         this.AddNewUser
       )
       .pipe(
-        tap((user: AppUserAuthCookie) => {
-          this.userSubject$.next(user);
+        tap((user: AppUserToken) => {
+          let userInfo: any = jwt_decode(user.accessToken);
+          userInfo.role = user.role;
+          // console.log(userInfo)
+          localStorage.setItem("accessToken", user.accessToken);
+          localStorage.setItem("role", user.role);
+          this.userSubject$.next(userInfo);
           this.router.navigate(['/movies']);
         }),
         catchError((error) => {
@@ -74,8 +89,8 @@ export class AuthServiceService {
       );
   }
   logout(){
-    this.http.get('http://localhost:4231/auth-c/signout').subscribe();
-
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("role");
     this.userSubject$.next({
       id: '',
       username: '',
