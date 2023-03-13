@@ -28,7 +28,6 @@ const routes: Routes = [
   { path: 'movielist', component: MovielistComponent, canActivate:[AuthGuard] },
   { path: 'header', component: HeaderComponent, canActivate:[AuthGuard]},
   { path: '**', component: PageNotfoundComponent },
-
 ];
 
 
