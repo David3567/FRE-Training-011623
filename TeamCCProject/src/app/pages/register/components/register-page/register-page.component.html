@@ -48,7 +48,7 @@
             </div>
             <div *ngIf = "!RegistPassword?.valid && (RegistPassword.dirty || RegistPassword.touched)" >
                 <br>
-                <div *ngIf = "RegistEmail.errors?.['required']" class = "invalid">
+                <div *ngIf = "RegistPassword.errors?.['required']" class = "invalid">
                     password is required!!!
                 </div>
             </div>

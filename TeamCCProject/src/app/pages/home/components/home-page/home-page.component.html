@@ -22,15 +22,15 @@
                                 membership .
                         </p>
 
-                        <div class="email__form__container">
+                        <form class="email__form__container" [formGroup] = "emailInput" (ngSubmit) = "onNext()">
                                 <div class="form__container">
-                                        <input type="email" class="email__input" placeholder=" " />
+                                        <input type="email" class="email__input" placeholder=" " formControlName="email"/>
                                         <label class="email__label">Email Address</label>
                                 </div>
                                 <button class="start__button">
                                         Get Started <i class="fal fa-chevron-right"></i>
                                 </button>
-                        </div>
+                        </form>
                 </div>
 
         </section>

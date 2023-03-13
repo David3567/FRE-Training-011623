@@ -23,14 +23,15 @@
                 <input type="submit" id="playnow_button" value="&rtri;PLAY NOW">
             </div>
             <div class="functional_button">
-                <input type="submit" id="trailer_button" value="TRAILER">
+                <button type="submit" id="trailer_button" value="TRAILER" (click)="openDialog()" >
+                </button>
             </div>
         </div>
     </div>
 
     <div class="right-part">
         <p>Poster</p>
-        <img class="poster-image" [src]="imageUrl" alt="Movie poster">
+        <img class="poster-image" [src]="'https://image.tmdb.org/t/p/w500' + movies.img" alt="Movie poster">
         <p>MovieActor</p>
         <h2>Cast</h2>
 

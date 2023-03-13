@@ -8,9 +8,21 @@
     align-items:center;
     // border-bottom: 1px solid black;
 }
+.leftdiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.rightdiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 .navTitle{
     min-height: 100%;
-    width: 10%;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items:center;
@@ -22,7 +34,7 @@
 }
 .navBut{
     height: 100%;
-    width: 8%;
+    width: 15%;
     display: flex;
     justify-content:center;
     align-items: center;
