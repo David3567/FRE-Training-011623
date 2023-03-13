@@ -75,8 +75,8 @@ export class MovieDetailComponent implements OnInit {
         // poster_img_high: this.poster_img_high,
         // backdrop_img_high: this.backdrop_img_high,
       },
-      backdropClass: 'backdropBackground',
-      panelClass: 'my-panel',
+      // backdropClass: 'backdropBackground',
+      // panelClass: 'my-panel',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
