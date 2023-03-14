@@ -14,10 +14,8 @@ export class AppComponent implements OnInit{
     let AccessT = localStorage.getItem("accessToken");
     let Role = localStorage.getItem("role");
     // console.log(AccessT);
-    if(AccessT !== null){
-      let userInfo: any = jwt_decode(AccessT);
-      userInfo.role = Role;
-      this.userServer.userSubject$.next(userInfo);
+    if(AccessT !== null && Role !== null){
+      this.userServer.refreshToken().subscribe();
     }
     // let userInfo: any = jwt_decode(AccessT);
     // // userInfo.role = user.role;
