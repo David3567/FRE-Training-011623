@@ -1,0 +1,69 @@
+.movie-card {
+    position: relative;
+    width: 400px;
+    height: 1050px;
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    .movie-img {
+        width: 100%;
+        height: 600px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .movie-details {
+        padding: 20px;
+        color: white;
+        font-size: 16px;
+        line-height: 2em;
+        margin: 10px;
+
+        h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin: 0.5rem;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .release-year,
+        .language,
+        .rating {
+            background-color: purple;
+            border-radius: 10px;
+            padding: 5px 20px;
+            margin: 10px;
+        }
+
+        .overview-text {
+            height: 200px;
+            width: 330px;
+            text-overflow: ellipsis;
+            overflow: scroll;
+
+            p {
+                font-size: 1rem;
+                color: #ccc;
+                margin: 0.5rem;
+                font-style: italic;
+            }
+        }
+
+        .details-button {
+            position: absolute;
+            bottom: 30px;
+
+            button {
+                border: 2px solid white !important;
+            }
+        }
+    }
+}

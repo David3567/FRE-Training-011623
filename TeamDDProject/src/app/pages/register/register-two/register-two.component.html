@@ -1,0 +1,44 @@
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+  <form class="form">
+    <p>Step 2 of 3</p>
+    <h1>Create a Username && Add your Tmdb Api_Key</h1>
+    <p>Just a few more steps and you are done!</p>
+    <p>We hate paperwork, too.</p>
+    <br>
+    <div class="userInputContainer">
+      <form [formGroup]="registerForm2" (ngSubmit)="onNext()" novalidate>
+        <p>
+          <input type="text" id="username" name="username" formControlName="username"
+            placeholder="Username or phone number *">
+        </p>
+        <div
+          *ngIf="registerForm2.get('username')?.invalid && (registerForm2.get('username')?.dirty || registerForm2.get('username')?.touched)">
+          <div [hidden]="!registerForm2.get('username')?.errors?.['required']">
+            username is required
+          </div>
+          <div [hidden]="!registerForm2.get('username')?.errors?.['minLength']">
+            username must be longer than or equal to 6 characters
+          </div>
+        </div>
+
+        <p>
+          <input type="text" id="tmdb_key" name="Tmdb Api Key" formControlName="tmdb_key" placeholder="Tmdb Api Key *">
+        </p>
+        <div
+          *ngIf="registerForm2.get('tmdb_key')?.invalid && (registerForm2.get('tmdb_key')?.dirty || registerForm2.get('tmdb_key')?.touched)">
+          <div [hidden]="!registerForm2.get('tmdb_key')?.errors?.['required']">
+            Tmdb Api Key is required
+          </div>
+          <div [hidden]="!registerForm2.get('tmdb_key')?.errors?.['minLength']">
+            tmdb_key must be longer than or equal to 15 characters
+          </div>
+        </div>
+        <p>
+          <button class="nextButton" type="submit" [disabled]="!registerForm2.valid">Next</button>
+        </p>
+      </form>
+    </div>
+  </form>
+  <!-- <app-footer></app-footer> -->
+</div>

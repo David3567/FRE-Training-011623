@@ -5,7 +5,7 @@ import { MovieDetail } from 'src/app/service/interface/movie-interface';
 import { MovieServiceService } from 'src/app/service/movies/movie-service.service';
 import { Movie } from 'src/app/service/interface/movie-interface';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog } from '@angular/material/dialog';
 import { MovieDialogComponent } from './components/components/movie-dialog/movie-dialog.component';
 
 import { YouTubePlayer } from '@angular/youtube-player';
@@ -48,7 +48,7 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(private movieService: MovieServiceService,
     private activatedRoute: ActivatedRoute,
-    public dialog: MatDialog) { }
+    ) { }
 
   ngOnInit(): void {
     this.movieService.MovieDetail$.subscribe((data) => {
@@ -59,10 +59,10 @@ export class MovieDetailComponent implements OnInit {
       this.movieService.getMovieByID(params.get('id')!).subscribe()
 
 
-      this.activatedRoute.paramMap.subscribe((params) => {
-        // console.log(params);
-        this.movieService.getMovieByID(params.get('id')!).subscribe()
-      });
+      // this.activatedRoute.paramMap.subscribe((params) => {
+      //   // console.log(params);
+      //   this.movieService.getMovieByID(params.get('id')!).subscribe()
+      // });
     });
     // this.movieService.getMovieByID(this.pageNo).subscribe();|| '{}'|| "646389"
   }
@@ -83,13 +83,11 @@ export class MovieDetailComponent implements OnInit {
       // panelClass: 'my-panel',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
-    });
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   console.log('The dialog was closed', result);
+    // });
   }
 
 
 
 }
-
-

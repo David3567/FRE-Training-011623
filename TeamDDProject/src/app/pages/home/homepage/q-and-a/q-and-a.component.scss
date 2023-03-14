@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    border-top: 8px solid #222;
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        padding: 80px 0px 30px 0px;
+    }
+
+    .list-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    p {
+        font-size: 15px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .email-input {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        max-width: 40%;
+
+        mat-form-field {
+            width: 70%;
+        }
+
+        button {
+            width: 30%;
+            height: 56px;
+            font-size: 25px;
+            font-weight: 400;
+        }
+    }
+}

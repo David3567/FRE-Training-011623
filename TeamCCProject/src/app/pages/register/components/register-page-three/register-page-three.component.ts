@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/service/authService/auth-service.service';
 import { Plans } from 'src/app/service/interface/movie-interface';
@@ -8,7 +8,7 @@ import { Plans } from 'src/app/service/interface/movie-interface';
   templateUrl: './register-page-three.component.html',
   styleUrls: ['./register-page-three.component.scss']
 })
-export class RegisterPageThreeComponent { 
+export class RegisterPageThreeComponent implements OnInit{ 
   select: string = 'Basic with ads'
   eachPlans: Plans[] =  [
     {
@@ -37,6 +37,22 @@ export class RegisterPageThreeComponent {
     }
   ]
   constructor(private router: Router, private userServer:AuthServiceService){}
+  ngOnInit(): void {
+    const LocalRole = localStorage.getItem("role");
+    let myRole;
+    if(LocalRole !== null){
+      if(LocalRole === 'ADMIN'){
+        myRole = 'Premium';
+      }
+      else if(LocalRole === 'SUPERUSER'){
+        myRole = 'Standard';
+      }
+      else{
+        myRole = 'Basic with ads';
+      }
+      this.changeSelect(myRole);
+    }
+  }
   category : string[] = ['Monthly Price', 'Video quality', 'Resolution', 'Watch on your TV, computer, mobile phone and tablet', 'Downloads']
   changeSelect(namep: string){
     this.select = namep;
@@ -60,6 +76,14 @@ export class RegisterPageThreeComponent {
     else{
       myRole = 'ADMIN';
     }
-    this.userServer.sighup({role: myRole}).subscribe();
+    const LocalRole = localStorage.getItem("role");
+    if(LocalRole !== null){
+      this.userServer.updateRole({role: myRole}).subscribe();
+      // console.log("local")
+    }
+    else{
+      this.userServer.sighup({role: myRole}).subscribe();
+      // console.log("null Local")
+    }
   }
 }

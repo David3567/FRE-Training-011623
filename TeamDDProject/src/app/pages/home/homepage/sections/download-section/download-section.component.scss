@@ -1,0 +1,71 @@
+.card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 8px solid #222;
+    padding: 5% 10%;
+    flex-direction: row-reverse;
+
+    .text-col {
+        flex-basis: 50%;
+        max-width: 40%;
+        margin: 0 0 0 auto;
+
+        h2 {
+            font-size: 4em;
+            font-weight: 600;
+            line-height: 1.2em;
+        }
+
+        p {
+            font-size: 2em;
+            font-weight: 300;
+            line-height: 1.5em;
+        }
+    }
+
+    .img-col {
+        flex-basis: 50%;
+        position: relative;
+
+        img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .our-story-card-animation {
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            display: flex;
+            align-items: center;
+            background-color: black;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            height: 20%;
+            padding: 0.25rem 0.6rem;
+            gap: 15px;
+
+            .our-story-card-animation-image {
+                width: 20%;
+            }
+
+            .our-story-card-animation-text {
+                width: 60%;
+            }
+
+            .gif-container {
+                width: 30%;
+                height: 100%;
+
+                .gif {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

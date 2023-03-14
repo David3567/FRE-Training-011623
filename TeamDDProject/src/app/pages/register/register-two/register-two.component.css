@@ -1,0 +1,55 @@
+html, body {
+    height: 100%
+}
+
+form {
+    display: table;
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 50px;
+}
+
+form p {
+    display: flex;
+    font-size: medium;
+}
+
+form h1 {
+    display: flex;
+    font-size: 2rem;
+}
+
+form label, form input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+form label {
+    width: 200px;
+    padding-right: 5%;
+    text-align: left;
+    font-size: small;
+    font-weight: 500;
+  }
+  
+form input {
+    width: 400px;
+    height: 6vh;
+    border-radius: 0.3vmin;
+    border-width: 0.1ch;
+  }
+
+.input::-webkit-input-placeholder{
+    position: relative;
+    left: 0.5re,;
+}
+
+.nextButton{
+    height: 6vh;
+    width: 100%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    border: 0px;
+    background-color: rgb(178, 0, 0);
+}
