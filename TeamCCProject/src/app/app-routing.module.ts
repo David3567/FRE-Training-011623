@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuardGuard } from './core/guards/login-guard.guard';
+import { MoviesDetailGuard } from './core/guards/movies-detail.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +11,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then((m) => m.AppModule),
+    canActivate: [LoginGuardGuard],
   },
   {
     path: 'register',
@@ -21,6 +24,7 @@ const routes: Routes = [
   {
     path: 'movies/:id',
     loadChildren: () => import('./pages/movie-detail/movie-detail.module').then((m) => m.MoviesDetialModule),
+    canActivate: [MoviesDetailGuard],
   },
   {
     path: '',
