@@ -4,62 +4,67 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-
   form: FormGroup = this.fb.group({
-    name: ['', [Validators.required,
-      Validators.minLength(5),
-      Validators.maxLength(12),
-    ]]
+    name: [
+      '',
+      [Validators.required, Validators.minLength(5), Validators.maxLength(12)],
+    ],
+    email: ['', [Validators.required, Validators.email]],
+    passwd: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('^(?=.*[A-Z])(?=.*[$@$!%*?&~]).{5,}'),
+      ],
+    ],
   });
 
   get name() {
     return this.form.get('name');
   }
 
-  ngOnInit(): void {}
+  get email() {
+    return this.form.get('email');
+  }
 
+  get passwd() {
+    return this.form.get('passwd');
+  }
+
+  ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.form.value);
   }
 
-
-
   constructor(private fb: FormBuilder) {}
-
-
-
-
-
 
   // constructor(private router: Router) {
   //   this.name = '';
   //   this.email = '';
   //   this.password = '';
   // }
-  
-  
+
   // name: string;
   // email: string;
   // password: string;
-  
+
   // navigateToLogin() {
   //   this.router.navigate(['/login']);
   // }
   // validateEmail() {
   //   const email = (document.querySelector('input[type="email"]') as HTMLInputElement).value;
   //   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
+
   //   if (re.test(String(email).toLowerCase())) {
   //     alert('Valid Email');
   //   } else {
   //     alert('Invalid Email');
   //   }
   // }
-  
 
   // onSubmit() {
   //   // Get existing users from localStorage
@@ -86,8 +91,6 @@ export class RegisterComponent {
   //   // Store users array in localStorage
   //   localStorage.setItem('users', JSON.stringify(users));
   //   alert('Registration successful!');
-
-    
 
   //   // Redirect to login page
   //   // (You can use the Angular Router to navigate programmatically)

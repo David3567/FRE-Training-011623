@@ -1,22 +1,56 @@
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+  rel="stylesheet"
+/>
 <header class="header">
-<div class="logo">JTDANFLIX</div>
+  <div class="logo">JTDANFLIX</div>
 </header>
 <div class="container">
-  <h1>Login</h1>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" name="email" [(ngModel)]="email" required>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-      <!-- <button class="login-button" (click)="navigateToLogin()">Login</button> -->
+ <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="onLogIn()">
 
-      <p class="invalid-login" *ngIf="invalidLogin">Invalid email or password.</p>
+        <div class="email-container">
+            <input type="email" placeholder="Email" formControlName="email"><br>
+            <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                Invalid email
+            </div>
+            <div class="error">{{errorText}}</div>
+        </div>
+
+        <div class="password-container">
+            <input type="password" placeholder="Password" formControlName="password"><br>
+            <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="error">
+                Invalid password
+            </div>
+        </div>
+
+        <p>New User? <a routerLink="/register">Register</a></p>
+        <button type="login" class="login-button" (click)="onLogIn()">Log In</button>
     </form>
-  </div>
-  
+   <!-- <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button> -->
+    <!-- <button class="login-button" (click)="navigateToLogin()">Login</button> -->
+
+    <!-- <p class="invalid-login" *ngIf="invalidLogin">Invalid email or password.</p>
+  </form> -->
+</div>

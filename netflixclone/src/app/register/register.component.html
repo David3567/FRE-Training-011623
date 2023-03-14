@@ -9,10 +9,43 @@
         formControlName="name"
         placeholder="User Name"
       />
-      <div *ngIf="!name?.valid && (name?.dirty || name?.touched)"></div>
-      <div [hidden]="!name?.errors?.['required']">Username is required</div>
-      <div [hidden]="!name?.errors?.['minlength']">Min length is 5</div>
-      <div [hidden]="!name?.errors?.['maxlength']">Min length is 12</div>
+      <div *ngIf="!name?.valid && (name?.dirty || name?.touched)">
+        <div [hidden]="!name?.errors?.['required']">Username is required</div>
+        <div [hidden]="!name?.errors?.['minlength']">Min length is 5</div>
+        <div [hidden]="!name?.errors?.['maxlength']">Min length is 12</div>
+      </div>
+    </div>
+
+    <div class="filed-container">
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Email Address"
+      />
+      <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+        <div [hidden]="!email?.errors?.['required']">Email existed</div>
+        <div [hidden]="!email?.errors?.['email']">Invalid email id</div>
+      </div>
+    </div>
+
+    <div class="field-container">
+      <input
+        type="text"
+        id="passwd"
+        formControlName="passwd"
+        placeholder="Password"
+      />
+      <div
+        *ngIf="!passwd?.valid && (passwd?.dirty || passwd?.touched)"
+        class="error"
+      >
+        <div [hidden]="!passwd?.errors?.['required']">Password is required</div>
+        <div [hidden]="!passwd?.errors?.['pattern']">
+          Password has to be at least 1 Uppercase <br />
+          1 special character and 5 min length
+        </div>
+      </div>
     </div>
 
     <button class="submit" type="submit" [disabled]="!form.valid">
