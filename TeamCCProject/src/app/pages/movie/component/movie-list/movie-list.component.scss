@@ -1,0 +1,13 @@
+.listContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    background-color: black;
+}
+app-movie-item{
+    width: 400px;
+    height: 650px;
+}

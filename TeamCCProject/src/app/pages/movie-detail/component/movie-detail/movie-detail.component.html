@@ -1,0 +1,54 @@
+<!-- <p id="date"> {{ movies.date}}</p> -->
+
+
+
+<div class="background">
+    <img class='background-image' [src]="'https://image.tmdb.org/t/p/w500' + movies.img">
+</div>
+
+<div class="nav-bar">
+    <app-nav-bar></app-nav-bar>
+</div>
+
+<div class="movie-info">
+    <div class="left-part">
+        <h1>{{movies.title}}</h1>
+        <ul class="movie-details">
+            <li>{{movies.vote_average}}|{{movies.vote_count}}</li>
+            <li>{{movies.runtime}}|{{movies.tagline}}|{{movies.date}}</li>
+        </ul>
+        <p>{{movies.description}}</p>
+        <div class="button">
+            <div class="functional_button">
+                <input type="submit" id="playnow_button" value="&rtri;PLAY NOW">
+            </div>
+            <div class="functional_button">
+                <button type="submit" id="trailer_button" value="TRAILER" (click)="openDialog()" >
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-part">
+        <p>Poster</p>
+        <img class="poster-image" [src]="'https://image.tmdb.org/t/p/w500' + movies.img" alt="Movie poster">
+        <p>MovieActor</p>
+        <h2>Cast</h2>
+
+
+        <!-- <img class="poster-image"  [src]= "imageUrl" alt="Movie poster"> -->
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- {"adult":false,"backdrop_path":"/9Rq14Eyrf7Tu1xk0Pl7VcNbNh1n.jpg","genre_ids":[28,12,53],
+"id":646389,"original_language":"en","original_title":"Plane",
+"overview":"After a heroic job of successfully landing his storm-damaged aircraft in a war zone, 
+a fearless pilot finds himself between the agendas of multiple militias planning to take the plane 
+and its passengers hostage.","popularity":1752.139,"poster_path":"/qi9r5xBgcc9KTxlOLjssEbDgO0J.jpg",
+"release_date":"2023-01-12","title":"Plane","video":false,"vote_average":6.8,"vote_count":815} -->

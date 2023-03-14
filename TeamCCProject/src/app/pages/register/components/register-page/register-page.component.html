@@ -1,0 +1,61 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="main">
+        <p>STEP 1 OF 3</p>
+        <h1>Create a password to start your membership</h1>
+        <p>Just a few more steps and you're done!</p>
+        <br>
+        <p>Wehate paperwork, too.</p>
+        <br>
+        <form [formGroup] = "RegisterFormOne" (ngSubmit) = "onNext()">
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input matInput  type="text" name="Email" id="Email" class="form-control" placeholder="Enter your email" formControlName="email">
+                <br>
+                <mat-spinner matSuffix *ngIf="isLoading" [diameter]="25"></mat-spinner>
+                <mat-icon
+                class="check_email_ok"
+                *ngIf="!RegistEmail?.errors?.['hasEmail'] && !isLoading"
+                matSuffix
+                >
+                check_circle_outline
+                </mat-icon>
+                <mat-icon
+                class="check_email_not"
+                *ngIf="RegistEmail?.errors?.['hasEmail'] && !isLoading"
+                matSuffix
+                >
+                not_interested
+                </mat-icon>
+            </div>
+            <br>
+            <div *ngIf = "!RegistEmail?.valid && (RegistEmail.dirty || RegistEmail.touched)" >
+                <br>
+                <div *ngIf = "RegistEmail.errors?.['required']" class = "invalid">
+                    email is required!!!
+                </div>
+                <div *ngIf = "RegistEmail.errors?.['email']" class = "invalid">
+                    input must a valid email!!!
+                </div>
+                <div *ngIf = "RegistEmail?.errors?.['hasEmail']" class = "invalid">
+                    This email already exist...
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" class="form-control" placeholder="Add a password" formControlName="password">
+            </div>
+            <div *ngIf = "!RegistPassword?.valid && (RegistPassword.dirty || RegistPassword.touched)" >
+                <br>
+                <div *ngIf = "RegistPassword.errors?.['required']" class = "invalid">
+                    password is required!!!
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <button class="NextButton" [disabled]="!RegisterFormOne.valid" [ngClass] = "RegisterFormOne.valid? 'next' : 'NVnext'">Next</button>
+            </div>
+        </form>
+    </div>
+</div>

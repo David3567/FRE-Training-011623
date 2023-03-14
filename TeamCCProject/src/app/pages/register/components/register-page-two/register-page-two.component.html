@@ -1,0 +1,44 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="main">
+        <p>STEP 2 OF 3</p>
+        <h1>Create a Username && Add your Tmdb Api_Key</h1>
+        <p>Just a few more steps and you're done!</p>
+        <br>
+        <p>Wehate paperwork, too.</p>
+        <br>
+        <form [formGroup] = "RegisterFormTwo" (ngSubmit) = "onNext()">
+            <div class="form-group">
+                <label for = "username">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Add a username" formControlName = "username">
+            </div>
+            <div *ngIf = "!RegistUsername?.valid && (RegistUsername.dirty || RegistUsername.touched)" >
+                <br>
+                <div *ngIf = "RegistUsername.errors?.['required']" class = "invalid">
+                    username is required!!!
+                </div>
+                <div *ngIf = "RegistUsername.errors?.['minLength']" class = "invalid">
+                    username must longer than six!!!
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="Api_Key">Tmdb Api_Key</label>
+                <input type="text" name="Api_Key" id="Api_Key" class="form-control" placeholder="Add a Tmdb Api_Key" formControlName = "tmdb_key">
+            </div>
+            <div *ngIf = "!RegistTmdb?.valid && (RegistTmdb.dirty || RegistTmdb.touched)" >
+                <br>
+                <div *ngIf = "RegistTmdb.errors?.['required']" class = "invalid">
+                    api key is required!!!
+                </div>
+                <div *ngIf = "RegistTmdb.errors?.['minLength']" class = "invalid">
+                    api key must longer than six!!!
+                </div>
+            </div>
+            <br>
+            <div class="form-group"> 
+                <button class="NextButton" [disabled]="!RegisterFormTwo.valid" [ngClass] = "RegisterFormTwo.valid? 'next' : 'NVnext'">Next</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+.navContainer{
+    width: 100%;
+    min-height: 8%;
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    align-items:center;
+    // border-bottom: 1px solid black;
+}
+.leftdiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.rightdiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.navTitle{
+    min-height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.navTitle>span{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: red;
+}
+.navBut{
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.signBut{
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    width:70%;
+    min-height: 35px;
+}
+@media only screen and (max-width: 700px) {
+    .navTitle{
+        min-height: 100%;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+    }
+    .navBut{
+        height: 100%;
+        width: 40%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    .signBut{
+        font-size: 1.1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: red;
+        color: white;
+        width:70%;
+        min-height: 35px;
+    }
+}

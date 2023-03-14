@@ -1,0 +1,111 @@
+<div class="home">
+
+
+        <section class="hero">
+                <div class=" hero__bg__image__container">
+                        <div class="nav-bar">
+                                <app-nav-bar></app-nav-bar>
+                        </div>
+                        <img src="https://w0.peakpx.com/wallpaper/828/197/HD-wallpaper-ragdoll-fluffy-cat-denectic-cat-blue-eyes-cats-pets-cute-animals-ragdoll-cats.jpg"
+                                alt="BG hero image" class="hero__bg__image" />
+                        <div class="hero__bg__overlay"></div>
+
+                </div>
+
+                <div class="hero__card">
+                        <h1 class="hero__title">
+                                Unlimited Movies TV, Shows and More.
+                        </h1>
+                        <p class="hero__subtitle">Watch anywhere and cancel anytime.</p>
+                        <p class="hero__description">
+                                Ready to watch? Enter your email to create or restart your
+                                membership .
+                        </p>
+
+                        <form class="email__form__container" [formGroup] = "emailInput" (ngSubmit) = "onNext()">
+                                <div class="form__container">
+                                        <input type="email" class="email__input" placeholder=" " formControlName="email"/>
+                                        <label class="email__label">Email Address</label>
+                                </div>
+                                <button class="start__button">
+                                        Get Started <i class="fal fa-chevron-right"></i>
+                                </button>
+                        </form>
+                </div>
+
+        </section>
+
+
+
+        <hr>
+
+
+        <div class="cards">
+                <!-- Watch on TV-->
+                <div class="TV card">
+                        <div class="title">
+                                <h1 class="card__h1"> Enjoy on your TV. </h1>
+                                <p> Watch on Smart TVs, Playstation, Xbox, Chromecase, Apple TV, Blu-ray players, and
+                                        more. </p>
+                        </div>
+                        <div class="media">
+                                <img alt="" class="TV-img"
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+                                        data-uia="our-story-card-img">
+                                <video class="TV-video" autoplay="" playsinline="" muted="" loop="">
+                                        <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                                                type="video/mp4">
+                                </video>
+                        </div>
+                </div>
+
+                <hr>
+
+                <!-- Download-->
+                <div class="Download card">
+                        <div class="media">
+                                <img alt="" class="Download-img"
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
+                                        data-uia="our-story-card-img">
+                                <div class="download-box">
+                                        <div class="download-box-left">
+                                                <img class="download-img" alt=""
+                                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png">
+                                                <div class="download-text">
+                                                        <p class="download-text1">Stranger Tings</p>
+                                                        <p class="download-text2">Downloading...</p>
+                                                </div>
+                                        </div>
+                                        <img class="download-icon" alt=""
+                                                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif">
+                                </div>
+                        </div>
+                        <div class="title">
+                                <h1 class="card__h1"> Download your shows to watch offline.</h1>
+                                <p> Save your favorites easily and always have something to watch.</p>
+                        </div>
+                </div>
+
+                <hr>
+
+                <!-- Watch on Device-->
+                <div class="Device card">
+                        <div class="title">
+                                <h1 class="card__h1">Watch everywhere.</h1>
+                                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without
+                                        paying more.</p>
+                        </div>
+                        <div class="media">
+                                <img alt="" class="Device-img"
+                                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png"
+                                        data-uia="our-story-card-img">
+                                <video class="Device-video" autoplay="" playsinline="" muted="" loop="">
+                                        <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+                                                type="video/mp4">
+                                </video>
+                        </div>
+                </div>
+        </div>
+
+</div>
+
