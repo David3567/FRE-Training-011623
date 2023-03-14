@@ -16,6 +16,7 @@ import { PlanBoxComponent } from './components/plan-box/plan-box.component'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { LoginGuardGuard } from 'src/app/core/guards/login-guard.guard';
 
 
 const routes: Routes = [
@@ -23,8 +24,8 @@ const routes: Routes = [
     path: '',
     component: RegisterComponent,
     children: [
-      { path: 'step1', component: RegisterPageComponent },
-      { path: 'step2', component: RegisterPageTwoComponent },
+      { path: 'step1', component: RegisterPageComponent, canActivate:[LoginGuardGuard] },
+      { path: 'step2', component: RegisterPageTwoComponent, canActivate:[LoginGuardGuard] },
       { path: 'step3', component: RegisterPageThreeComponent },
       { path: '', redirectTo: 'step1', pathMatch: 'full' },
     ],
