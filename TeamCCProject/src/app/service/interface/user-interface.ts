@@ -23,3 +23,7 @@ export interface login {
     email: string;
     password: string;
 }
+export interface AppUserToken {
+    accessToken: string;
+    role: string;
+}

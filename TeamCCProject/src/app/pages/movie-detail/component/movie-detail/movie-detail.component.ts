@@ -5,7 +5,7 @@ import { MovieDetail } from 'src/app/service/interface/movie-interface';
 import { MovieServiceService } from 'src/app/service/movies/movie-service.service';
 import { Movie } from 'src/app/service/interface/movie-interface';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog } from '@angular/material/dialog';
 import { MovieDialogComponent } from './components/components/movie-dialog/movie-dialog.component';
 
 @Component({
@@ -42,7 +42,7 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(private movieService: MovieServiceService,
     private activatedRoute: ActivatedRoute,
-    public dialog: MatDialog) { }
+    ) { }
 
   ngOnInit(): void {
     this.movieService.MovieDetail$.subscribe((data) => {
@@ -53,33 +53,33 @@ export class MovieDetailComponent implements OnInit {
       this.movieService.getMovieByID(params.get('id')!).subscribe()
 
 
-      this.activatedRoute.paramMap.subscribe((params) => {
-        // console.log(params);
-        this.movieService.getMovieByID(params.get('id')!).subscribe()
-      });
+      // this.activatedRoute.paramMap.subscribe((params) => {
+      //   // console.log(params);
+      //   this.movieService.getMovieByID(params.get('id')!).subscribe()
+      // });
     });
     // this.movieService.getMovieByID(this.pageNo).subscribe();|| '{}'|| "646389"
   }
 
   //& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Transfer data into dialog
   openDialog(): void {
-    const dialogRef = this.dialog.open(MovieDialogComponent, {
-      data: {
-        id: this.movies.id, // get the if of this current video
+    // const dialogRef = this.dialog.open(MovieDialogComponent, {
+    //   data: {
+    //     id: this.movies.id, // get the if of this current video
 
-        // movieVideos: this.movieVideos,
-        // hasposter_img: this.hasposter_img,
-        // hasbackdrop_img: this.hasbackdrop_img,
-        // poster_img_high: this.poster_img_high,
-        // backdrop_img_high: this.backdrop_img_high,
-      },
-      backdropClass: 'backdropBackground',
-      panelClass: 'my-panel',
-    });
+    //     // movieVideos: this.movieVideos,
+    //     // hasposter_img: this.hasposter_img,
+    //     // hasbackdrop_img: this.hasbackdrop_img,
+    //     // poster_img_high: this.poster_img_high,
+    //     // backdrop_img_high: this.backdrop_img_high,
+    //   },
+    //   backdropClass: 'backdropBackground',
+    //   panelClass: 'my-panel',
+    // });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
-    });
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   console.log('The dialog was closed', result);
+    // });
   }
 
 
