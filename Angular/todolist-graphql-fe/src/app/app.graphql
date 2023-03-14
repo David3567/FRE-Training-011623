@@ -1,0 +1,20 @@
+query GetTodos {
+  getTodos {
+    todos {
+      id
+      completed
+      userId
+      title
+    }
+  }
+}
+mutation AddTodo($addTodoInput: AddTodoInput!) {
+  addTodo(input: $addTodoInput) {
+    todo {
+      id
+      userId
+      completed
+      title
+    }
+  }
+}

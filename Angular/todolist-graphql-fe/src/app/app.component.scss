@@ -1,0 +1,23 @@
+.header {
+  height: var(--height-header);
+  width: 100%;
+
+  background: linear-gradient(to right, black, var(--color-green));
+  line-height: var(--height-header);
+  color: white;
+  padding-left: 10px;
+
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+.content {
+  background-color: blanchedalmond;
+
+  height: calc(100% - var(--height-header));
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
