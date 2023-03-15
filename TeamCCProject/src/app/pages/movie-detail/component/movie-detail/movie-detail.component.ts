@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { MovieDialogComponent } from './components/components/movie-dialog/movie-dialog.component';
 
 import { YouTubePlayer } from '@angular/youtube-player';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-movie-detail',
@@ -48,6 +49,7 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(private movieService: MovieServiceService,
     private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog,
     ) { }
 
   ngOnInit(): void {
@@ -55,6 +57,7 @@ export class MovieDetailComponent implements OnInit {
       this.movies = data;
     })
     this.activatedRoute.paramMap.subscribe((params) => {
+      console.log("hereeeeeee")
       console.log(params.get('id'))
       this.movieService.getMovieByID(params.get('id')!).subscribe()
 
@@ -68,10 +71,12 @@ export class MovieDetailComponent implements OnInit {
   }
 
   //& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Transfer data into dialog
-  openDialog(videoId: string): void {
+  openDialog(videoId: number): void {
+    console.log("printing movie detail videoId");
+    console.log(videoId);
     const dialogRef = this.dialog.open(MovieDialogComponent, {
       data: {
-        id: videoId, // get the if of this current video
+        id: videoId, // get the id of this current video
 
         // movieVideos: this.movieVideos,
         // hasposter_img: this.hasposter_img,
@@ -79,9 +84,31 @@ export class MovieDetailComponent implements OnInit {
         // poster_img_high: this.poster_img_high,
         // backdrop_img_high: this.backdrop_img_high,
       },
+      
       // backdropClass: 'backdropBackground',
       // panelClass: 'my-panel',
-    });
+    })
+    console.log("printing videoId")
+    console.log(videoId);
+
+    // watchTrailer(movieId: number) {
+    //   const apiKey = '71ae58e461ffed5e209b514a5f7ce380';
+    //   const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`;
+  
+    //   this.http.get<any>(apiUrl).subscribe(data => {
+    //     const youtubeId = data.results[0].key;
+    //     const playerContainer = document.getElementById('player-container');
+    //     this.player = new YT.Player(playerContainer, {
+    //       height: '360',
+    //       width: '640',
+    //       videoId: youtubeId,
+    //       playerVars: {
+    //         autoplay: 1
+    //       }
+    //     });
+    //   });
+    // }
+  
 
     // dialogRef.afterClosed().subscribe((result) => {
     //   console.log('The dialog was closed', result);
