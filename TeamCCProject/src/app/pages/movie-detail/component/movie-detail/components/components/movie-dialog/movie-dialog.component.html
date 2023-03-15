@@ -1,27 +1,31 @@
-<head>
-        <script src="https://www.youtube.com/player_api"></script>
-</head>
 
 
-<section class="video_holder">
-        <div class="video_list">
-                <!-- <button class="video_switcher_left" mat-fab (click)="switchVideo('left')">
+
+<div class="video_holder">
+  <youtube-player class="video" videoId={{videoID}} suggestedQuality="highres" >
+  </youtube-player>
+  <!-- <iframe class="video" [src]="'https://www.youtube.com/embed/' + 'dQw4w9WgXcQ'" frameborder="0"></iframe> -->
+
+
+  
+  <!-- <button class="video_switcher_left" mat-fab (click)="switchVideo('left')">
             <mat-icon>keyboard_arrow_left</mat-icon>
           </button>
           <button class="video_switcher_right" mat-fab (click)="switchVideo('right')">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </button> -->
-                <!-- <div class="no_signal" *ngIf="!movieVideos[0]">
+  <!-- <div class="no_signal" *ngIf="!movieVideos[0]">
             <img [src]="backdrop_img_high" alt="" *ngIf="hasbackdrop_img" />
             <img src="../../../../../assets/video/VGA-no-signal-image.jpeg" alt="" />
           </div> -->
 
-                <youtube-player videoId="id" suggestedQuality="highres" [height]="250" [width]="500" [startSeconds]="4"
-                        [endSeconds]="8">
-                </youtube-player>
+  <!-- console.log({{"id"}}); -->
 
 
-                <!-- *ngIf="movieVideos[0]"
+
+
+
+  <!-- *ngIf="movieVideos[0]"
             [videoId]="movieVideos[0].key"
             suggestedQuality="highres"
             [playerVars]="{
@@ -36,4 +40,6 @@
           >
           </youtube-player> -->
         </div>
-</section>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial> Close </button>
+</div>

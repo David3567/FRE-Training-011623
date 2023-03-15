@@ -1,10 +1,12 @@
 export interface Video {
-        name?: string;
-        key?: string;
-        site?: string;
-        size?: number;
-        type?: string;
-        official?: boolean;
-        published_at?: string;
-        id?: string;
+        // name?: string;
+        id: number;
+        key: string;
+        // key?: string;
+        // site?: string;
+        // size?: number;
+        // type?: string;
+        // official?: boolean;
+        // published_at?: string;
+        // id?: string;
 }

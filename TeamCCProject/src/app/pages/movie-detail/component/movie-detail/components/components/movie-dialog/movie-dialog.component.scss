@@ -1,0 +1,44 @@
+// @import "../../../../../styles.variables.scss";
+
+.video_holder {
+  display: flex;
+  position: relative;
+  margin-top: 2em;
+  height: 38.75rem;
+  width: 76.9rem;
+  background-color: black;
+  border-radius: 20px;
+
+
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  button {
+    color: white;
+  }
+
+  youtube-player {
+    display: flex;
+    position: absolute;
+    height: 698px;
+    width: 1200px;
+  }
+
+  // iframe {
+  //   position: absolute;
+  //   height: 698px;
+  //   width: 1200px;
+  // }
+
+::ng-deep youtube-player iframe {
+  width: 100%;
+  height: 100%;
+}
+
+}

@@ -9,6 +9,9 @@ import { MovieDialogComponent } from './component/movie-detail/components/compon
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
+
+import { MatDialogModule, MatDialog, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+
 export const PositionKey = new InjectionToken<string>('');
 
 const routes: Routes = [
@@ -20,7 +23,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MovieDetailComponent, MovieDialogComponent],
-  imports: [YouTubePlayerModule, CommonModule, SharedModule, RouterModule.forChild(routes)],
-  providers: [{ provide: PositionKey, useValue: 'movies' }],
+  imports: [MatDialogModule, YouTubePlayerModule, CommonModule, SharedModule, RouterModule.forChild(routes)],
+  providers: [ {provide: MatDialog}, 
+    { provide: PositionKey, useValue: 'movies' }, 
+  { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { disableClose: true } }],
 })
 export class MoviesDetialModule {}
