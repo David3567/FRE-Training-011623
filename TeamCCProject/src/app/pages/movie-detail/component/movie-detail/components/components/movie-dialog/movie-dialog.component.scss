@@ -1,4 +1,3 @@
-// @import "../../../../../styles.variables.scss";
 
 .video_holder {
   display: flex;
@@ -12,8 +11,9 @@
 
   .video {
     position: absolute;
-    top: 0;
-    left: 0;
+
+    // top: 100px;
+    // left: 100px;
     width: 100%;
     height: 100%;
     border: 0;
@@ -30,15 +30,45 @@
     width: 1200px;
   }
 
-  // iframe {
-  //   position: absolute;
-  //   height: 698px;
-  //   width: 1200px;
-  // }
 
 ::ng-deep youtube-player iframe {
   width: 100%;
   height: 100%;
+}
+
+.video_switcher_left,
+.video_switcher_right {
+
+  position: absolute;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  font-size: 2em;
+  height: 60px;
+  width: 80px;
+  border-radius: 20%;
+  background-color: rgb(229, 9, 20);
+  z-index: 100;
+  opacity: 0.1;
+}
+.video_switcher_left {
+  left: 3px;
+}
+.video_switcher_right {
+  right: 3px;
+}
+.video_switcher_left:hover,
+.video_switcher_right:hover {
+  opacity: 0.8;
+}
+
+mat-icon {
+  font-size: 2em;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 }
