@@ -47,8 +47,6 @@ export class MovieDetailComponent implements OnInit {
   pageNo !: string
   imageUrl !: string
 
-  movieVideos: Video[] = [];
-
 
   constructor(private movieService: MovieServiceService,
     private activatedRoute: ActivatedRoute,
@@ -73,34 +71,25 @@ export class MovieDetailComponent implements OnInit {
 
 
   //& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Transfer data into dialog
-  openDialog(videoId: number): void {
 
-    this.movieService.MovieVideos$.subscribe((movieVideos) => {
-      console.log("printing movieVideo")
-      this.movieVideos = movieVideos;
-      console.log(movieVideos)
-    })
+    openDialog(videoId: number): void {
+      this.activatedRoute.paramMap.subscribe((params) => {
+        this.movieService.getVideoByID(videoId).subscribe();
+      });
+    
+      this.movieService.MovieVideos$.subscribe((movieVideos) => {
+        console.log('printing movieVideo');
+        console.log(movieVideos);
+        this.dialog.open(MovieDialogComponent, {
+          data: {
+            key: movieVideos[0].key // get the key of this current video
+          }
+        });
+      });
+    }
+    
 
-    this.activatedRoute.paramMap.subscribe((params) => {
-      this.movieService.getVideoByID(videoId).subscribe()
-    })
 
-
-    this.dialog.open(MovieDialogComponent, {
-      
-      data: {
-        key: this.movieVideos[0].key, // get the key of this current video
-
-        // movieVideos: this.movies,
-        // hasposter_img: this.hasposter_img,
-        // hasbackdrop_img: this.hasbackdrop_img,
-        // poster_img_high: this.poster_img_high,
-        // backdrop_img_high: this.backdrop_img_high,
-      },
-
-      // backdropClass: 'backdropBackground',
-      // panelClass: 'my-panel',
-    })
     // console.log("printing videoId")
     // console.log(videoId);
 
@@ -130,4 +119,3 @@ export class MovieDetailComponent implements OnInit {
 
 
 
-}
