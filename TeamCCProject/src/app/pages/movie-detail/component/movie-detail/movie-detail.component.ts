@@ -2,6 +2,7 @@ import { Credits } from './../../../../service/interface/credits';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetail } from 'src/app/service/interface/movie-interface';
+import { Video } from 'src/app/service/interface/video-interface';
 import { MovieServiceService } from 'src/app/service/movies/movie-service.service';
 import { Movie } from 'src/app/service/interface/movie-interface';
 import { HttpClient } from '@angular/common/http';
@@ -46,55 +47,67 @@ export class MovieDetailComponent implements OnInit {
   pageNo !: string
   imageUrl !: string
 
+  movieVideos: Video[] = [];
+
 
   constructor(private movieService: MovieServiceService,
     private activatedRoute: ActivatedRoute,
     public dialog: MatDialog,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.movieService.MovieDetail$.subscribe((data) => {
+      console.log("printing data")
       this.movies = data;
+      console.log(data)
     })
     this.activatedRoute.paramMap.subscribe((params) => {
-      console.log("hereeeeeee")
+      console.log("printing params")
       console.log(params.get('id'))
       this.movieService.getMovieByID(params.get('id')!).subscribe()
+    })
 
-
-      // this.activatedRoute.paramMap.subscribe((params) => {
-      //   // console.log(params);
-      //   this.movieService.getMovieByID(params.get('id')!).subscribe()
-      // });
-    });
     // this.movieService.getMovieByID(this.pageNo).subscribe();|| '{}'|| "646389"
   }
 
+
+
   //& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Transfer data into dialog
   openDialog(videoId: number): void {
-    console.log("printing movie detail videoId");
-    console.log(videoId);
-    const dialogRef = this.dialog.open(MovieDialogComponent, {
-      data: {
-        id: videoId, // get the id of this current video
 
-        // movieVideos: this.movieVideos,
+    this.movieService.MovieVideos$.subscribe((movieVideos) => {
+      console.log("printing movieVideo")
+      this.movieVideos = movieVideos;
+      console.log(movieVideos)
+    })
+
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.movieService.getVideoByID(videoId).subscribe()
+    })
+
+
+    this.dialog.open(MovieDialogComponent, {
+      
+      data: {
+        key: this.movieVideos[0].key, // get the key of this current video
+
+        // movieVideos: this.movies,
         // hasposter_img: this.hasposter_img,
         // hasbackdrop_img: this.hasbackdrop_img,
         // poster_img_high: this.poster_img_high,
         // backdrop_img_high: this.backdrop_img_high,
       },
-      
+
       // backdropClass: 'backdropBackground',
       // panelClass: 'my-panel',
     })
-    console.log("printing videoId")
-    console.log(videoId);
+    // console.log("printing videoId")
+    // console.log(videoId);
 
     // watchTrailer(movieId: number) {
     //   const apiKey = '71ae58e461ffed5e209b514a5f7ce380';
     //   const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`;
-  
+
     //   this.http.get<any>(apiUrl).subscribe(data => {
     //     const youtubeId = data.results[0].key;
     //     const playerContainer = document.getElementById('player-container');
@@ -108,7 +121,7 @@ export class MovieDetailComponent implements OnInit {
     //     });
     //   });
     // }
-  
+
 
     // dialogRef.afterClosed().subscribe((result) => {
     //   console.log('The dialog was closed', result);

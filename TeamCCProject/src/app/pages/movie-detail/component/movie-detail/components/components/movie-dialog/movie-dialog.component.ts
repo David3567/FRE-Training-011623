@@ -34,17 +34,14 @@ export class MovieDialogComponent implements OnInit {
         ) { }
 
         ngOnInit(): void {
-                // this.id = 646389;
-                this.videoID = this.data.id;
+                // this.videoID = 646389;
+                this.videoID = this.data.key;
                 // https://www.youtube.com/watch?v=JepMpjhkt-4
                 // this.movieVideos = this.data.movieVideos;
                 // this.hasbackdrop_img = this.data.hasbackdrop_img;
                 // this.hasposter_img = this.data.hasposter_img;
                 // this.poster_img_high = this.data.poster_img_high;
                 // this.backdrop_img_high = this.data.backdrop_img_high;
-                console.log("in moviedialog priting video id");
-                console.log(this.videoID);
-                console.log(this.data.id);
                 const tag = document.createElement('script');
                 tag.src = 'https://www.youtube.com/iframe_api';
                 document.body.appendChild(tag);

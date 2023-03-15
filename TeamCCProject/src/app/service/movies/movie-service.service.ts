@@ -3,14 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, of, Subject, tap } from 'rxjs';
 import { Movie, ApiData, MovieDetail, RootObject } from '../interface/movie-interface';
+import { Video } from '../interface/video-interface';
 
 
 // example "https://api.themoviedb.org/3/movie/upcoming?api_key=add383172f3c204e39552dc7a72bc49c&language=en-US&page=1"
 // example id "https://api.themoviedb.org/3/movie/646389?api_key=add383172f3c204e39552dc7a72bc49c"
+// example https://api.themoviedb.org/3/movie/646389/videos?api_key=ef66efdfcff89510f0937986184b6c6c&language=en-US
 const idBaseUrl : string = "https://api.themoviedb.org/3/movie/"
 const baseUrl : string = "https://api.themoviedb.org/3/movie/upcoming?"
 const DanielApiKey : string = "api_key=add383172f3c204e39552dc7a72bc49c"
 const AriaApiKey : string = "api_key=a9c291520b450b9f1145350f124d2d2b"
+const HaileyApiKey: string = "api_key=ef66efdfcff89510f0937986184b6c6c"
 const imgBaseUrl : string = "https://image.tmdb.org/t/p/w500"
 
 @Injectable({
@@ -111,5 +114,36 @@ export class MovieServiceService {
       })
     );
   }
+
+
+
+  MovieVideos: Video[] = [];
+  
+  MovieVideos$ = new Subject<Video[]>();
+
+
+// example https://api.themoviedb.org/3/movie/646389/videos?api_key=ef66efdfcff89510f0937986184b6c6c&language=en-US
+
+  getVideoByID(id: number){
+    console.log("IN GETVIDEOBYID")
+    return this.http.get<ApiData>(idBaseUrl + id + "/videos?" + HaileyApiKey + "&language=" + "en-US").pipe(
+      tap((data: any) =>{
+        this.MovieVideos = data.results.map((each:any) => {
+          return {
+            id: id,
+            key: each.key,
+          }
+        });
+        this.MovieVideos$.next(this.MovieVideos);
+        // console.log("printing movie service MovieVideo")
+        // console.log(this.MovieVideos)
+      }),
+      catchError((err : any) =>{
+        console.log(err);
+        return err
+      })
+    )
+  }
+
 
 }
