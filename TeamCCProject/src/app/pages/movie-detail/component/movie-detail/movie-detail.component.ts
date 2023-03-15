@@ -82,9 +82,12 @@ export class MovieDetailComponent implements OnInit {
         console.log(movieVideos);
         this.dialog.open(MovieDialogComponent, {
           data: {
-            key: movieVideos[0].key // get the key of this current video
+            videos: movieVideos 
           }
-        });
+          
+        })
+        console.log("Movie Details priting movieVideos");
+        console.log(movieVideos);
       });
     }
     

@@ -1,4 +1,6 @@
 import { InjectionToken, NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -23,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MovieDetailComponent, MovieDialogComponent],
-  imports: [MatDialogModule, YouTubePlayerModule, CommonModule, SharedModule, RouterModule.forChild(routes)],
+  imports: [MatIconModule, MatDialogModule, YouTubePlayerModule, CommonModule, SharedModule, RouterModule.forChild(routes)],
   providers: [ {provide: MatDialog}, 
     { provide: PositionKey, useValue: 'movies' }, 
   { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { disableClose: true } }],

@@ -135,8 +135,7 @@ export class MovieServiceService {
           }
         });
         this.MovieVideos$.next(this.MovieVideos);
-        // console.log("printing movie service MovieVideo")
-        // console.log(this.MovieVideos)
+
       }),
       catchError((err : any) =>{
         console.log(err);

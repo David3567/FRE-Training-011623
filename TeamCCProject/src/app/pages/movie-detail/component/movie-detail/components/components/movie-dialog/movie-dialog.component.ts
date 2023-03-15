@@ -12,21 +12,8 @@ import { Video } from 'src/app/service/interface/video-interface';
 
 
 export class MovieDialogComponent implements OnInit {
-        // @ViewChild('player') player: YoutubePlayerComponent;
-        // movieVideo!: Video;
-        videoID!: number;
-        // prefix: string = "https://www.youtube.com/watch?v=";
-        // id = 
-        // movieVideos: Video;
-        // hasposter_img = true;
-        // hasbackdrop_img = true;
-        // poster_img_high = '';
-        // backdrop_img_high = '';
 
-        // constructor(
-        //         private readonly dialogRef: MatDialogRef<MovieDialogComponent>,
-        //         @Inject(MAT_DIALOG_DATA) private data: any
-        // ) { }
+        videos: Video[] = [];
 
         constructor(
                 public dialogRef: MatDialogRef<MovieDialogComponent>,
@@ -34,18 +21,29 @@ export class MovieDialogComponent implements OnInit {
         ) { }
 
         ngOnInit(): void {
-                // this.videoID = 646389;
-                this.videoID = this.data.key;
-                // https://www.youtube.com/watch?v=JepMpjhkt-4
-                // this.movieVideos = this.data.movieVideos;
-                // this.hasbackdrop_img = this.data.hasbackdrop_img;
-                // this.hasposter_img = this.data.hasposter_img;
-                // this.poster_img_high = this.data.poster_img_high;
-                // this.backdrop_img_high = this.data.backdrop_img_high;
+                this.videos = this.data.videos;
+                console.log("displaying data.videos")
+                console.log(this.videos)
                 const tag = document.createElement('script');
                 tag.src = 'https://www.youtube.com/iframe_api';
                 document.body.appendChild(tag);
         }
+
+        onNoClick() {
+                this.dialogRef.close();
+        }
+
+        switchVideo(direction: string) {
+                console.log("switching video");
+                if (direction === 'right' && this.videos.length) {
+                        const videoOut: Video = this.videos.shift() as Video;
+                        this.videos.push(videoOut);
+                } else if (direction === 'left' && this.videos.length) {
+                        const videoOut: Video = this.videos.pop() as Video;
+                        this.videos.unshift(videoOut);
+                }
+        }
+
 
 
 

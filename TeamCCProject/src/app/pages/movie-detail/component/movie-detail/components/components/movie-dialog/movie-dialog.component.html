@@ -1,45 +1,27 @@
+<section class="video_holder">
+  <div class="video_list">
+    <button class="video_switcher_left" mat-button (click)="switchVideo('left')">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button class="video_switcher_right" mat-fab (click)="switchVideo('right')">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+    <youtube-player class="video" *ngIf="videos[0]" videoId={{videos[0].key}} suggestedQuality="highres" [playerVars]="{
+      autoplay: 0,
+      controls: 1,
+      playlist: videos[0].key,
+      loop: 1,
+      modestbranding: 1
+    }">
+    </youtube-player>
+
+  </div>
+</section>
 
 
-
-<div class="video_holder">
-  <youtube-player class="video" videoId={{videoID}} suggestedQuality="highres" >
-  </youtube-player>
-  <!-- <iframe class="video" [src]="'https://www.youtube.com/embed/' + 'dQw4w9WgXcQ'" frameborder="0"></iframe> -->
-
-
-  
-  <!-- <button class="video_switcher_left" mat-fab (click)="switchVideo('left')">
-            <mat-icon>keyboard_arrow_left</mat-icon>
-          </button>
-          <button class="video_switcher_right" mat-fab (click)="switchVideo('right')">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </button> -->
-  <!-- <div class="no_signal" *ngIf="!movieVideos[0]">
-            <img [src]="backdrop_img_high" alt="" *ngIf="hasbackdrop_img" />
-            <img src="../../../../../assets/video/VGA-no-signal-image.jpeg" alt="" />
-          </div> -->
-
-  <!-- console.log({{"id"}}); -->
-
-
-
-
-
-  <!-- *ngIf="movieVideos[0]"
-            [videoId]="movieVideos[0].key"
-            suggestedQuality="highres"
-            [playerVars]="{
-              autoplay: 1,
-              controls: 1,
-              playlist: movieVideos[0].key,
-              loop: 1,
-              modestbranding: 1
-            }"
-            [height]="600"
-            [width]="1001"
-          >
-          </youtube-player> -->
-        </div>
 <div mat-dialog-actions>
   <button mat-button [mat-dialog-close]="" cdkFocusInitial> Close </button>
 </div>
+
+
