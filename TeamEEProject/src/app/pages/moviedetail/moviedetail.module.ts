@@ -4,9 +4,11 @@ import { MoviedetailComponent } from './moviedetail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieposterComponent } from './movieposter/movieposter.component';
 import { MovieactorComponent } from './movieactor/movieactor.component';
+import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 
 const routes: Routes = [
-  { path: '', component: MoviedetailComponent }
+  { path: '', component: MoviedetailComponent },
+  { path: 'videos', component: YoutubePlayerComponent }
 ]
 
 @NgModule({

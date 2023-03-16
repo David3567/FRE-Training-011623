@@ -19,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { YoutubePlayerComponent } from './pages/moviedetail/youtube-player/youtube-player.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MoviedetailModule } from './pages/moviedetail/moviedetail.module';
 
@@ -46,7 +46,7 @@ const API_BASE_URL = 'http://localhost:4231/';
   providers: [HttpClient, MoviesService, {
     provide: 'API_BASE_URL',
     useValue: API_BASE_URL
-  }],
+  }, { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

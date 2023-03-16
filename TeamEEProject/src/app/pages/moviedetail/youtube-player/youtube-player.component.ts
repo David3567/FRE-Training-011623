@@ -14,6 +14,7 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 export class YoutubePlayerComponent implements OnInit {
   videos: Video[] = [];
   movieId!: number;
+  key!: string;
 
   constructor(
     //private youtubePlayer: YoutubePlayerComponent,
@@ -23,14 +24,17 @@ export class YoutubePlayerComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      //console.log('run')
+      //console.log('run')'
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
       this.route.params.subscribe(params => {
         this.movieId = params['id'];
-        //console.log(this.movieId)
+        console.log(this.movieId)
         this.moviesService.getVideosById(this.movieId).subscribe();
         this.moviesService.VideoList$.subscribe((data: Video[]) => {
           this.videos = data;
-         // console.log(this.videos)
+          this.key = this.videos[0].key;
         })
       });
     } 

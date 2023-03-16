@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { YoutubePlayerComponent } from './youtube-player.component'
 import { SharedModule } from 'src/app/shared/shared.module';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { MatDialogRef } from '@angular/material/dialog';
 const routes: Routes = [
   { path: '', component: YoutubePlayerComponent }
 ]

@@ -1,7 +1,7 @@
 
-<div class="player-container">
+<div ngif="videos" class="player-container">
   <youtube-player
-    [videoId]="videos[0].key"
+    [videoId]="key"
     [width]="640"
     [height]="360"
   ></youtube-player>
