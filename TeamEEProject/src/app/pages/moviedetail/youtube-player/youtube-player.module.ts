@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { YoutubePlayerComponent } from './youtube-player.component'
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { YouTubePlayerModule } from '@angular/youtube-player';
 const routes: Routes = [
   { path: '', component: YoutubePlayerComponent }
 ]
@@ -13,6 +13,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
+    YouTubePlayerModule,
     RouterModule.forChild(routes)
   ],
   exports: [

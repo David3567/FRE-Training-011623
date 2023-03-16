@@ -3,7 +3,7 @@ import { Video, MoviesService, Movie } from '../../../movies.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { YouTubePlayerModule } from '@angular/youtube-player';
+
 
 @Component({
   selector: 'app-youtube-player',
