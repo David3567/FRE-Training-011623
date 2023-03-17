@@ -55,12 +55,18 @@ export class AuthService {
     console.log('iiiii', this.usertoAdd);
   }
 
-  registerUser(): Observable<any> {
+  registerUser(userRole: { role: string }): Observable<any> {
     const url = `${this.apiUrl}/signup`;
+    this.usertoAdd = {
+      ...this.usertoAdd,
+      ...userRole,
+    };
     const { username, password, email, role, tmdb_key } = this.usertoAdd;
     if (!username || !password || !email || !role || !tmdb_key)
       return of('Register failed');
+
     console.log(this.usertoAdd);
+
     return this.http.post<AppUserToken>(url, this.usertoAdd).pipe(
       tap((user: AppUserToken) => {
         this.handleSuccessfulSignup(user);

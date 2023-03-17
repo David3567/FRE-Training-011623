@@ -6,11 +6,10 @@ export interface Video {
   site: string;
   size: number;
   type: string;
-  official: boolean,
+  official: boolean;
   published_at: string;
   id: number;
 }
-
 
 export interface Movie {
   [x: string]: any;
@@ -32,4 +31,11 @@ export interface ApiData {
   results: Array<object>;
 }
 
-
+export interface Plans {
+  name: string;
+  price: number;
+  quality: string;
+  resolution: string;
+  downLoad: boolean;
+  select: boolean;
+}

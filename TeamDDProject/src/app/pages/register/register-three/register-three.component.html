@@ -14,15 +14,15 @@
     <div class="bottomContainer">
       <div class="row first-row">
         <div class="contentContainer left">
-          <div class="first-column box">
+          <button class="first-column box" (click)="onSelect('Basic with ads')">
             <p>Basic with ads</p>
-          </div>
-          <div class="second-column box">
+          </button>
+          <button class="second-column box" (click)="onSelect('Standard')">
             <p>Standard</p>
-          </div>
-          <div class="third-column box">
-            <p>Permium</p>
-          </div>
+          </button>
+          <button class="third-column box" (click)="onSelect('Premium')">
+            <p>Premium</p>
+          </button>
         </div>
       </div>
 
