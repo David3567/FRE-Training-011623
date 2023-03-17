@@ -18,37 +18,82 @@ import { Plans } from 'src/app/services/interface/movie-interface';
 //     // this.authService.clearNewUser();
 //     this.router.navigate(['/home']);
 //   }
-export class RegisterThreeComponent {
-  myRole: string = 'USER';
-  constructor(private authService: AuthService) {}
-
-  onSelect(plan: string): void {
-    if (plan === 'Basic with ads') {
-      this.myRole = 'USER';
-    } else if (plan === 'Standard') {
-      this.myRole = 'SUPER';
-    } else if (plan === 'Premium') {
-      this.myRole = 'ADMIN';
+export class RegisterThreeComponent implements OnInit {
+  select: string = 'Basic with ads';
+  eachPlans: Plans[] = [
+    {
+      name: 'Basic with ads',
+      price: 6.99,
+      quality: 'Good',
+      resolution: '720p',
+      downLoad: false,
+      select: true,
+    },
+    {
+      name: 'Standard',
+      price: 15.49,
+      quality: 'Better',
+      resolution: '1080p',
+      downLoad: true,
+      select: false,
+    },
+    {
+      name: 'Premium',
+      price: 19.99,
+      quality: 'Best',
+      resolution: '4K + HDR',
+      downLoad: true,
+      select: false,
+    },
+  ];
+  constructor(private router: Router, private authService: AuthService) {}
+  ngOnInit(): void {
+    const LocalRole = localStorage.getItem('role');
+    let myRole;
+    if (LocalRole !== null) {
+      if (LocalRole === 'ADMIN') {
+        myRole = 'Premium';
+      } else if (LocalRole === 'SUPERUSER') {
+        myRole = 'Standard';
+      } else {
+        myRole = 'Basic with ads';
+      }
+      this.changeSelect(myRole);
     }
   }
-
-  onNext(): void {
-    if (this.myRole) {
-      const localRole = localStorage.getItem('role');
-      console.log(localRole);
-      //   if (!localRole) {
-      //     // User not registered
-      //     this.authService.registerUser({ role: this.myRole }).subscribe(() => {
-      //       localStorage.setItem('role', this.myRole);
-      //     });
-      //   } else {
-      //     // User already registered
-      //     if (localRole !== this.myRole) {
-      //       this.authService.updateRole({ role: this.myRole }).subscribe(() => {
-      //         localStorage.setItem('role', this.myRole);
-      //       });
-      //     }
-      //   }
+  category: string[] = [
+    'Monthly Price',
+    'Video quality',
+    'Resolution',
+    'Watch on your TV, computer, mobile phone and tablet',
+    'Downloads',
+  ];
+  changeSelect(namep: string) {
+    this.select = namep;
+    this.eachPlans.forEach((ele) => {
+      if (ele.name === this.select) {
+        ele.select = true;
+      } else {
+        ele.select = false;
+      }
+    });
+  }
+  onNext() {
+    let myRole = '';
+    if (this.select === 'Basic with ads') {
+      myRole = 'USER';
+    } else if (this.select === 'Standard') {
+      myRole = 'SUPER';
+    } else {
+      myRole = 'ADMIN';
+    }
+    const LocalRole = localStorage.getItem('role');
+    if (LocalRole !== null) {
+      this.authService.updateRole({ role: myRole }).subscribe();
+      console.log('local');
+    } else {
+      this.authService.registerUser({ role: myRole }).subscribe();
+      console.log('null Local');
     }
   }
 }

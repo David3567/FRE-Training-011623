@@ -11,6 +11,11 @@ import { RegisterThreeComponent } from './register-three/register-three.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginGuardGuard } from 'src/app/guards/login-guard.guard';
+import { BoxDetailDownLoadComponent } from './components/box-detail-down-load/box-detail-down-load.component';
+import { BoxDetailPriceComponent } from './components/box-detail-price/box-detail-price.component';
+import { BoxDetailQualityComponent } from './components/box-detail-quality/box-detail-quality.component';
+import { BoxDetailResolutionComponent } from './components/box-detail-resolution/box-detail-resolution.component';
+import { PlanBoxComponent } from './components/plan-box/plan-box.component';
 
 const routes: Routes = [
   {
@@ -41,6 +46,11 @@ const routes: Routes = [
     RegisterThreeComponent,
     FooterComponent,
     HeaderComponent,
+    BoxDetailDownLoadComponent,
+    BoxDetailPriceComponent,
+    BoxDetailQualityComponent,
+    BoxDetailResolutionComponent,
+    PlanBoxComponent,
   ],
   imports: [
     CommonModule,

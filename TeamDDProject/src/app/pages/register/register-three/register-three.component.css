@@ -1,103 +1,138 @@
-* {
-    box-sizing: border-box;
-}
-html, body {
-    height: 100%
+html {
+  height: 100%;
 }
 
-.pageContainer {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 800px;
-    margin-top: 50px;
+body {
+  height: 100%;
 }
 
-.topContainer p {
-    display: flex;
-    font-size: medium;
+.simpleContainer {
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+  top: 10%;
 }
 
-.topContainer h1 {
-    display: flex;
-    font-size: 2rem;
-}
-.topContainer ul {
-    display: flex;
-    flex-direction: column;
+.centerContainer {
+  box-sizing: border-box;
+  margin: 0px auto;
+  max-width: 974px;
 }
 
-.topContainer ul li {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-top: 5px;
+ul {
+  padding: 0px;
 }
 
-.bottomContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+li {
+  list-style: none;
 }
 
-.fist-row {
-    display: flex;
-    flex-direction: row;
+img {
+  position: relative;
+  top: 5px;
+  z-index: 1;
+  background-color: transparent;
+  color: red;
 }
 
-.contentContainer {
-    width: 55%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
+.topContent {
+  margin-bottom: 20px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    border-bottom: 1px solid rgb(217, 216, 216);
+.boxplan {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 144px;
 }
 
-.box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    height: 120px;
-    background-color: rgb(178, 0, 0);
-    color: white;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    text-align: center;
+.eachBox {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  height: 100%;
 }
 
-.feature {
-    padding-left: 1rem;
+app-plan-box {
+  display: block;
+  width: 33.33%;
+  height: 100%;
+  margin: 0px;
 }
 
-.first-row .last-row {
-    border-bottom: none;
+.boxDetail {
+  min-height: 60px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.left {
-    margin-left: 300px;
+.eachDetailBox {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  border-bottom: 1px solid gray;
 }
 
-.first-column .second-column .third-column {
-    width: 100px;
-    margin: 0.2rem 0.5rem;
-    padding: 1rem;
-    color: rgb(214, 212, 212);
-    text-align: center;
+.DetailTitle {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.nextButton{
-    height: 6vh;
-    width: 100%;
-    color: aliceblue;
-    font-size: 1.5rem;
-    border-radius: 4px;
-    border: 0px;
-    background-color: rgb(178, 0, 0);
+app-box-detail-price {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  margin-left: 10px;
+}
+
+app-box-detail-quality {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+app-box-detail-resolution {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+app-box-detail-down-load {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ButtonBox {
+  min-height: 64px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.NextButton {
+  min-height: 64px;
+  width: 100%;
+  max-width: 440px;
+  color: aliceblue;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  border: 0px;
+  background-color: red;
 }

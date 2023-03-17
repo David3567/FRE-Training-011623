@@ -1,81 +1,69 @@
-<div class="container">
-  <app-nav-bar></app-nav-bar>
-  <div class="pageContainer">
-    <div class="topContainer">
+<app-nav-bar></app-nav-bar>
+<div class="simpleContainer">
+  <div class="centerContainer">
+    <div class="topContent">
       <p>STEP 3 OF 3</p>
       <h1>Choose the plan that's right for you</h1>
       <ul>
-        <li>Watch all you want.</li>
-        <li>Recommendations just for you.</li>
-        <li>Change or cancel your plan anytime.</li>
+        <li>
+          <img src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+          Watch all you want.
+        </li>
+        <li>
+          <img src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+          Recommendations just for you.
+        </li>
+        <li>
+          <img src="./assets/Icon.jpg" alt="FirstImage" height="26px" width="26px">
+          Change or cancel your plan anytime.
+        </li>
       </ul>
     </div>
-
-    <div class="bottomContainer">
-      <div class="row first-row">
-        <div class="contentContainer left">
-          <button class="first-column box" (click)="onSelect('Basic with ads')">
-            <p>Basic with ads</p>
-          </button>
-          <button class="second-column box" (click)="onSelect('Standard')">
-            <p>Standard</p>
-          </button>
-          <button class="third-column box" (click)="onSelect('Premium')">
-            <p>Premium</p>
-          </button>
+    <div class="bottomContent">
+      <div class="boxplan">
+        <div class="eachBox">
+          <app-plan-box *ngFor="let plan of eachPlans;" [plan]="plan" (idemiter)="changeSelect($event)"></app-plan-box>
         </div>
       </div>
-
-
-      <div class="row">
-        <p class="feature">Monthly Price</p>
-        <div class="contentContainer">
-          <p class="first-column">$6.99</p>
-          <p class="second-column">$15.49</p>
-          <p class="third-column">$15.99</p>
+      <div class="boxDetail">
+        <div class="eachDetailBox">
+          <div class="DetailTitle">
+            <span>Monthly Price</span>
+          </div>
+          <app-box-detail-price *ngFor="let plan of eachPlans" [plan]="plan" (idemiter)="changeSelect($event)">
+          </app-box-detail-price>
         </div>
       </div>
-
-      <div class="row">
-        <p class="feature">Video quality</p>
-        <div class="contentContainer">
-          <p class="first-column">Good</p>
-          <p class="second-column">Better</p>
-          <p class="third-column">Best</p>
+      <div class="boxDetail">
+        <div class="eachDetailBox">
+          <div class="DetailTitle">
+            <span>Video Quality</span>
+          </div>
+          <app-box-detail-quality *ngFor="let plan of eachPlans" [plan]="plan" (idemiter)="changeSelect($event)">
+          </app-box-detail-quality>
         </div>
       </div>
-
-      <div class="row">
-        <p class="feature">Resolution</p>
-        <div class="contentContainer">
-          <p class="first-column">720p</p>
-          <p class="second-column">1080p</p>
-          <p class="third-column">4K+HDR</p>
+      <div class="boxDetail">
+        <div class="eachDetailBox">
+          <div class="DetailTitle">
+            <span>Video Quality</span>
+          </div>
+          <app-box-detail-resolution *ngFor="let plan of eachPlans" [plan]="plan" (idemiter)="changeSelect($event)">
+          </app-box-detail-resolution>
         </div>
       </div>
-
-      <div class="row">
-        <p class="feature">Watch on your TV, computer, mobile phone and tablet</p>
-        <div class="contentContainer">
-          <p class="first-column">YES</p>
-          <p class="second-column">YES</p>
-          <p class="third-column">YES</p>
+      <div class="boxDetail">
+        <div class="eachDetailBox">
+          <div class="DetailTitle">
+            <span>Video Quality</span>
+          </div>
+          <app-box-detail-down-load *ngFor="let plan of eachPlans" [plan]="plan" (idemiter)="changeSelect($event)">
+          </app-box-detail-down-load>
         </div>
       </div>
-
-      <div class="row last-row">
-        <p class="feature">Download</p>
-        <div class="contentContainer">
-          <p class="first-column">NO</p>
-          <p class="second-column">YES</p>
-          <p class="third-column">YES</p>
-        </div>
-      </div>
-
     </div>
-    <div>
-      <button type="next" class="nextButton" (click)='onNext()'>Next</button>
+    <div class="ButtonBox">
+      <button class="NextButton" (click)='onNext()'>Next</button>
     </div>
   </div>
-  <!-- <app-footer></app-footer> -->
 </div>
