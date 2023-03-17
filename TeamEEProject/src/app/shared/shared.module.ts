@@ -5,6 +5,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   declarations: [NavbarComponent, SearchBarComponent],
@@ -17,6 +18,9 @@ import { RouterModule } from '@angular/router';
   exports: [
     NavbarComponent,
     SearchBarComponent
+  ],
+  providers: [
   ]
+
 })
 export class SharedModule { }
