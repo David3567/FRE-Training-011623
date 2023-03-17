@@ -35,6 +35,6 @@ export class RegisterTwoComponent implements OnInit {
   }
   onNext() {
     this.authService.setNewUser(this.registerForm2.value);
-    this.router.navigate(['/register/3']);
+    this.router.navigate(['/register/3/new']);
   }
 }

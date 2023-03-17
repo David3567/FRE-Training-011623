@@ -33,7 +33,7 @@ img {
   top: 5px;
   z-index: 1;
   background-color: transparent;
-  color: red;
+  color: rgb(137, 31, 31);
 }
 
 .topContent {
@@ -132,7 +132,7 @@ app-box-detail-down-load {
   max-width: 440px;
   color: aliceblue;
   font-size: 1.5rem;
-  border-radius: 4px;
-  border: 0px;
-  background-color: red;
+  border-radius: 18px;
+  border: 20px;
+  background-color: rgb(239, 115, 115);
 }

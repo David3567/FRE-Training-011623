@@ -32,7 +32,6 @@ const routes: Routes = [
         component: RegisterTwoComponent,
         canActivate: [LoginGuardGuard],
       },
-      // { path: '3', component: RegisterThreeComponent },
       { path: '3/:referer', component: RegisterThreeComponent },
       { path: '', redirectTo: '1', pathMatch: 'full' },
     ],

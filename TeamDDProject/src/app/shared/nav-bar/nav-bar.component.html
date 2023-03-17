@@ -1,3 +1,6 @@
+<div>
+  <p style="color: white">{{this.debugUserInfo()}}</p>
+</div>
 <div class="navbar">
   <div class="logo">
     <img src="../../../assets/images/netflix-logp.png" alt="netflix logo">
@@ -7,5 +10,8 @@
   </div>
   <div class="signin">
     <button mat-raised-button color="warn" id="sign-in-btn" [routerLink]="['/home']" (click)="logout()">log out</button>
+  </div>
+  <div class="username">
+    <p>{{this.user.username}}</p>
   </div>
 </div>

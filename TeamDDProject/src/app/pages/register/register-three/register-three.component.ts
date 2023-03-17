@@ -97,12 +97,12 @@ export class RegisterThreeComponent implements OnInit {
     }
     const LocalRole = localStorage.getItem('role');
 
-    if (this.referer !== null) {
-      this.authService.updateRole({ role: myRole }).subscribe();
-      console.log('local');
-    } else {
+    if (this.referer === 'new') {
       this.authService.registerUser({ role: myRole }).subscribe();
       console.log('null Local', this.referer);
+    } else {
+      this.authService.updateRole({ role: myRole }).subscribe();
+      console.log('local');
     }
   }
 }

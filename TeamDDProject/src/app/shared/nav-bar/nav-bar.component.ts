@@ -25,4 +25,7 @@ export class NavBarComponent implements OnInit {
   logout() {
     this.authServer.logout();
   }
+  debugUserInfo() {
+    return JSON.stringify(this.user);
+  }
 }
