@@ -16,6 +16,8 @@ import { KidsSectionComponent } from './homepage/sections/kids-section/kids-sect
 import { TvSectionComponent } from './homepage/sections/tv-section/tv-section.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -38,6 +40,8 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     SharedModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
   ],
 })
 export class HomeModule {}

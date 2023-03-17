@@ -1,4 +1,5 @@
 <div class="movie-card">
+  <app-spinner [showSpinner]="loading"></app-spinner>
   <div class="content">
     <div class="movie-img" [style.background-image]="'url(https://image.tmdb.org/t/p/original'+movie.img+')'">
     </div>
@@ -13,7 +14,8 @@
         <p class="overview">{{movie.description}}</p>
       </div>
       <div class="details-button">
-        <button mat-stroked-button color='white' id="movie-details" [routerLink]="'/movies/' + movie.id">movie-details</button>
+        <button mat-stroked-button color='white' id="movie-details"
+          (click)="onMovieDetailClick()">movie-details</button>
       </div>
     </div>
   </div>
