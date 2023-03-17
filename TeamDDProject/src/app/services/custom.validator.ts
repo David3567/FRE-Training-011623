@@ -31,7 +31,7 @@ export class CustomValidator {
         }),
         map((result: boolean) => {
           obj.isLoading = false; //
-          console.log(email + 'validatinggggg');
+          // console.log(email + 'is validatinggggg');
           return result ? { emailExists: true } : null;
         }),
         take(1)

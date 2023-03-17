@@ -21,7 +21,12 @@ export interface AppUserAuthCookie {
   role: string;
   tmdb_key: string;
 }
-export interface login {
+export interface UserLoginInfo {
   email: string;
   password: string;
+}
+
+export interface AppUserToken {
+  accessToken: string;
+  role: string;
 }
