@@ -33,6 +33,6 @@ export class AppComponent {
   onSubmit() {
     console.log('..');
     this.authService.login(this.loginForm.value).subscribe();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/movies']);
   }
 }

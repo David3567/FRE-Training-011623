@@ -32,7 +32,7 @@ export class MoviesDetailGuard implements CanActivate {
       return false;
     } else if (role === 'USER') {
       alert("you don't have authorization for movie detail");
-      this.router.navigate(['/register/3']);
+      this.router.navigate(['/register/3/' + role]);
       return false;
     } else {
       return true;

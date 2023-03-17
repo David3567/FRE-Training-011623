@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuardGuard } from './guards/login-guard.guard';
+import { MoviesDetailGuard } from './guards/movies-detail.guard';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { MovieDetailsResolver } from './services/movie-details.resolver';
 // import { MovieListComponent } from './pages/movie-list/movie-list.component';
@@ -19,6 +21,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login-page.module').then((m) => m.AppModule),
+    canActivate: [LoginGuardGuard],
   },
   {
     path: 'movies',
@@ -30,10 +33,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
-
-  { path: 'movies/:id', 
+  {
+    path: 'movies/:id',
     component: MovieDetailsComponent,
-    resolve: { movies: MovieDetailsResolver }
+    resolve: { movies: MovieDetailsResolver },
+    canActivate: [MoviesDetailGuard],
   },
   // {
   //   path: `movies/:this.movieDetails.movieId/videos`,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authService/auth-service.service';
 import { Plans } from 'src/app/services/interface/movie-interface';
 
@@ -12,13 +12,16 @@ import { Plans } from 'src/app/services/interface/movie-interface';
 //   constructor(private router: Router, private authService: AuthService) {}
 
 //   // Todo: Add selector to this page
+//   myRole = 'USER';
 //   onNext() {
 //     this.authService.setNewUser({ role: 'USER' });
-//     this.authService.registerUser().subscribe();
+//     this.authService.registerUser({ role: this.myRole }).subscribe();
 //     // this.authService.clearNewUser();
 //     this.router.navigate(['/home']);
 //   }
+// }
 export class RegisterThreeComponent implements OnInit {
+  referer: string | null = null;
   select: string = 'Basic with ads';
   eachPlans: Plans[] = [
     {
@@ -46,8 +49,13 @@ export class RegisterThreeComponent implements OnInit {
       select: false,
     },
   ];
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit(): void {
+    this.referer = this.route.snapshot.paramMap.get('referer');
     const LocalRole = localStorage.getItem('role');
     let myRole;
     if (LocalRole !== null) {
@@ -83,17 +91,18 @@ export class RegisterThreeComponent implements OnInit {
     if (this.select === 'Basic with ads') {
       myRole = 'USER';
     } else if (this.select === 'Standard') {
-      myRole = 'SUPER';
+      myRole = 'SUPERUSER';
     } else {
       myRole = 'ADMIN';
     }
     const LocalRole = localStorage.getItem('role');
-    if (LocalRole !== null) {
+
+    if (this.referer !== null) {
       this.authService.updateRole({ role: myRole }).subscribe();
       console.log('local');
     } else {
       this.authService.registerUser({ role: myRole }).subscribe();
-      console.log('null Local');
+      console.log('null Local', this.referer);
     }
   }
 }

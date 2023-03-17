@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CoreModule } from './core.module';
+import { Router, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, MovieDetailsComponent],
@@ -25,6 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     YouTubePlayerModule,
     MatButtonModule,
+    CoreModule.forRoot(),
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
