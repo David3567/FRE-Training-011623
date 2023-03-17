@@ -27,7 +27,6 @@ export class MovieItemComponent implements OnInit {
   movieVideos: Video[] = [];
   actors: Cast[] = [];
   posters: Poster[] = [];
-  id!: number;
 
   constructor(
     private readonly tmdbService: TmdbService,
@@ -36,9 +35,6 @@ export class MovieItemComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
-      this.id = +paramMap.get('id');
-    })
     this.setSource();
     this.type = this.movie.genres?.map(({ name }) => name).join(',');
 
@@ -65,27 +61,19 @@ export class MovieItemComponent implements OnInit {
     });
   }
   private setSource() {
-    this.tmdbService.getMovieInfo(this.id, 'videos').subscribe(videos => {
-      console.log(videos)
-      if (videos && videos.results) {
-        this.movieVideos = [...videos.results];
-      }
-    });
-    this.tmdbService.getMovieInfo(this.id).subscribe(movie => {
-        this.movieVideos = movie;
-    });
-    this.tmdbService.getMovieInfo(this.id, 'credits').subscribe(actors => {
-      this.actors = actors.map((actor: Cast): Cast => {
-        const profile_path = actor.profile_path? this.tmdbService.getMovieImagePath(actor.profile_path, 'w500') : '';
-        return {...actor, profile_path};
-      })
-    });
-    this.tmdbService.getMovieInfo(this.id, 'images').subscribe(backdrops => {
-      this.posters = backdrops.map((backdrop: Backdrop): Backdrop => {
-        const file_path = backdrop.file_path? this.tmdbService.getMovieImagePath(backdrop.file_path, 'w500') : '';
-        return {...backdrop, file_path};
-      })
-    });
+    const videos = this.activatedRoute.snapshot.data['videos'];
+    if (videos && videos.results) {
+      this.movieVideos = [...videos.results];
+    }
+    this.movie = this.activatedRoute.snapshot.data['movie'];
+    this.actors = this.activatedRoute.snapshot.data['cast'].map((actor: Cast): Cast => {
+      const profile_path = actor.profile_path? this.tmdbService.getMovieImagePath(actor.profile_path, 'w500') : '';
+      return {...actor, profile_path};
+    })
+    this.posters = this.activatedRoute.snapshot.data['posters'].map((backdrop: Backdrop): Backdrop => {
+      const file_path = backdrop.file_path? this.tmdbService.getMovieImagePath(backdrop.file_path, 'w500') : '';
+      return {...backdrop, file_path};
+    })
 
     if (this.movie.backdrop_path) {
       this.hasBackdrop_img = true;

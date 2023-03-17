@@ -111,6 +111,7 @@ export class TmdbService {
         url = [this.tmdbBaseUrl, this.moviePath, id, item].join('/') + '?api_key=' + this.baseDiscoverMovie.api_key;
       }
     }
+    console.log(url)
     return this.http.get(url);
   }
 }

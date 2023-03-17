@@ -1,6 +1,30 @@
+/* size */
+$home_hr_color: rgb(34, 34, 34);
+$footer_height: 25rem;
+$header_height: 5rem;
+
+$reuse_1200: 75rem;
+$reuse_1000: 62.5rem;
+$reuse_600: 37.5rem;
+$reuse_500: 31.25rem;
+$reuse_400: 25rem;
+$reuse_300: 18.75rem;
+$reuse_200: 12.5rem;
+$reuse_100: 6.25rem;
+$reuse_80: 5rem;
+$reuse_60: 3.75rem;
+$reuse_50: 3.125rem;
+
+/* color */
+$footer_font_color: rgb(67, 63, 63);
+$footer_content_width: 62rem;
+
+$questionlist_background: rgb(48, 48, 48);
+$transparent_color: rgba(0, 0, 0, 0);
+
 @mixin flex($justify: center, $items: center, $direction: row) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $items;
-    flex-direction: $direction;
-  }
+  display: flex;
+  justify-content: $justify;
+  align-items: $items;
+  flex-direction: $direction;
+}

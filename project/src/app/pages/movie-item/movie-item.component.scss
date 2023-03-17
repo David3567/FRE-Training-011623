@@ -1,12 +1,11 @@
 @import "../../../style.variables.scss";
 .host {
   position: relative;
-  min-height: max-content;
-  min-width: max-content;
+  min-height: 1200px;
   height: 100vh;
   width: 100vw;
   background-color: rgb(0, 0, 0);
-  background-size: auto;
+  background-size: auto 100%;
 
   .container {
     position: relative;

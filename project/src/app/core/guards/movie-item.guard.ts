@@ -43,7 +43,7 @@ export class MovieItemGuard implements CanActivate, CanLoad {
       (role === UserRole.ADMIN || role === UserRole.SUPERUSER)
     ) {
       return true;
-    } else if (!jwtToken){
+    } else if (jwtToken){
       this.router.navigate(['/register/3']);
 
     } else {

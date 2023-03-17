@@ -1,4 +1,6 @@
 <div>
-    <a href="/home"><img src="../../../assets/logo transparent.png" alt="logo"></a>
-    <a href="/signin"><button>Sign In</button></a>
+    <a [routerLink]="['/home']"><img src="../../../assets/logo transparent.png" alt="logo"></a>
+    <input *ngIf="showSearchForm" placeholder="Search Movie..." [(ngModel)]="searchKeyWord" (keyup.enter)="searchMovieByKeyWord()">
+    <a *ngIf="!isLogin" [routerLink]="['/signin']"><button>Sign In</button></a>
+    <a *ngIf="isLogin">{{ username }}<button (click)="signOut()">Sign Out</button></a>
 </div>

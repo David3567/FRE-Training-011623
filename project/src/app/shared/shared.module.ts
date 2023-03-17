@@ -11,6 +11,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { MatDialogModule } from "@angular/material/dialog";
 @NgModule({
     declarations: [
         NavbarComponent
@@ -23,29 +24,25 @@ import { NavbarComponent } from "./navbar/navbar.component";
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
-        MatExpansionModule,
-        MatIconModule,
-        MatCheckboxModule,
-        MatProgressSpinnerModule,
-        MatIconModule,
-        YouTubePlayerModule,
-        InfiniteScrollModule
     ],
     exports: [
-        RouterModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatIconModule,
-        MatExpansionModule,
-        MatIconModule,
-        MatCheckboxModule,
-        MatProgressSpinnerModule,
-        MatIconModule,
-        YouTubePlayerModule,
-        InfiniteScrollModule,
-        NavbarComponent
+      MatExpansionModule,
+      MatIconModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatCheckboxModule,
+      MatIconModule,
+      MatProgressSpinnerModule,
+      MatDialogModule,
+
+      ReactiveFormsModule,
+      FormsModule,
+      RouterModule,
+
+      YouTubePlayerModule,
+      InfiniteScrollModule,
+
+      NavbarComponent
     ]
 })
 export class SharedModule {}

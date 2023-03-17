@@ -1,6 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { InjectionToken, ModuleWithProviders, NgModule } from "@angular/core";
+import { APP_INITIALIZER, InjectionToken, ModuleWithProviders, NgModule } from "@angular/core";
+import { AuthService } from "../services/auth/auth.service";
+// import { appInitializer } from "./app.initializer";
 import { AuthWithLocalInterceptor } from "./interceptors/auth-with-local.interceptor";
 import { ErrorInterceptor } from "./interceptors/error.interceptor";
 
@@ -40,7 +42,12 @@ export class CoreModule {
               useValue:
                 'https://developers.themoviedb.org/3/getting-started/authentication',
             },
-
+            // {
+            //   provide: APP_INITIALIZER,
+            //   useFactory: appInitializer,
+            //   multi: true,
+            //   deps: [AuthService],
+            // },
             {
               provide: HTTP_INTERCEPTORS,
               useClass: AuthWithLocalInterceptor,

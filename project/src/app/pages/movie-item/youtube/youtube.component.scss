@@ -2,8 +2,8 @@
 
 .video_container {
   position: relative;
-  margin-top: 1em;
-  height: 32rem;
+  // margin-top: 2em;
+  height: 35rem;
   width: 70rem;
   background-color: black;
   border-radius: 20px;
@@ -39,18 +39,18 @@
       position: absolute;
       top: 50%;
       font-size: 2em;
-      height: 100px;
-      width: 100px;
+      height: $reuse_80;
+      width: $reuse_80;
       border-radius: 50%;
       background-color: #8d143c;
     }
     .video_switcher_left {
       left: 0;
-      transform: translate(-120%, -50%);
+      transform: translate(50%, -50%);
     }
     .video_switcher_right {
       right: 0;
-      transform: translate(120%, -50%);
+      transform: translate(-50%, -50%);
     }
     .video_switcher_left:hover,
     .video_switcher_right:hover {

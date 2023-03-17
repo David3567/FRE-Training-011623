@@ -23,6 +23,7 @@ export class YoutubeComponent implements OnInit {
     this.hasBackdrop_img = this.data.hasBackdrop_img;
     this.poster_img_high = this.data.poster_img_high;
     this.backdrop_img_high = this.data.backdrop_img_high;
+    console.log(this.data)
   }
 
   switchVideo(direction: string) {
