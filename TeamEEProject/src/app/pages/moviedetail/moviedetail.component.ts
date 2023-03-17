@@ -66,7 +66,7 @@ export class MoviedetailComponent {
   constructor(private activateRoute: ActivatedRoute, private router: Router) {
   }
   playTrailer(){
-    this.router.navigate([`movies/:id/videos`])
+    this.router.navigate([`videos`], {relativeTo: this.activateRoute})
   }
   
 }

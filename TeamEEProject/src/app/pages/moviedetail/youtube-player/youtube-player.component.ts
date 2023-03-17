@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Video, MoviesService, Movie } from '../../../movies.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
@@ -20,6 +20,7 @@ export class YoutubePlayerComponent implements OnInit {
     //private youtubePlayer: YoutubePlayerComponent,
     private moviesService: MoviesService,
     private route: ActivatedRoute,
+    private router: Router,
     private dialogRef: MatDialogRef<YoutubePlayerComponent>) {  
     }
 
@@ -41,6 +42,7 @@ export class YoutubePlayerComponent implements OnInit {
 
 
   onClose(): void {
-    this.dialogRef.close();
+    //this.dialogRef.close();
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }
