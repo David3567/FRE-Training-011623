@@ -9,14 +9,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { YoutubePlayerComponent } from './pages/youtube-player/youtube-player.component';
+
+
 import { MatButtonModule } from '@angular/material/button';
 import { CoreModule } from './core.module';
 import { Router, RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+
 
 @NgModule({
-  declarations: [AppComponent, MovieDetailsComponent],
+  declarations: [AppComponent, MovieDetailsComponent, YoutubePlayerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +35,8 @@ import { Router, RouterModule } from '@angular/router';
     MatButtonModule,
     CoreModule.forRoot(),
     RouterModule,
+    MatDialogModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

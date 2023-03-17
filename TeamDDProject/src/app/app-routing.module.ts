@@ -39,10 +39,6 @@ const routes: Routes = [
     resolve: { movies: MovieDetailsResolver },
     canActivate: [MoviesDetailGuard],
   },
-  // {
-  //   path: `movies/:this.movieDetails.movieId/videos`,
-  //   component: YoutubePlayerComponent,
-  // },
 ];
 
 @NgModule({
