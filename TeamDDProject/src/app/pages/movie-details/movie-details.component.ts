@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieServiceService } from 'src/app/services/movieService/movie-service.service';
 import { MovieDetails } from 'src/app/services/interface/movie-details-interface';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'
+import { Movie } from 'src/app/services/interface/movie-interface';
+import { Video } from 'src/app/services/interface/movie-interface';
+import { MatDialog } from '@angular/material/dialog';
+import { MovieDialogComponent } from '../youtube-player/youtube-player.component';
+import { YouTubePlayer } from '@angular/youtube-player';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -11,22 +17,20 @@ import { CommonModule } from '@angular/common'
   styleUrls: ['./movie-details.component.scss'],
 })
 export class MovieDetailsComponent {
-  // movieId = 123
+  // @Input() movie !: Movie;
+  @ViewChild(YouTubePlayer, {static:true})
+  private youtubePlayer!: YouTubePlayer;
+
   movieId!: number;
   movieDetails!: MovieDetails;
 
   constructor(
     private movieService: MovieServiceService,
     private route: ActivatedRoute,
-    private router: Router
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
-    // this.route.params.subscribe((params) => {
-    //   this.movieId = params['id'];
-    //   console.log(this.movieId);
-    //   this.getMovieDetails(this.movieId);
-    // });
     console.log(
       'Activated route data in Component:::',
       this.route.data
@@ -34,18 +38,29 @@ export class MovieDetailsComponent {
     this.route.data.subscribe((data: any) => {
       this.movieDetails = data['movies'];
     });
+    this.route.paramMap.subscribe((data: any) => {
+      console.log("printing params")
+      console.log(data.get('id'))
+      this.movieService.getVideosById(data.get('id')!).subscribe()
+    })
   }
 
-  // getMovieDetails(movieId: number): void {
-  //   this.movieService
-  //     .getMovieDetails(movieId)
-  //     .subscribe((data: MovieDetails) => {
-  //       this.movieDetails = data;
-  //       console.log(this.movieDetails);
-  //     });
-  // }
+  goToPlayer(videoId: number): void {
+    console.log('goToPlayer')
+    this.route.paramMap.subscribe((data) => {
+      this.movieService.getVideosById(videoId).subscribe();
+    });
 
-  goToPlayer(): void {
-    this.router.navigate([`movies/:id/videos`]);
+    this.movieService.MovieVideos$.subscribe((movieVideos) =>{
+      console.log('movieVideos')
+      console.log(movieVideos);
+      this.dialog.open(MovieDialogComponent,{
+        data:{
+          videos: movieVideos
+        }
+      })
+      console.log('print Movievideo');
+      console.log(movieVideos)
+    })
   }
 }

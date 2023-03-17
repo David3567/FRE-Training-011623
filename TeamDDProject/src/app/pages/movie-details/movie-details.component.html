@@ -17,7 +17,11 @@
             <p>{{movieDetails.overview}}</p>
         </div>
         <div class="button">
-            <button mat-stroked-button id="trailer" (click)="goToPlayer()">Play trailer</button>
+            <button 
+                type="submit"
+                id="trailer"
+                (click)="goToPlayer(movieDetails.id)">Play trailer
+            </button>
         </div>
     </div>
 </div>

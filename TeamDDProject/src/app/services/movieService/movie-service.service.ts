@@ -53,28 +53,22 @@ export class MovieServiceService {
       })
     );
   }
-
+  MovieVideos: Video[] = [];
+  MovieVideos$ = new Subject<Video[]>();
   // https://api.themoviedb.org/3/movie/315162/videos?api_key=b58da010083caad9ac63eee587b4999a&language=en-US
   getVideosById(id: number) {
+    console.log("getVideosById")
     const getVideoUrl = `${this.idBaseUrl}${id}/videos?api_key=${this.miffyApiKey}&language=en-US`;
+    console.log(getVideoUrl)
     return this.http.get<ApiData>(getVideoUrl).pipe(
-      tap((data) => {
-        const videos = data.results.map((each: any) => ({
-          iso_639_1: each.iso_639_1,
-          iso_3166_1: each.iso_3166_1,
-          name: each.name,
-          key: each.key,
-          site: each.site,
-          size: each.size,
-          type: each.type,
-          official: each.official,
-          published_at: each.published_at,
-          id: each.id,
-        }));
-        this.VideoList = videos;
-        this.VideoList$.next(videos);
-        console.log(videos);
-        console.log('here');
+      tap((data: any) =>{
+        this.MovieVideos = data.results.map((each:any) => {
+          return {
+            id: id,
+            key: each.key,
+          }
+        });
+        this.MovieVideos$.next(this.MovieVideos);
       }),
       catchError((err: any) => {
         console.log(err);
