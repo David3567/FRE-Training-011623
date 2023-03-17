@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieDialogComponent } from './youtube-player.component';
+import { YoutubePlayerComponent } from './youtube-player.component';
 
 describe('YoutubePlayerComponent', () => {
-  let component: MovieDialogComponent;
-  let fixture: ComponentFixture<MovieDialogComponent>;
+  let component: YoutubePlayerComponent;
+  let fixture: ComponentFixture<YoutubePlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieDialogComponent ]
+      declarations: [ YoutubePlayerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MovieDialogComponent);
+    fixture = TestBed.createComponent(YoutubePlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

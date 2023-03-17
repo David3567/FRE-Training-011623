@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { MovieDialogComponent } from './youtube-player.component'
+import { YoutubePlayerComponent } from './youtube-player.component'
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { YouTubePlayerModule } from '@angular/youtube-player';
@@ -10,13 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 const routes: Routes = [
-  { path: '', component: MovieDialogComponent }
+  { path: '', component: YoutubePlayerComponent }
 ]
 
 @NgModule({
-  declarations: [MovieDialogComponent],
+  declarations: [YoutubePlayerComponent],
   imports: [
-    MovieDialogComponent,
+    YoutubePlayerComponent,
     MatIconModule,
     YouTubePlayerModule,
     MatDialogModule,
@@ -27,7 +27,7 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule, 
-    MovieDialogComponent
+    YoutubePlayerComponent
   ]
 })
 export class YoutubePlayerModule { }

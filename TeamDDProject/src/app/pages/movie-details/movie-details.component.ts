@@ -1,14 +1,10 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieServiceService } from 'src/app/services/movieService/movie-service.service';
 import { MovieDetails } from 'src/app/services/interface/movie-details-interface';
-import { CommonModule } from '@angular/common'
-import { Movie } from 'src/app/services/interface/movie-interface';
-import { Video } from 'src/app/services/interface/movie-interface';
 import { MatDialog } from '@angular/material/dialog';
-import { MovieDialogComponent } from '../youtube-player/youtube-player.component';
+import { YoutubePlayerComponent } from '../youtube-player/youtube-player.component';
 import { YouTubePlayer } from '@angular/youtube-player';
-import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -54,7 +50,7 @@ export class MovieDetailsComponent {
     this.movieService.MovieVideos$.subscribe((movieVideos) =>{
       console.log('movieVideos')
       console.log(movieVideos);
-      this.dialog.open(MovieDialogComponent,{
+      this.dialog.open(YoutubePlayerComponent,{
         data:{
           videos: movieVideos
         }
