@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { MovieDetailsResolver } from './services/movie-details.resolver';
 // import { MovieListComponent } from './pages/movie-list/movie-list.component';
 // import { YoutubePlayerComponent } from './pages/youtube-player/youtube-player.component';
 const routes: Routes = [
@@ -30,7 +31,10 @@ const routes: Routes = [
       import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
 
-  // { path: 'movies/:id', component: MovieDetailsComponent },
+  { path: 'movies/:id', 
+    component: MovieDetailsComponent,
+    resolve: { movies: MovieDetailsResolver }
+  },
   // {
   //   path: `movies/:this.movieDetails.movieId/videos`,
   //   component: YoutubePlayerComponent,

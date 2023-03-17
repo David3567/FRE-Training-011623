@@ -83,7 +83,7 @@ export class MovieServiceService {
     );
   }
 
-  getMovieDetails(movieId: number): Observable<MovieDetails> {
+  getMovieDetails(movieId: string): Observable<MovieDetails> {
     const url = `${this.apiUrl}${movieId}?api_key=${this.miffyApiKey}&language=en-US`;
     return this.http.get<MovieDetails>(url);
   }
