@@ -14,46 +14,46 @@
                 <div class="second-column box" (click)="selectPlan('SUPERUSER')"><p>Standard</p></div>
                 <div class="third-column box" (click)="selectPlan('ADMIN')"><p>Premium</p></div>
             </div>
-            
+
         </div>
         <div class="row">
             <p class="left">Monthly price</p>
             <div class="content-container">
-                <p class="first-column">$6.99</p>
-                <p class="second-column">$15.49</p>
-                <p class="third-column">$15.99</p>
+                <p class="first-column" [ngClass]="{ red: selecedColumn === 'USER' }">$6.99</p>
+                <p class="second-column" [ngClass]="{ red: selecedColumn === 'SUPERUSER' }">$15.49</p>
+                <p class="third-column" [ngClass]="{ red: selecedColumn === 'ADMIN' }">$15.99</p>
             </div>
         </div>
         <div class="row">
             <p class="left">Video quality</p>
             <div class="content-container">
-                <p class="first-column">Good</p>
-                <p class="second-column">Better</p>
-                <p class="third-column">Best</p>
+                <p class="first-column" [ngClass]="{ red: selecedColumn === 'USER' }">Good</p>
+                <p class="second-column" [ngClass]="{ red: selecedColumn === 'SUPERUSER' }">Better</p>
+                <p class="third-column" [ngClass]="{ red: selecedColumn === 'ADMIN' }">Best</p>
             </div>
         </div>
         <div class="row">
             <p class="left">Resolution</p>
             <div class="content-container">
-                <p class="first-column">720p</p>
-                <p class="second-column">1080p</p>
-                <p class="third-column">4K+HDR</p>
+                <p class="first-column" [ngClass]="{ red: selecedColumn === 'USER' }">720p</p>
+                <p class="second-column" [ngClass]="{ red: selecedColumn === 'SUPERUSER' }">1080p</p>
+                <p class="third-column" [ngClass]="{ red: selecedColumn === 'ADMIN' }">4K+HDR</p>
             </div>
         </div>
         <div class="row">
             <p class="left">Watch on your TV, computer, mobile phone and tablet</p>
             <div class="content-container">
-                <p class="first-column">YES</p>
-                <p class="second-column">YES</p>
-                <p class="third-column">YES</p>
+                <p class="first-column" [ngClass]="{ red: selecedColumn === 'USER' }">YES</p>
+                <p class="second-column" [ngClass]="{ red: selecedColumn === 'SUPERUSER' }">YES</p>
+                <p class="third-column" [ngClass]="{ red: selecedColumn === 'ADMIN' }">YES</p>
             </div>
         </div>
         <div class="row last-row">
             <p class="left">Downloads</p>
             <div class="content-container">
-                <p class="first-column">NO</p>
-                <p class="second-column">YES</p>
-                <p class="third-column">YES</p>
+                <p class="first-column" [ngClass]="{ red: selecedColumn === 'USER' }">NO</p>
+                <p class="second-column" [ngClass]="{ red: selecedColumn === 'SUPERUSER' }">YES</p>
+                <p class="third-column" [ngClass]="{ red: selecedColumn === 'ADMIN' }">YES</p>
             </div>
         </div>
         <button (click)="handleNavigate()">Submit</button>

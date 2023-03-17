@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject, Subscription, take } from 'rxjs';
 import { DiscoverMovie } from 'src/app/services/interfaces/discoverMovie.interface';
 import { TmdbService } from 'src/app/services/tmdb/tmdb.service';
 import { Movie } from '../../movie.interface';
-import { MovieService } from '../../movie.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -30,12 +29,16 @@ export class MovieListComponent implements OnInit {
     private readonly tmdbService: TmdbService) {}
 
   ngOnInit() {
-    this.movies$ = this.tmdbService.getDiscoverMovie() as Observable<Movie[]>;
-    const movies = this.getCurValFromObs(this.movies$);
-    this.recommendMovies = [...movies];
-    if (this.recommendMovies.length && this.recommendMovies[0].id) {
-      this.hoverRecommendMovies(this.recommendMovies[0].id);
-    }
+    this.tmdbService.getDiscoverMovie(this.baseSearchMovie).subscribe();
+    this.movies$ = this.tmdbService.movieListObs$ as Observable<Movie[]>;
+    // const movies = this.getCurValFromObs(this.movies$);
+    // this.recommendMovies = [...movies];
+    this.tmdbService.recommendListObs$.subscribe((movies: Movie[]) => {
+      this.recommendMovies = [...movies];
+      if (this.recommendMovies.length && this.recommendMovies[0].id) {
+        this.hoverRecommendMovies(this.recommendMovies[0].id);
+      }
+    })
   }
 
   private getCurValFromObs(obs: Observable<any>): any {
@@ -55,7 +58,7 @@ export class MovieListComponent implements OnInit {
   }
 
   onScroll() {
-    this.tmdbService.handleScroll();
+    this.tmdbService.handleScroll().subscribe();
   }
 
   navigateMovie(id: number) {

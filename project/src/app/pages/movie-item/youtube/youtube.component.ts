@@ -13,7 +13,9 @@ export class YoutubeComponent implements OnInit {
   poster_img_high = '';
   backdrop_img_high = '';
 
-  constructor(private dialogRef: MatDialogRef<YoutubeComponent>, @Inject(MAT_DIALOG_DATA) private data: any) {}
+  constructor(
+    private dialogRef: MatDialogRef<YoutubeComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: any) {}
 
   ngOnInit(): void {
     this.movieVideos = this.data.movieVideos;

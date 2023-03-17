@@ -16,7 +16,11 @@ export class RegistrationPlanComponent {
     this.selecedColumn = user;
   }
   handleNavigate() {
-    console.log('click')
-    this.authService.signup({ role: UserRole[this.selecedColumn] }).subscribe();
+    const { jwtToken } = this.authService.userValue;
+    if (jwtToken) {
+      this.authService.upgradePermission({role: UserRole[this.selecedColumn]}).subscribe()
+    } else {
+      this.authService.signup({ role: UserRole[this.selecedColumn] }).subscribe();
+    }
   }
 }

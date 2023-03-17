@@ -18,9 +18,11 @@ export class TmdbService {
 
   private movieList: Movie[] = [];
   private movieList$ = new BehaviorSubject(this.movieList);
+  movieListObs$ = this.movieList$.asObservable();
 
   private recommendList: Movie[] = [];
   private recommendList$ = new BehaviorSubject(this.recommendList);
+  recommendListObs$ = this.recommendList$.asObservable();
 
   private currentPage = 1;
   private baseDiscoverMovie: DiscoverMovie = {
@@ -38,15 +40,18 @@ export class TmdbService {
     language: 'en-US',
     page: 1,
   };
-  
+
   set setMyApiKey(api_key: string) {
     this.baseDiscoverMovie.api_key = api_key;
     this.baseSearchMovie.api_key = api_key;
   }
-  constructor(private readonly http: HttpClient, @Inject(TmdbBaseUrl) private tmdbBaseUrl: string, @Inject(MovieImgBaseUrl) private movieImgBaseUrl: string) { }
+  constructor(
+    private readonly http: HttpClient,
+    @Inject(TmdbBaseUrl) private tmdbBaseUrl: string,
+    @Inject(MovieImgBaseUrl) private movieImgBaseUrl: string) { }
 
-  getDiscoverMovie(page: number = 1, search: DiscoverMovie = {}) {
-    const discoverMovie = {...this.baseDiscoverMovie, ...search, page: page};
+  getDiscoverMovie(search: DiscoverMovie) {
+    const discoverMovie = {...this.baseDiscoverMovie, ...search};
     let url = this.tmdbBaseUrl + '/' + this.discoverMoviePath;
     Object.entries(discoverMovie).forEach(([key, value]) => {
       url += `&${key}=${value}`;
@@ -64,7 +69,7 @@ export class TmdbService {
   }
 
   searchMovie(name: string) {
-    const search = {...this.baseSearchMovie, name};
+    const search = {...this.baseSearchMovie, query: name};
     let url = this.tmdbBaseUrl + '/' + this.searchMoviePath;
     Object.entries(search).forEach(([key, value]) => {
       url += `&${key}=${value}`;
@@ -82,7 +87,17 @@ export class TmdbService {
   }
 
   handleScroll() {
-    this.getDiscoverMovie(++this.currentPage)
+    const discoverMovie = {...this.baseDiscoverMovie, page: ++this.currentPage};
+    let url = this.tmdbBaseUrl + '/' + this.discoverMoviePath;
+    Object.entries(discoverMovie).forEach(([key, value]) => {
+      url += `&${key}=${value}`;
+    })
+    return this.http.get<SearchMovieReturn>(url).pipe(
+      tap(data => {
+        this.movieList = [...this.movieList, ...(data.results as Movie[])];
+        this.movieList$.next(this.movieList);
+      })
+    );
   }
   getMovieImagePath(path: string, quality: string): string {
     return [this.movieImgBaseUrl, quality, path].join('/');
@@ -95,7 +110,7 @@ export class TmdbService {
       } else {
         url = [this.tmdbBaseUrl, this.moviePath, id, item].join('/') + '?api_key=' + this.baseDiscoverMovie.api_key;
       }
-    } 
+    }
     return this.http.get(url);
   }
 }

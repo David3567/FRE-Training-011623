@@ -13,14 +13,14 @@ li {
 .row {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     border-bottom: 1px solid rgb(217, 216, 216);
 }
 .content-container{
     width: 55%;
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 }
 .first-column, .second-column, .third-column {
     width: 100px;
@@ -36,7 +36,7 @@ li {
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     margin: 1rem;
     padding: 1rem;
 }
@@ -66,4 +66,8 @@ button {
     color: white;
     line-height: 100%;
     text-transform: capitalize;
+}
+
+.red {
+  color: red;
 }

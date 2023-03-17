@@ -15,7 +15,7 @@ import { YoutubeComponent } from './youtube/youtube.component';
   styleUrls: ['./movie-item.component.scss']
 })
 export class MovieItemComponent implements OnInit {
-  @ViewChild(YouTubePlayer, { static: true }) private youTubePlayer: YouTubePlayer;
+  @ViewChild(YouTubePlayer, { static: true }) youTubePlayer!: YouTubePlayer;
 
   hasPoster_img = true;
   hasBackdrop_img = true;
@@ -29,7 +29,10 @@ export class MovieItemComponent implements OnInit {
   posters: Poster[] = [];
   id!: number;
 
-  constructor(private readonly tmdbService: TmdbService, private readonly activatedRoute: ActivatedRoute, public dialog: MatDialog) {}
+  constructor(
+    private readonly tmdbService: TmdbService,
+    private readonly activatedRoute: ActivatedRoute,
+    public dialog: MatDialog) {}
 
 
   ngOnInit(): void {
@@ -38,7 +41,7 @@ export class MovieItemComponent implements OnInit {
     })
     this.setSource();
     this.type = this.movie.genres?.map(({ name }) => name).join(',');
-     
+
   }
 
   openNewTab(url: string) {
@@ -63,6 +66,7 @@ export class MovieItemComponent implements OnInit {
   }
   private setSource() {
     this.tmdbService.getMovieInfo(this.id, 'videos').subscribe(videos => {
+      console.log(videos)
       if (videos && videos.results) {
         this.movieVideos = [...videos.results];
       }
@@ -92,7 +96,7 @@ export class MovieItemComponent implements OnInit {
     } else {
       this.hasBackdrop_img = false;
     }
-    
+
     if (this.movie.poster_path) {
       this.hasPoster_img = true;
       this.poster_img_high = this.tmdbService.getMovieImagePath(

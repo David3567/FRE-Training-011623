@@ -5,9 +5,10 @@
 main {
     width: 100vw;
     height: 800px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    margin-bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_large.jpg);
-    
+
 }
 .container {
     display: flex;
@@ -48,7 +49,7 @@ h5 {
 input {
     width: 490px;
     height: 60px;
-    padding: 1rem 1rem; 
+    padding: 1rem 1rem;
     border-radius: 3px;
     display: block;
 }

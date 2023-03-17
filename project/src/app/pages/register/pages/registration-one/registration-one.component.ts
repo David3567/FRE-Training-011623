@@ -14,13 +14,17 @@ export class RegistrationOneComponent implements OnInit {
   registerForm1!: FormGroup;
   isLoading = false;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService ) {
-    
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService ) {
+
   }
 
   ngOnInit(): void {
     this.registerForm1 = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email], [this.checkEmail]],
+      email: [this.authService.appNewUser.email, [Validators.required, Validators.email], [this.checkEmail]],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]]
     })
   }

@@ -6,10 +6,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesGuard implements CanActivate, CanLoad {
+export class MoviesGuard implements CanLoad, CanActivate {
   constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   canActivate(
@@ -25,7 +25,7 @@ export class MoviesGuard implements CanActivate, CanLoad {
         return false;
       }
   }
-  
+
   canLoad(route: Route, segments: UrlSegment[]): boolean {
     const { jwtToken } = this.authService.userValue;
     if (jwtToken) {
@@ -35,5 +35,5 @@ export class MoviesGuard implements CanActivate, CanLoad {
       return false;
     }
   }
-  
+
 }

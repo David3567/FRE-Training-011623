@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { debounceTime, map, Observable } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -11,9 +9,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class SigninComponent implements OnInit {
   loginForm!: FormGroup;
+  loginMsg: string = '';
 
   constructor(private formBuilder: FormBuilder, private readonly authService: AuthService) {
-    
+
   }
 
   ngOnInit(): void {
@@ -30,8 +29,9 @@ export class SigninComponent implements OnInit {
     return this.loginForm.get('password');
   }
   onSubmit() {
-    this.authService.login(this.email?.value, this.password?.value).subscribe();
+    this.authService.login({ email: this.email?.value, password: this.password?.value }).subscribe(() => {}, (error) => {
+      console.log(error);
+      this.loginMsg = 'Wrong email or password'
+    });
   }
-
-  
 }

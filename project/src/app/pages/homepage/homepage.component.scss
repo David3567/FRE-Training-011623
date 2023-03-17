@@ -1,8 +1,11 @@
+
 body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     background-color: black;
     color: white;
+    height: auto;
+    margin-top: 0;
 }
 
 .center {
@@ -13,6 +16,7 @@ body {
     justify-content: space-between;
     max-width: 1200px;
     min-width: 1000px;
+    background-color: black;
 }
 
 .text {
@@ -24,7 +28,7 @@ body {
 
 .pic {
     width: 50%;
-    position: relative;   
+    position: relative;
 }
 
 .pic > img {

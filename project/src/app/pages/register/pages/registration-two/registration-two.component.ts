@@ -11,15 +11,19 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./registration-two.component.scss']
 })
 export class RegistrationTwoComponent implements OnInit {
-  
   registerForm2!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService, @Inject(ApplyTmdbApiKey) public applyTmdbApiKey: string) {
-    
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService,
+    @Inject(ApplyTmdbApiKey) public applyTmdbApiKey: string) {
+
   }
   ngOnInit(): void {
     this.registerForm2 = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(4)]],
       tmdb_key: ['', [Validators.required, Validators.minLength(30)]]
     })
   }

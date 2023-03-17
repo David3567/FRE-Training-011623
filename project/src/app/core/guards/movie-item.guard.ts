@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserRole } from 'src/app/services/interfaces/user-auth.interface';
 
@@ -23,14 +22,19 @@ export class MovieItemGuard implements CanActivate, CanLoad {
       (role === UserRole.ADMIN || role === UserRole.SUPERUSER)
     ) {
       return true;
-    } else {
+    } else if (!jwtToken){
       this.router.navigate(['/register/3'], {
         queryParams: { returnUrl: state.url },
       });
-      return false;
+
+    } else {
+      this.router.navigate(['/'], {
+        queryParams: { returnUrl: state.url },
+      });
     }
+    return false;
   }
-  
+
   canLoad(route: Route, segments: UrlSegment[]): boolean {
     const { jwtToken, role } = this.authService.userValue;
     if (
@@ -39,9 +43,12 @@ export class MovieItemGuard implements CanActivate, CanLoad {
       (role === UserRole.ADMIN || role === UserRole.SUPERUSER)
     ) {
       return true;
-    } else {
+    } else if (!jwtToken){
       this.router.navigate(['/register/3']);
-      return false;
+
+    } else {
+      this.router.navigate(['/']);
     }
+    return false;
   }
 }
