@@ -6,6 +6,7 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
 import { RouterModule, Routes } from '@angular/router';
 import { PopularMovieComponent } from './components/popular-movie/popular-movie.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 const routes: Routes = [
   { path: '', component: MovielistComponent }
 ]
@@ -15,6 +16,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
+    InfiniteScrollModule,
     MatProgressSpinnerModule,
     RouterModule.forChild(routes)
   ],

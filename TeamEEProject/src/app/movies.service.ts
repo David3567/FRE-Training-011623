@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { BehaviorSubject, map, pluck, Subject, take, tap, catchError } from "rxjs";
+import { BehaviorSubject, map, pluck, Subject, take, tap, catchError, of } from "rxjs";
 
 
 const API_KEY = "b2979efe3455e63e15acabc8179486e1";
@@ -72,10 +72,12 @@ export class MoviesService {
   //Variables
   
   movies$ = new BehaviorSubject<Movie[]>([]);
+  movie:Movie[] = []
   popularmovies$ = new BehaviorSubject<popularMovie[]>([]);
   movieDetail$ = new BehaviorSubject<movieDetail[]>([]);
   moviePoster$ = new BehaviorSubject<any[]>([]);
   movieCredits$ = new BehaviorSubject<any[]>([]);
+  page$ = new BehaviorSubject<number>(1);
   //Lifecycle
   constructor(private http: HttpClient) {}
   //Methods
@@ -101,7 +103,8 @@ export class MoviesService {
             movie.backdrop_path = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
             return movie
           })
-          this.movies$.next(movies.results as Movie[])
+          this.movie = [...this.movie, ...movies.results as Movie[]]
+          this.movies$.next(this.movie)
         }
         )
       )

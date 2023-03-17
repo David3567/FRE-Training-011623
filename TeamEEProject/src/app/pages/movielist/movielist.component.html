@@ -8,7 +8,13 @@
     </div>
 </div>
 <hr>
-<div class="movielist">
-<app-movie-item *ngFor="let movie of movies"
+<div class="movielist"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+(scrolled)="onScroll()"
+>
+<app-movie-item 
+*ngFor="let movie of movieService.movies$ | async"
 [movie] = "movie" ></app-movie-item>
 </div>

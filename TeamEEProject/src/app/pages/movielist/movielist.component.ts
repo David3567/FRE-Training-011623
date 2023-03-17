@@ -9,17 +9,23 @@ import { Movie, MoviesService, popularMovie } from '../../movies.service';
   styleUrls: ['./movielist.component.css']
 })
 export class MovielistComponent {
-  movies!:Movie[];
-  popularMovies!:popularMovie[];
+  popularMovies!: popularMovie[];
+  Mpage!: number;
   subpm = new Subscription();
   subpm$ = new Subscription();
   background = 'https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_small.jpg';
   
-  ngOnInit():void{
-    this.movieService.movies$.subscribe((movies:Movie[]) => {
-      this.movies = movies;
-    })
-    this.movieService.discoverMovies({page:3}).subscribe((movie:any) => console.log(movie));
+  ngOnInit(): void{
+    // discover movie
+    this.movieService.page$.subscribe((page: number) => { this.Mpage = page });
+    // this.movieService.movies$.subscribe((movies:Movie[]) => {
+    //   this.movies = movies;
+    //   console.log(movies);
+    // })
+    this.movieService.discoverMovies({ page: this.Mpage }).subscribe();
+    
+    
+    // popular movie
     this.subpm$ = this.movieService.popularmovies$.subscribe((movies:popularMovie[]) => {
       this.popularMovies = movies;
       if (movies.length > 0) {
@@ -30,11 +36,13 @@ export class MovielistComponent {
         }
       }
     });
-    this.subpm = this.movieService.getPopularMovies().subscribe(() => {console.log(this.popularMovies)});
+    this.subpm = this.movieService.getPopularMovies().subscribe(() => { console.log(this.popularMovies) });
+    
+    this.UpdatePage(this.Mpage + 1);
     
   }
 
-  constructor(private movieService:MoviesService) {
+  constructor(public movieService:MoviesService) {
   }
 
   changeBackground(idx:number) {
@@ -42,4 +50,16 @@ export class MovielistComponent {
     this.background = backgroundLink
   }
 
+  UpdatePage(page: number) { 
+    try {
+      this.movieService.discoverMovies({ page: page }).subscribe();
+      this.movieService.page$.next(page);
+    }
+    catch (err) { 
+      console.log(err);
+    }
+  }
+  onScroll() { 
+    this.UpdatePage(this.Mpage + 1);
+  }
 }

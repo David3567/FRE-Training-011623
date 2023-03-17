@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MoviedetailModule } from './pages/moviedetail/moviedetail.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const API_BASE_URL = 'http://localhost:4231/';
 
@@ -35,7 +36,6 @@ const API_BASE_URL = 'http://localhost:4231/';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    RegisterModule,
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,

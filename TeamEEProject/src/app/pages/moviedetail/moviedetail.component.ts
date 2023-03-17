@@ -14,12 +14,19 @@ export class MoviedetailComponent {
   movieposter:string[] = [];
   moviecredits!:movieCredit[];
   movieSb$!:any;
-  nullImg:string = 'https://image.tmdb.org/t/p/originalnull';
+  nullImg: string = 'https://image.tmdb.org/t/p/originalnull';
+  background = 'https://assets.nflxext.com/ffe/siteui/vlv3/3d6cf7c4-ad17-457a-b6cf-ea952926ba74/1e8677dc-8384-41ce-8bf0-99284008466a/US-en-20230206-popsignuptwoweeks-perspective_alpha_website_small.jpg';
 
   ngOnInit():void {
     
     this.movieSb$ = this.activateRoute.data.subscribe( data => {
       this.moviedetail = data['movieD'][0]
+      if (this.moviedetail.backdrop_path === this.nullImg) { 
+        this.moviedetail.backdrop_path = this.background;
+      }
+      if (this.moviedetail.release_date !== undefined) { 
+        this.moviedetail.release_date = this.moviedetail.release_date.split("-")[0]
+      }
       let newgeneres = []
       for (let i = 0 ; i < this.moviedetail.genres.length; i++) {
         newgeneres.push(this.moviedetail.genres[i].name)
