@@ -1,5 +1,6 @@
 <div>
 <h1>Netflix</h1>
-<button [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign in</button>
-</div>
+<button *ngIf="!authService.isLoggedIn" [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign in</button>
+<button *ngIf="authService.isLoggedIn" (click)="logout()">Sign Out</button>
+</div> 
 

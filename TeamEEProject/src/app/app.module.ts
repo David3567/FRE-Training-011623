@@ -1,6 +1,6 @@
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { inject, NgModule } from '@angular/core';
+import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { LoginInPageComponent } from './pages/login-in-page/login-in-page.component';
@@ -23,8 +23,13 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
 import { MatButtonModule } from '@angular/material/button';
 import { MoviedetailModule } from './pages/moviedetail/moviedetail.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { AuthService } from './services/auth.service';
 
 const API_BASE_URL = 'http://localhost:4231/';
+
+function initializeLogin (authService: AuthService) {
+  return () => authService.initializeLogin();
+}
 
 @NgModule({
   declarations: [
@@ -46,7 +51,14 @@ const API_BASE_URL = 'http://localhost:4231/';
   providers: [HttpClient, MoviesService, {
     provide: 'API_BASE_URL',
     useValue: API_BASE_URL
-  }, { provide: MatDialogRef, useValue: {} }],
+  }, { provide: MatDialogRef, useValue: {} }
+, {
+  provide: APP_INITIALIZER,
+  useFactory: initializeLogin,
+  deps: [AuthService],
+  multi: true
+}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

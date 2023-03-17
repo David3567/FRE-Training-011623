@@ -1,0 +1,31 @@
+<form>
+    <div class="top">
+        <p>Step 3</p>
+        <h2>Choose your plan!</h2>
+        <h4><span class="check">✓</span>Watch all you want.</h4>
+        <h4><span class="check">✓</span>Recommendations just for you.</h4>
+        <h4><span class="check">✓</span>Change or cancel your plan anytime.</h4>
+    </div>
+    <div class="row plan-names">
+
+    <div *ngFor="let plan of plans; let i = index">
+        <div class="plan-name" (click)="select(i)" [ngClass]="isSelected(i) ?'selected' : '' ">
+            {{plan['name']}}
+        </div>
+    </div>
+    </div>
+    <div class="features" *ngFor="let feature of planFeatures">
+        <div class="row">
+            <div class="plan-feature-name">
+                {{feature[1]}}
+            </div>
+            <div *ngFor="let plan of plans; let i = index" [ngClass]="'plan-feature'">
+                <div [ngClass]="isSelected(i) ?'selected' : '' " [innerHTML]="formatValue(plan[feature[0]])">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="finish()">Start Membership</button>
+    </div>
+</form>
