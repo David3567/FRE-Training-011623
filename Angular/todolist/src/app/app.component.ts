@@ -11,6 +11,7 @@ import { TodoService } from './services/todo.service';
 })
 export class AppComponent {
   random = 0;
+  title = 'todolist'
 
   constructor(private todoService: TodoService) {}
 

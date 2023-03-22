@@ -30,7 +30,7 @@ export const BaseUrl = new InjectionToken<string>('');
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     StoreModule.forRoot({
       todos: todoReducer,
       // products: productsReducer
